@@ -1,0 +1,15 @@
+E:\C#\WPF\QuanLyKhachSan\DAL\bin\Debug\DAL.exe.config
+E:\C#\WPF\QuanLyKhachSan\DAL\bin\Debug\DAL.exe
+E:\C#\WPF\QuanLyKhachSan\DAL\bin\Debug\DAL.pdb
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\MainWindow.g.cs
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\App.g.cs
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCompile.cache
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCompile.lref
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\MainWindow.baml
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.g.resources
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.Properties.Resources.resources
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb

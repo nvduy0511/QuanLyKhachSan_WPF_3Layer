@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyKhachSan.UserControls
+namespace GUI.UserControls
 {
     /// <summary>
     /// Interaction logic for uc_Controlbar.xaml

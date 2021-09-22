@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace QuanLyKhachSan.UserControls
+namespace GUI.UserControls
 {
     /// <summary>
     /// Interaction logic for uc_Home.xaml
@@ -27,8 +27,9 @@ namespace QuanLyKhachSan.UserControls
         public uc_Home()
         {
             InitializeComponent();
-
+            //lấy ra đường dẫn tương đối
             baseDir = Environment.CurrentDirectory;
+
             ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home0.png")));
             this.Background = ENABLED_BACKGROUND;
 
