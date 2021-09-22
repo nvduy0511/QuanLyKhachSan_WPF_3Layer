@@ -65,12 +65,12 @@
             <!--Main-->
             <Grid   x:Name="GridBackground">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"></RowDefinition>
+                    <RowDefinition Height="30"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
                 <!--ColorZone-->
-                <materialDesign:ColorZone   Padding="2" Background="#FFF9FBE7" 
-                                                Height="40" 
+                <materialDesign:ColorZone    Background="White" 
+                                                Height="30" 
                                                 Grid.Row="0">
                     <Grid>
                         <Grid.ColumnDefinitions >
@@ -81,7 +81,7 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Column="0">
 
-                            <ToggleButton
+                            <ToggleButton Height="30"
                                     x:Name="toggleBtnColorZone_Open" IsChecked="False"
                                     Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
                         </StackPanel>

@@ -72,8 +72,8 @@
     <Compile Include="UserControls\uc_Home.xaml.cs">
       <DependentUpon>uc_Home.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\uc_ThuePhong.xaml.cs">
-      <DependentUpon>uc_ThuePhong.xaml</DependentUpon>
+    <Compile Include="UserControls\uc_Phong.xaml.cs">
+      <DependentUpon>uc_Phong.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DatPhong.xaml.cs">
       <DependentUpon>DatPhong.xaml</DependentUpon>
@@ -108,7 +108,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControls\uc_ThuePhong.xaml">
+    <Page Include="UserControls\uc_Phong.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

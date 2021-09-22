@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="632" d:DesignWidth="1300"
+             d:DesignHeight="641" d:DesignWidth="1300"
      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
      TextElement.FontWeight="Regular"
@@ -13,7 +13,7 @@
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
              x:Name="Home">
-    <Border BorderThickness="5" BorderBrush="#FFF9FBE7" CornerRadius="0 0 10 10">
+    <Border BorderThickness="2" BorderBrush="#FFF9FBE7" CornerRadius="0 0 10 10">
         <Grid>
             <Button 
                     Width="80" Height="80"
@@ -40,8 +40,6 @@
                                          Height="50"
                                          Foreground="White" Opacity="0.7"/>
             </Button>
-            
-           
         </Grid>
     </Border>
 </UserControl>

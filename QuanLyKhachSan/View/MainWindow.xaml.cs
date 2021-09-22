@@ -19,9 +19,10 @@ namespace GUI.View
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         #region uc_view
-        public uc_Controlbar ctl_bar;
-        public uc_Home Home;
-        public uc_PhieuThue ThuePhong_View;
+        private uc_Controlbar ctl_bar;
+        private uc_Home Home;
+        private uc_PhieuThue ThuePhong_UC;
+        private uc_Phong Phong_UC;
         #endregion
         public List<ItemMenuMainWindow> listMenu { get; set; }
         private string title_Main;
@@ -81,8 +82,8 @@ namespace GUI.View
             //Khoi tao Menu
             listMenu = new List<ItemMenuMainWindow>();
             listMenu.Add(new ItemMenuMainWindow() { name = "Trang Chủ", foreColor = "Gray", kind_Icon = "Recycle" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Thuê Phòng", foreColor = "#FFF08033", kind_Icon = "HelpCircleOutline" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Send Feedback", foreColor = "Green", kind_Icon = "Lightbulb" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Phòng", foreColor = "#FFF08033", kind_Icon = "HelpCircleOutline" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Đặt Phòng", foreColor = "Green", kind_Icon = "Lightbulb" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Recommend", foreColor = "#FFD41515", kind_Icon = "Heart" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Premium Subscription", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
@@ -113,9 +114,16 @@ namespace GUI.View
                     contenDisplayMain.Content = Home;
                     break;
                 case 1:
-                    if (ThuePhong_View == null)
-                        ThuePhong_View = new uc_PhieuThue();
-                    contenDisplayMain.Content = ThuePhong_View;
+                    
+                    if (Phong_UC == null)
+                        Phong_UC = new uc_Phong();
+                    contenDisplayMain.Content = Phong_UC;
+                    break;
+                case 2:
+                    if (ThuePhong_UC == null)
+                        ThuePhong_UC = new uc_PhieuThue();
+                    contenDisplayMain.Content = ThuePhong_UC;
+
                     break;
             }
             if (lisviewMenu.SelectedValue != null)
