@@ -17,3 +17,22 @@ E:\C#\WPF\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
 E:\C#\WPF\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.CopyComplete
 E:\C#\WPF\QuanLyKhachSan\BUS\obj\Debug\BUS.exe
 E:\C#\WPF\QuanLyKhachSan\BUS\obj\Debug\BUS.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\BUS.exe.config
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\BUS.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\BUS.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\DAL.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\DAL.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\bin\Debug\DAL.exe.config
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.AssemblyReference.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\MainWindow.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\App.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS_MarkupCompile.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS_MarkupCompile.lref
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\MainWindow.baml
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.g.resources
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.Properties.Resources.resources
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.GenerateResource.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.csproj.CopyComplete
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\BUS\obj\Debug\BUS.pdb

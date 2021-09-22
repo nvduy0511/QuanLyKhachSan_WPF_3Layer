@@ -13,3 +13,18 @@ E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
 E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\bin\Debug\DAL.exe.config
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\bin\Debug\DAL.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\bin\Debug\DAL.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\MainWindow.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\App.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCompile.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCompile.lref
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\MainWindow.baml
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.g.resources
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.Properties.Resources.resources
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb

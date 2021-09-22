@@ -1,11 +1,20 @@
-﻿E:\C#\WPF\QuanLyKhachSan\obj\Debug\GeneratedInternalTypeHelper.g.cs
-FE:\C#\WPF\QuanLyKhachSan\App.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\View\DangNhap.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\View\MainWindow.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_Controlbar.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_Home.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_ThuePhong.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\View\DatPhong.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\View\ThemPhong.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_PhieuThue.xaml;;
+﻿
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\App.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyHoaDon.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyPhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyThongTinKhachHang.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\CapNhatThongTinKhachHang.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\CapNhatThongTinPhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\DangNhap.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\MainWindow.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_Controlbar.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_Home.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_ThuePhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\DatPhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\NhapThemPhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\NhapThongTinKhachHang.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\ThemPhong.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_PhieuThue.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\CapNhatThongTinHoaDon.xaml;;
+FC:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\NhapThongTinHoaDon.xaml;;
 

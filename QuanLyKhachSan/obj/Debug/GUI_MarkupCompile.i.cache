@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\C#\WPF\QuanLyKhachSan\obj\Debug\
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\obj\Debug\
 GUI
 none
 false
 DEBUG;TRACE
-E:\C#\WPF\QuanLyKhachSan\App.xaml
-8-726127000
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\CODE\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\App.xaml
+17285670356
 4-962636722
-13305915892
-16600677412
-View\DangNhap.xaml;View\MainWindow.xaml;UserControls\uc_Controlbar.xaml;UserControls\uc_Home.xaml;UserControls\uc_ThuePhong.xaml;View\DatPhong.xaml;View\ThemPhong.xaml;UserControls\uc_PhieuThue.xaml;
+22-663564949
+16-1544220242
+UserControls\uc_QuanLyHoaDon.xaml;UserControls\uc_QuanLyPhong.xaml;UserControls\uc_QuanLyThongTinKhachHang.xaml;View\CapNhatThongTinHoaDon.xaml;View\CapNhatThongTinKhachHang.xaml;View\CapNhatThongTinPhong.xaml;View\DangNhap.xaml;View\MainWindow.xaml;UserControls\uc_Controlbar.xaml;UserControls\uc_Home.xaml;UserControls\uc_ThuePhong.xaml;View\DatPhong.xaml;View\NhapThemPhong.xaml;View\NhapThongTinHoaDon.xaml;View\NhapThongTinKhachHang.xaml;View\ThemPhong.xaml;UserControls\uc_PhieuThue.xaml;
 
 True
 

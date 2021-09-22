@@ -22,6 +22,9 @@ namespace GUI.View
         public uc_Controlbar ctl_bar;
         public uc_Home Home;
         public uc_PhieuThue ThuePhong_View;
+        public uc_QuanLyPhong QuanLyPhong_View;
+        public uc_QuanLyThongTinKhachHang QuanLyThongTinKhachHang_View;
+        public uc_QuanLyHoaDon QuanLyHoaDon_View;
         #endregion
         public List<ItemMenuMainWindow> listMenu { get; set; }
         private string title_Main;
@@ -86,9 +89,9 @@ namespace GUI.View
             listMenu.Add(new ItemMenuMainWindow() { name = "Recommend", foreColor = "#FFD41515", kind_Icon = "Heart" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Premium Subscription", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Quản Lý Phòng", foreColor = "#FF0069C1", kind_Icon = "Settings" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Quản Lý Thông Tin Khách Hàng", foreColor = "#FF0069C1", kind_Icon = "Settings" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Quản Lý Hóa Đơn", foreColor = "#FF0069C1", kind_Icon = "Settings" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
@@ -116,6 +119,21 @@ namespace GUI.View
                     if (ThuePhong_View == null)
                         ThuePhong_View = new uc_PhieuThue();
                     contenDisplayMain.Content = ThuePhong_View;
+                    break;
+                case 6:
+                    if (QuanLyPhong_View == null)
+                        QuanLyPhong_View = new uc_QuanLyPhong();
+                    contenDisplayMain.Content = QuanLyPhong_View;
+                    break;
+                case 7:
+                    if (QuanLyThongTinKhachHang_View == null)
+                        QuanLyThongTinKhachHang_View = new uc_QuanLyThongTinKhachHang();
+                    contenDisplayMain.Content = QuanLyThongTinKhachHang_View;
+                    break;
+                case 8:
+                    if (QuanLyHoaDon_View == null)
+                        QuanLyHoaDon_View = new uc_QuanLyHoaDon();
+                    contenDisplayMain.Content = QuanLyHoaDon_View;
                     break;
             }
             if (lisviewMenu.SelectedValue != null)
