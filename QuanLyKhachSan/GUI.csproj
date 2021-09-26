@@ -63,6 +63,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Class\NhanVien.cs" />
+    <Compile Include="UserControls\uc_NhanVien.xaml.cs">
+      <DependentUpon>uc_NhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ChiTietPhong.xaml.cs">
+      <DependentUpon>ChiTietPhong.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\DangNhap.xaml.cs">
       <DependentUpon>DangNhap.xaml</DependentUpon>
     </Compile>
@@ -78,12 +85,23 @@
     <Compile Include="View\DatPhong.xaml.cs">
       <DependentUpon>DatPhong.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ThemNhanVien.xaml.cs">
+      <DependentUpon>ThemNhanVien.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ThemPhong.xaml.cs">
       <DependentUpon>ThemPhong.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\uc_PhieuThue.xaml.cs">
       <DependentUpon>uc_PhieuThue.xaml</DependentUpon>
     </Compile>
+    <Page Include="UserControls\uc_NhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ChiTietPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DangNhap.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -113,6 +131,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DatPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ThemNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,6 +23,7 @@ namespace GUI.View
         private uc_Home Home;
         private uc_PhieuThue ThuePhong_UC;
         private uc_Phong Phong_UC;
+        private uc_NhanVien NhanVien_UC;
         #endregion
         public List<ItemMenuMainWindow> listMenu { get; set; }
         private string title_Main;
@@ -58,13 +59,10 @@ namespace GUI.View
         {
             InitializeComponent();
 
-            DangNhap dangNhap = new DangNhap();
-            dangNhap.ShowDialog();
-            initListViewMenu();
-
-            Home = new uc_Home();
-            contenDisplayMain.Content = Home;
-            this.DataContext = this;
+            //DangNhap dangNhap = new DangNhap();
+            //dangNhap.ShowDialog();
+            
+            
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
             this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
         }
@@ -84,7 +82,7 @@ namespace GUI.View
             listMenu.Add(new ItemMenuMainWindow() { name = "Trang Chủ", foreColor = "Gray", kind_Icon = "Recycle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Phòng", foreColor = "#FFF08033", kind_Icon = "HelpCircleOutline" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Đặt Phòng", foreColor = "Green", kind_Icon = "Lightbulb" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Recommend", foreColor = "#FFD41515", kind_Icon = "Heart" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Nhân Viên", foreColor = "#FFD41515", kind_Icon = "Heart" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Premium Subscription", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
             listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
@@ -123,7 +121,11 @@ namespace GUI.View
                     if (ThuePhong_UC == null)
                         ThuePhong_UC = new uc_PhieuThue();
                     contenDisplayMain.Content = ThuePhong_UC;
-
+                    break;
+                case 3:
+                    if (NhanVien_UC == null)
+                        NhanVien_UC = new uc_NhanVien();
+                    contenDisplayMain.Content = NhanVien_UC;
                     break;
             }
             if (lisviewMenu.SelectedValue != null)
@@ -136,13 +138,15 @@ namespace GUI.View
 
         }
 
-        private void PackIcon_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            contenDisplayMain.Content = Home;
-            Title_Main = "Trang chủ";
-            lisviewMenu.UnselectAll();
-        }
         #endregion
+
+        private void load_Windows(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = this;
+            initListViewMenu();
+            Home = new uc_Home();
+            contenDisplayMain.Content = Home;
+        }
     }
 
 
@@ -151,6 +155,7 @@ namespace GUI.View
         public string name { get; set; }
         public string foreColor { get; set; }
         public string kind_Icon { get; set; }
+
         public ItemMenuMainWindow() { }
 
     }

@@ -1,20 +1,20 @@
-﻿<UserControl x:Class="GUI.UserControls.uc_PhieuThue"
+﻿<UserControl x:Class="GUI.UserControls.uc_NhanVien"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.UserControls"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              Background="White"
              d:DesignHeight="641" d:DesignWidth="1300"
-     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
-     TextElement.FontWeight="Regular"
-     TextElement.FontSize="13"
-     TextOptions.TextFormattingMode="Ideal"
-     TextOptions.TextRenderingMode="Auto"
-     FontFamily="{DynamicResource MaterialDesignFont}" >
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
+         FontFamily="{DynamicResource MaterialDesignFont}" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"></RowDefinition>
@@ -28,14 +28,15 @@
             </Grid.ColumnDefinitions>
             <StackPanel  Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
 
-                <Button Width="150" Height="38" Content="Đặt phòng" FontSize="15" 
+                <Button Width="150" Height="38" Content="Thêm nhân viên" FontSize="15" 
                     FontFamily="Roboto" FontWeight="Bold" Background="#FF478C10"
-                    Margin="85 0 0 0" Click="click_DatPhong">
+                    Margin="85 0 0 0" Click="click_ThemNV"  >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,150,38" RadiusX="10" RadiusY="10" >
                         </RectangleGeometry>
                     </Button.Clip>
                 </Button>
+                
             </StackPanel>
             <Grid Grid.Column="0">
                 <!--ô tìm kiếm-->
@@ -51,16 +52,16 @@
                         </Button>
                         <TextBox Grid.Column="1"
                                 Margin="0 0 10 0"
-                                materialDesign:HintAssist.Hint="Tìm phiếu thuê"
+                                materialDesign:HintAssist.Hint="Tìm nhân viên "
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 MinWidth="200"
                                 FlowDirection="LeftToRight"
                                 VerticalAlignment="Center" />
-                        
+
                     </Grid>
                 </materialDesign:ColorZone>
-                
+
                 <Button Margin="100 0 0 0"
                     Width="60" Height="50"
                     Background="Transparent"
@@ -75,69 +76,73 @@
                 </Button>
             </Grid>
         </Grid>
-        
+
 
         <!--Listview hiển thị-->
         <Grid Grid.Row="1">
-            <Grid Width="1130" Height="500" Background="#F2F1F1">
+            <Grid Width="1220" Height="500" Background="#F2F1F1">
                 <Grid.Clip>
-                    <RectangleGeometry Rect="0,0,1130,500" RadiusX="10" RadiusY="10" >
+                    <RectangleGeometry Rect="0,0,1220,500" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
                 </Grid.Clip>
-                <ListView x:Name="lvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+                <ListView x:Name="lvNhanVien" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
                     <!--căn giữa-->
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
                         </Style>
                     </ListView.ItemContainerStyle>
-                    
+
                     <ListView.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
                     </ListView.Resources>
                     <ListView.View>
-                            <GridView>
-                                <!--thay màu cho header-->
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="Background" Value="LightBlue" />
-                                        <Setter Property="Foreground" Value="Black" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
-                                
+                        <GridView>
+                            <!--thay màu cho header-->
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
-                                <GridViewColumn  Header="Số phiếu thuê"  Width="100" DisplayMemberBinding="{Binding soPT}" />
-                                <GridViewColumn Header="Số phòng" Width="100" DisplayMemberBinding="{Binding soPhong}" />
-                                <GridViewColumn Header="Tên khách hàng" Width="200" DisplayMemberBinding="{Binding tenKH}" />
-                                <GridViewColumn Header="Ngày lập phiếu" Width="200" DisplayMemberBinding="{Binding ngayLapPhieu }" />
-                                <GridViewColumn Header="Ngày bắt đầu" Width="200" DisplayMemberBinding="{Binding ngayBatDau}" />
-                                <GridViewColumn Header="Ngày kết thúc" Width="200" DisplayMemberBinding="{Binding ngayKetThuc}" />
-                                <GridViewColumn Width="65" Header="Sửa">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="65" Header="Xóa">
-                                    <GridViewColumn.CellTemplate>
+
+                            <GridViewColumn  Header="Mã NV"  Width="50" DisplayMemberBinding="{Binding MaNV}" />
+                            <GridViewColumn Header="Tên Nhân Viên" Width="200" DisplayMemberBinding="{Binding HoTenNV}" />
+                            <GridViewColumn Header="Ngày tháng năm sinh" Width="150" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= dd/MM/yyyy }" />
+                            <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}" />
+                            <GridViewColumn Header="Giới tính" Width="80" DisplayMemberBinding="{Binding GioiTinh}" />
+                            <GridViewColumn Header="Dịa chỉ" Width="150" DisplayMemberBinding="{Binding DiaChi}" />
+                            <GridViewColumn Header="SĐT" Width="100" DisplayMemberBinding="{Binding SDT }" />
+                            <GridViewColumn Header="CCCD" Width="100" DisplayMemberBinding="{Binding CCCD}" />
+                            <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong}" />
+                            
+                            <GridViewColumn Width="60" Header="Sửa">
+                                <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Width="25" Height="25" BorderThickness="0">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="60" Header="Xóa">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Width="25" Height="25" BorderThickness="0" Click="click_XoaNV" >
                                             <Button.Background>
                                                 <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
                                             </Button.Background>
                                         </Button>
                                     </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                             </GridView>
-                        </ListView.View>
-                    </ListView>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </Grid>
         </Grid>
     </Grid>

@@ -15,23 +15,23 @@
      TextOptions.TextRenderingMode="Auto"
      FontFamily="{DynamicResource MaterialDesignFont}"
      Background="White">
-    <Grid>
+    <Grid >
         <!--Phân grid ngang ra làm 2 phần-->
         <Grid.RowDefinitions>
             <RowDefinition Height="45"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         <!--ColourZones-->
-        <materialDesign:ColorZone Grid.Row="0" Height="50" Margin="0 2 0 0"
+        <materialDesign:ColorZone Grid.Row="0" Height="45"
                 Mode="PrimaryLight" Background="#FFF4F4F4">
             <StackPanel Orientation="Horizontal">
-                <DatePicker Margin="50 0 0 5" Width="150"
+                <DatePicker Margin="50 0 0 5" Width="150" x:Name="dtpChonNgay"
                             materialDesign:HintAssist.Hint="Chọn ngày"
                             Padding="10 10 10 5"
-                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" />
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" SelectedDateChanged="selectedDateChang_DatePicker" />
                 <!--quẹo trái nè-->
                 <Button 
-                    Width="50" Height="50"
+                    Width="40" Height="40" Padding="0"
                     Margin="10 0 0 0" Background="Transparent"
                     BorderThickness="0">
                     <Button.Clip>
@@ -44,7 +44,7 @@
                 </Button>
                 <!--quẹo phải ne-->
                 <Button 
-                    Width="50" Height="50"
+                    Width="40" Height="40" Padding="0"
                     Background="Transparent"
                     BorderThickness="0">
                     <Button.Clip>
@@ -68,20 +68,20 @@
                         <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
                             <materialDesign:PackIcon Kind="Search" Opacity=".56" />
                         </Button>
-                        <TextBox Grid.Column="1"
+                        <TextBox Grid.Column="1" x:Name="txbTimKiem"
                                 Margin="8 0 0 0"
                                 materialDesign:HintAssist.Hint="Tìm phòng"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
-                                MinWidth="200"
+                                MinWidth="200" KeyUp="enter_TxbTimKiem"
                                 VerticalAlignment="Center" />
                     </Grid>
                 </materialDesign:ColorZone>
                 <!--entersearch-->
-                <Button 
-                    Width="60" Height="50"
+                <Button VerticalAlignment="Center" Padding="0" Margin="0 0 0 3"
+                    Width="55" Height="30"
                     Background="Transparent"
-                    BorderThickness="0">
+                    BorderThickness="0" Click="click_EnterSearch">
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,60,50" RadiusX="50" RadiusY="60">
                         </RectangleGeometry>
@@ -99,178 +99,474 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <!--nửa trái dành cho việc làm các checkbox-->
-            <Grid Grid.Column="0" Background="#F2F1F1" Margin="0 3 0 0" Width="200" Height="800"
-                  VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid Grid.Column="0" Background="#F2F1F1" Margin="0 3 0 0" Width="200" Height="800" x:Name="grdCheckBox"
+                  VerticalAlignment="Top" HorizontalAlignment="Left" >
                 <Grid.Clip>
                     <RectangleGeometry Rect="0,0,200,800" RadiusX="10" RadiusY="10"/>
                 </Grid.Clip>
                 <!--Trạng thái-->
                 <TextBlock Text="Trạng thái" Foreground="#00A3FF" FontSize="20"
                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29 20 0 0"/>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" x:Name="spTrangThai"
                             VerticalAlignment="Top" Margin="35 50 0 0">
-                    <CheckBox Height="24" Content="Phòng trống" FontSize="15" Margin="3"></CheckBox>
-                    <CheckBox Height="24" Content="Phòng đã đặt" FontSize="15" Margin="3"></CheckBox>
-                    <CheckBox Height="24" Content="Phòng đang thuê" FontSize="15" Margin="3"></CheckBox>
+                    <RadioButton x:Name="rdPhongTrong" Height="24" Content="Phòng trống" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdPhongDaDat" Height="24" Content="Phòng đã đặt" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdPhongDangThue" Height="24" Content="Phòng đang thuê" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdTatCaPhong" Height="24" Content="Tất cả phòng" FontSize="15" Margin="3"></RadioButton>
                 </StackPanel>
                 <!--Loại phòng-->
                 <TextBlock Text="Loại phòng" Foreground="#00A3FF" FontSize="20"
                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29 200 0 0"/>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" x:Name="spLoaiPhong"
                             VerticalAlignment="Top" Margin="35 232 0 0">
-                    <CheckBox Height="24" Content="Phòng đơn" FontSize="15" Margin="3"></CheckBox>
-                    <CheckBox Height="24" Content="Phòng đôi" FontSize="15" Margin="3"></CheckBox>
-                    <CheckBox Height="24" Content="Phòng gia đình" FontSize="15" Margin="3"></CheckBox>
+                    <RadioButton x:Name="rdPhongDon" Height="24" Content="Phòng đơn" FontSize="15" Margin="3" ></RadioButton>
+                    <RadioButton x:Name="rdPhongDoi" Height="24" Content="Phòng đôi" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdPhongGiaDinh" Height="24" Content="Phòng gia đình" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdTatCaLoaiPhong" Height="24" Content="Tất cả loại phòng" FontSize="15" Margin="3"></RadioButton>
                 </StackPanel>
                 <!--Dọn dẹp-->
                 <TextBlock Text="Dọn dẹp" Foreground="#00A3FF" FontSize="20"
                            HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29 370 0 0"/>
-                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" 
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" x:Name="spDonDep"
                             VerticalAlignment="Top" Margin="35 410 0 0">
-                    <CheckBox Height="24" Content="Đã dọn dẹp" FontSize="15" Margin="3" />
-                    <CheckBox Height="24" Content="Chưa dọn dẹp" FontSize="15" Margin="3"></CheckBox>
-                    <CheckBox Height="24" Content="Sửa chữa" FontSize="15" Margin="3"></CheckBox>
+                    <RadioButton x:Name="rdDaDonDep" Height="24" Content="Đã dọn dẹp" FontSize="15" Margin="3" />
+                    <RadioButton x:Name="rdChuaDonDep" Height="24" Content="Chưa dọn dẹp" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdSuaChua" Height="24" Content="Sửa chữa" FontSize="15" Margin="3"></RadioButton>
+                    <RadioButton x:Name="rdTatCa" Height="24" Content="Tất cả" FontSize="15" Margin="3"></RadioButton>
                 </StackPanel>
 
 
             </Grid>
             <!--nửa phải để hiện thị phòng-->
-            <ScrollViewer Grid.Column="1">
-                <ScrollViewer.Resources>
-                    <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">9</sys:Double>
-                </ScrollViewer.Resources>
-
-                <StackPanel>
-                    <TextBlock Text="Phòng đơn" FontSize="20" Foreground="#00A3FF"
+            <Grid Grid.Column="1">
+                <ScrollViewer>
+                    <ScrollViewer.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
+                    </ScrollViewer.Resources>
+                    <StackPanel>
+                        <!--#region Phòng đơn-->
+                        <StackPanel>
+                            <TextBlock Text="Phòng đơn" FontSize="20" Foreground="#00A3FF"
                                Margin="40 20 0 0"/>
-                    <ListView x:Name="lvPhong" Width="1091" Margin="50 10 0 0"
+                            <ListView x:Name="lvPhongDon" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                              SelectionChanged="lvPhong_SelectionChanged">
-                        <ListView.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
-                            </ItemsPanelTemplate>
-                        </ListView.ItemsPanel>
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
 
-                                <Grid Width="230" Height="130" 
+                                        <Grid Width="230" Height="130" 
                                       HorizontalAlignment="Center" VerticalAlignment="Center">
-                                    <Grid.Style>
-                                        <Style TargetType="Grid">
-                                            <Setter Property="Background" Value="#71D693"/>
-                                            <Style.Triggers>
-                                                <DataTrigger Binding="{Binding TinhTrang}" Value="Đang thuê">
-                                                    <Setter Property="Background" Value="#89B5CE"/>
-                                                </DataTrigger>
-                                                <DataTrigger Binding="{Binding TinhTrang}" Value="Đã đặt">
-                                                    <Setter Property="Background" Value="#7D7D7D"/>
-                                                </DataTrigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Grid.Style>
-                                    <Grid.Clip>
-                                        <RectangleGeometry Rect="0,0,230,130" RadiusX="10" RadiusY="10"/>
-                                    </Grid.Clip>
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Background" Value="#71D693"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                            <Setter Property="Background" Value="#89B5CE"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                            <Setter Property="Background" Value="#7D7D7D"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            <Grid.Clip>
+                                                <RectangleGeometry Rect="0,0,230,130" RadiusX="10" RadiusY="10"/>
+                                            </Grid.Clip>
 
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition></RowDefinition>
-                                        <RowDefinition Height="26"></RowDefinition>
-                                    </Grid.RowDefinitions>
-                                    <!--Chính-->
-                                    <Grid Grid.Row="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="40"></RowDefinition>
-                                            <RowDefinition></RowDefinition>
-                                        </Grid.RowDefinitions>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition Height="26"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <!--Chính-->
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
 
-                                        <Grid Grid.Row="0">
-                                            <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                           Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding TinhTrang}" HorizontalAlignment="Right" VerticalAlignment="Center"
-                                           Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
-                                        </Grid>
+                                                <Grid Grid.Row="0">
+                                                    <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                        Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding TinhTrang}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                                        Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
+                                                </Grid>
 
-                                        <Grid Grid.Row="1"  >
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="45"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <materialDesign:PackIcon  Width="40" Height="40" Margin=" 5 10 0 0" 
+                                                <Grid Grid.Row="1"  >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="45"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Width="40" Height="40" Margin=" 5 10 0 0" 
                                                              Foreground="#FFFFFF" HorizontalAlignment="Left" 
                                                              VerticalAlignment="Top" Grid.Column="0">
-                                                <materialDesign:PackIcon.Style>
-                                                    <Style TargetType="materialDesign:PackIcon">
-                                                        <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding TinhTrang}" Value="Đang thuê">
-                                                                <Setter Property="Kind" Value="User"/>
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{Binding TinhTrang}" Value="Đã đặt">
-                                                                <Setter Property="Kind" Value="User"/>
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </materialDesign:PackIcon.Style>
-                                            </materialDesign:PackIcon>
-                                            <Grid Grid.Column="1">
-                                                <TextBlock Text="{Binding TenKH}" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                                            FontSize="20" Foreground="#FFFFFF" FontWeight="Bold"/>
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                                        <Setter Property="Kind" Value="User"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                                        <Setter Property="Kind" Value="User"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <Grid Grid.Column="1">
+                                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            FontSize="20" Foreground="#FFFFFF" FontWeight="Bold">
+                                                            <TextBlock.Style>
+                                                                <Style TargetType="TextBlock">
+                                                                    <Setter Property="Text" Value="{Binding TenKH}"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng trống" >
+                                                                            <Setter Property="Text" Value="Phòng trống"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBlock.Style>
+                                                        </TextBlock>
+                                                        
+                                                    </Grid>
+                                                </Grid>
+
                                             </Grid>
-                                        </Grid>
+                                            <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
+                                            <Grid Grid.Row="1" Background="#E4DEDE">
 
-                                    </Grid>
-                                    <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
-                                    <Grid Grid.Row="1" Background="#E4DEDE">
-                                        
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition></ColumnDefinition>
-                                            <ColumnDefinition></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
-                                        <Grid Grid.Column="0">
-                                            <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
                                                             HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                            <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
                                             Margin="32 0 0 0" FontSize="11"/>
-                                            <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
                                             Margin="45 0 0 0" FontSize="11"/>
-                                        </Grid>
-                                        <Grid Grid.Column="1">
-                                            <Grid.ColumnDefinitions >
-                                                <ColumnDefinition Width="16"></ColumnDefinition>
-                                                <ColumnDefinition></ColumnDefinition>
-                                            </Grid.ColumnDefinitions>
-                                            <materialDesign:PackIcon  Grid.Column="0" Width="15" Height="15"  HorizontalAlignment="Center" VerticalAlignment="Center">
-                                                <materialDesign:PackIcon.Style>
-                                                    <Style TargetType="materialDesign:PackIcon">
-                                                        <Setter Property="Kind" Value="Check"/>
-                                                        <Style.Triggers>
-                                                            <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
-                                                                <Setter Property="Kind" Value="Close"/>
-                                                            </DataTrigger>
-                                                            <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
-                                                                <Setter Property="Kind" Value="ProgressWrench"/>
-                                                            </DataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </materialDesign:PackIcon.Style>
-                                            </materialDesign:PackIcon>
-                                            <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions >
+                                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Grid.Column="0" Width="15" Height="15"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="Check"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                        <Setter Property="Kind" Value="Close"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                        <Setter Property="Kind" Value="ProgressWrench"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
                                                         Margin="0 0 10 0" FontSize="11"/>
-                                        </Grid>
-                                    </Grid>
-                                    
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                    
-                </StackPanel>
+                                                </Grid>
+                                            </Grid>
 
-            </ScrollViewer>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Phòng đôi-->
+                        <StackPanel>
+                            <TextBlock Text="Phòng đôi" FontSize="20" Foreground="#00A3FF"
+                               Margin="40 20 0 0"/>
+                            <ListView x:Name="lvPhongDoi" Width="1091" Margin="50 10 0 0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid Width="230" Height="130" 
+                                      HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Background" Value="#71D693"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                            <Setter Property="Background" Value="#89B5CE"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                            <Setter Property="Background" Value="#7D7D7D"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            <Grid.Clip>
+                                                <RectangleGeometry Rect="0,0,230,130" RadiusX="10" RadiusY="10"/>
+                                            </Grid.Clip>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition Height="26"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <!--Chính-->
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid Grid.Row="0">
+                                                    <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                           Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding TinhTrang}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                           Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
+                                                </Grid>
+
+                                                <Grid Grid.Row="1"  >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="45"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Width="40" Height="40" Margin=" 5 10 0 0" 
+                                                             Foreground="#FFFFFF" HorizontalAlignment="Left" 
+                                                             VerticalAlignment="Top" Grid.Column="0">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                                        <Setter Property="Kind" Value="AccountMultiple"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                                        <Setter Property="Kind" Value="AccountMultiple"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <Grid Grid.Column="1">
+                                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            FontSize="20" Foreground="#FFFFFF" FontWeight="Bold">
+                                                            <TextBlock.Style>
+                                                                <Style TargetType="TextBlock">
+                                                                    <Setter Property="Text" Value="{Binding TenKH}"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng trống" >
+                                                                            <Setter Property="Text" Value="Phòng trống"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBlock.Style>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                </Grid>
+
+                                            </Grid>
+                                            <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
+                                            <Grid Grid.Row="1" Background="#E4DEDE">
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
+                                                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Margin="32 0 0 0" FontSize="11"/>
+                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Margin="45 0 0 0" FontSize="11"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions >
+                                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Grid.Column="0" Width="15" Height="15"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="Check"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                        <Setter Property="Kind" Value="Close"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                        <Setter Property="Kind" Value="ProgressWrench"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        Margin="0 0 10 0" FontSize="11"/>
+                                                </Grid>
+                                            </Grid>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                        </StackPanel>
+                        <!--#endregion-->
+                        <!--#region Phòng gia đình-->
+                        <StackPanel>
+                            <TextBlock Text="Phòng gia đình" FontSize="20" Foreground="#00A3FF" Margin="40 20 0 0"/>
+                            <ListView x:Name="lvPhongGiaDinh" Width="1091" Margin="50 10 0 0"
+                              ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <Grid Width="230" Height="130" 
+                                      HorizontalAlignment="Center" VerticalAlignment="Center">
+                                            <Grid.Style>
+                                                <Style TargetType="Grid">
+                                                    <Setter Property="Background" Value="#71D693"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                            <Setter Property="Background" Value="#89B5CE"/>
+                                                        </DataTrigger>
+                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                            <Setter Property="Background" Value="#7D7D7D"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Grid.Style>
+                                            <Grid.Clip>
+                                                <RectangleGeometry Rect="0,0,230,130" RadiusX="10" RadiusY="10"/>
+                                            </Grid.Clip>
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition></RowDefinition>
+                                                <RowDefinition Height="26"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <!--Chính-->
+                                            <Grid Grid.Row="0">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="40"></RowDefinition>
+                                                    <RowDefinition></RowDefinition>
+                                                </Grid.RowDefinitions>
+
+                                                <Grid Grid.Row="0">
+                                                    <TextBlock Text="{Binding MaPhong}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                           Margin="18 0 0 0" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
+                                                    <TextBlock Text="{Binding TinhTrang}" HorizontalAlignment="Right" VerticalAlignment="Center"
+                                           Margin="0 0 9 0" FontSize="11" Foreground="#FFFFFF"/>
+                                                </Grid>
+
+                                                <Grid Grid.Row="1"  >
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="45"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Width="40" Height="40" Margin=" 5 10 0 0" 
+                                                             Foreground="#FFFFFF" HorizontalAlignment="Left" 
+                                                             VerticalAlignment="Top" Grid.Column="0">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="CheckboxMarkedCircle"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đang thuê">
+                                                                        <Setter Property="Kind" Value="AccountGroup"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng đã đặt">
+                                                                        <Setter Property="Kind" Value="AccountGroup"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <Grid Grid.Column="1">
+                                                        <TextBlock  HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                            FontSize="20" Foreground="#FFFFFF" FontWeight="Bold">
+                                                            <TextBlock.Style>
+                                                                <Style TargetType="TextBlock">
+                                                                    <Setter Property="Text" Value="{Binding TenKH}"/>
+                                                                    <Style.Triggers>
+                                                                        <DataTrigger Binding="{Binding TinhTrang}" Value="Phòng trống" >
+                                                                            <Setter Property="Text" Value="Phòng trống"/>
+                                                                        </DataTrigger>
+                                                                    </Style.Triggers>
+                                                                </Style>
+                                                            </TextBlock.Style>
+                                                        </TextBlock>
+                                                    </Grid>
+                                                </Grid>
+
+                                            </Grid>
+                                            <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
+                                            <Grid Grid.Row="1" Background="#E4DEDE">
+
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                    <ColumnDefinition></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+                                                <Grid Grid.Column="0">
+                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
+                                                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Margin="32 0 0 0" FontSize="11"/>
+                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
+                                            Margin="45 0 0 0" FontSize="11"/>
+                                                </Grid>
+                                                <Grid Grid.Column="1">
+                                                    <Grid.ColumnDefinitions >
+                                                        <ColumnDefinition Width="16"></ColumnDefinition>
+                                                        <ColumnDefinition></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+                                                    <materialDesign:PackIcon  Grid.Column="0" Width="15" Height="15"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="Check"/>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Chưa dọn dẹp">
+                                                                        <Setter Property="Kind" Value="Close"/>
+                                                                    </DataTrigger>
+                                                                    <DataTrigger Binding="{Binding DonDep}" Value="Sửa chữa">
+                                                                        <Setter Property="Kind" Value="ProgressWrench"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock Grid.Column="1" Text="{Binding DonDep}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                        Margin="0 0 10 0" FontSize="11"/>
+                                                </Grid>
+                                            </Grid>
+
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                        </StackPanel>
+                        <!--#endregion-->
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
         </Grid>
-        
+
     </Grid>
 </UserControl>

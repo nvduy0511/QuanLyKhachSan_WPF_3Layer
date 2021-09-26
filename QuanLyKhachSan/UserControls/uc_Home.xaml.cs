@@ -37,7 +37,7 @@ namespace GUI.UserControls
             dispatcherTimer.Tick += dispatcherTimer_Tick;
             dispatcherTimer.Interval = new TimeSpan(0, 0, 10);
             dispatcherTimer.Start();
-            
+
         }
         #region method
         private void dispatcherTimer_Tick(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace GUI.UserControls
             index++;
             if (index > 3)
                 index = 0;
-            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home"+ index.ToString() +".png")));
+            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home" + index.ToString() + ".png")));
             this.Background = ENABLED_BACKGROUND;
         }
         #endregion

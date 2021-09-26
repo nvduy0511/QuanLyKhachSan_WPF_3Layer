@@ -22,7 +22,7 @@
     <Window.Clip>
         <RectangleGeometry Rect="0,0,380,400" RadiusX="10" RadiusY="10"/>
     </Window.Clip>
-    <Border BorderThickness="2" BorderBrush="#2C2A2A" CornerRadius="10">
+    <Border BorderThickness="1" BorderBrush="#FF807D7D" CornerRadius="10">
         <Grid>
             <TextBlock FontSize="30" FontWeight="Bold" Text="Thêm Phòng" Margin="0 12 0 0"
                    Foreground="#00A3FF" VerticalAlignment="Top" HorizontalAlignment="Center"/>

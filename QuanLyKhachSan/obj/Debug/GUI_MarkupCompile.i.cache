@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\C#\WPF\QuanLyKhachSan\App.xaml
-8584734019
+11-2122742375
 4-962636722
-13-1859194241
+17-1115204527
 16600677412
-View\DangNhap.xaml;View\MainWindow.xaml;UserControls\uc_Controlbar.xaml;UserControls\uc_Home.xaml;UserControls\uc_Phong.xaml;View\DatPhong.xaml;View\ThemPhong.xaml;UserControls\uc_PhieuThue.xaml;
+UserControls\uc_NhanVien.xaml;View\ChiTietPhong.xaml;View\DangNhap.xaml;View\MainWindow.xaml;UserControls\uc_Controlbar.xaml;UserControls\uc_Home.xaml;UserControls\uc_Phong.xaml;View\DatPhong.xaml;View\ThemNhanVien.xaml;View\ThemPhong.xaml;UserControls\uc_PhieuThue.xaml;
 
 True
 
