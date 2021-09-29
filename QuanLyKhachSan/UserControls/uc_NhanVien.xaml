@@ -108,10 +108,10 @@
                             </GridView.ColumnHeaderContainerStyle>
 
 
-                            <GridViewColumn  Header="Mã NV"  Width="50" DisplayMemberBinding="{Binding MaNV}" />
-                            <GridViewColumn Header="Tên Nhân Viên" Width="200" DisplayMemberBinding="{Binding HoTenNV}" />
+                            <GridViewColumn  Header="Mã NV"  Width="70" DisplayMemberBinding="{Binding MaNV}" />
+                            <GridViewColumn Header="Tên Nhân Viên" Width="200" DisplayMemberBinding="{Binding HoTen}" />
                             <GridViewColumn Header="Ngày tháng năm sinh" Width="150" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= dd/MM/yyyy }" />
-                            <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}" />
+                            <GridViewColumn Header="Chức vụ" Width="100" DisplayMemberBinding="{Binding ChucVu}" />
                             <GridViewColumn Header="Giới tính" Width="80" DisplayMemberBinding="{Binding GioiTinh}" />
                             <GridViewColumn Header="Dịa chỉ" Width="150" DisplayMemberBinding="{Binding DiaChi}" />
                             <GridViewColumn Header="SĐT" Width="100" DisplayMemberBinding="{Binding SDT }" />

@@ -49,3 +49,10 @@ E:\C#\WPF\QuanLyKhachSan\obj\Debug\UserControls\uc_NhanVien.g.cs
 E:\C#\WPF\QuanLyKhachSan\obj\Debug\UserControls\uc_NhanVien.baml
 E:\C#\WPF\QuanLyKhachSan\obj\Debug\View\ThemNhanVien.g.cs
 E:\C#\WPF\QuanLyKhachSan\obj\Debug\View\ThemNhanVien.baml
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\DAL.exe
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\EntityFramework.dll
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\DAL.pdb
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\DAL.exe.config
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\EntityFramework.xml
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\EntityFramework.SqlServer.dll
+E:\C#\WPF\QuanLyKhachSan\bin\Debug\EntityFramework.SqlServer.xml

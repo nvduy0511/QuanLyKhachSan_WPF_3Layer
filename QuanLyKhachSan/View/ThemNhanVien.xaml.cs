@@ -11,7 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using GUI.Class;
+using DAL;
+
 
 namespace GUI.View
 {
@@ -31,16 +32,19 @@ namespace GUI.View
         {
             Window wd = Window.GetWindow(sender as Button);
             wd.Close();
+            
         }
 
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
-            NhanVien nhanVien = new NhanVien() {  MaNV= "NV006", HoTenNV = txbHoTenNV.Text, CCCD = txbCCCD.Text, ChucVu = txbChucVu.Text , DiaChi = txbDiaChi.Text,
-                                                 GioiTinh= cbGioiTinh.Text , Luong = float.Parse(txbLuong.Text) , NTNS =  DateTime.Parse( dtNTNS.SelectedDate.ToString()), SDT = txbSDT.Text};
+            NhanVien nhanVien = new NhanVien() {  MaNV= "NV006", HoTen = txbHoTenNV.Text, CCCD = txbCCCD.Text, ChucVu = txbChucVu.Text , DiaChi = txbDiaChi.Text,
+                                                 GioiTinh= cbGioiTinh.Text , Luong = decimal.Parse(txbLuong.Text) , NTNS =  DateTime.Parse( dtNTNS.SelectedDate.ToString()), SDT = txbSDT.Text};
             if(truyenNhanVien != null)
             {
                 truyenNhanVien(nhanVien);
             }
+            Window wd = Window.GetWindow(sender as Button);
+            wd.Close();
         }
     }
 }

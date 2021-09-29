@@ -200,6 +200,10 @@
       <Project>{a2fb5ba7-45ad-4891-8d67-5504f92bc602}</Project>
       <Name>BUS</Name>
     </ProjectReference>
+    <ProjectReference Include="DAL\DAL.csproj">
+      <Project>{f9e0bf4e-41e2-4eeb-8821-1c5ab073ec94}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.1.0\build\MaterialDesignThemes.targets')" />
