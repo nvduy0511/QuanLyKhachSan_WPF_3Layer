@@ -80,10 +80,12 @@
     <Compile Include="CT_TienNghi.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Data\dNhanVien.cs" />
+    <Compile Include="Data\NhanVienDAL.cs" />
+    <Compile Include="Data\PhongDAL.cs" />
     <Compile Include="DichVu.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\Phong_Custom.cs" />
     <Compile Include="HoaDon.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>

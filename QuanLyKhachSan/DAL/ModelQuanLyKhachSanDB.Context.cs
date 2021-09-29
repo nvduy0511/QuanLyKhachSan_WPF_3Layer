@@ -16,10 +16,11 @@ namespace DAL
 
     public partial class QLKhachSanEntities : DbContext
     {
-        public QLKhachSanEntities(): base("name=QLKhachSanEntities")
+        public QLKhachSanEntities()
+            : base("name=QLKhachSanEntities")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -63,7 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Class\NhanVien.cs" />
     <Compile Include="UserControls\uc_NhanVien.xaml.cs">
       <DependentUpon>uc_NhanVien.xaml</DependentUpon>
     </Compile>

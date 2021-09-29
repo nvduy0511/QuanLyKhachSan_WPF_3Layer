@@ -28,6 +28,7 @@ namespace DAL
         public Nullable<System.DateTime> NgayKT { get; set; }
         public string TinhTrangThue { get; set; }
         public Nullable<decimal> TienPhong { get; set; }
+        public Nullable<int> SoNguoiO { get; set; }
     
         public virtual PhieuThue PhieuThue { get; set; }
         public virtual Phong Phong { get; set; }

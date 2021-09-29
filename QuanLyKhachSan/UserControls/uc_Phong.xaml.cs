@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using GUI.View;
+using BUS;
+using DAL.DTO;
 
 namespace GUI.UserControls
 {
@@ -22,163 +24,49 @@ namespace GUI.UserControls
     public partial class uc_Phong : UserControl
     {
         #region Khai bao bien
-        List<Phong> listKhoiTao = new List<Phong>();
-        List<Phong> list = new List<Phong>();
-        List<Phong> lsTrong = new List<Phong>();
-        List<Phong> lsPhongDon = new List<Phong>();
-        List<Phong> lsPhongDoi = new List<Phong>();
-        List<Phong> lsPhongGiaDinh = new List<Phong>();
-
+        List<Phong_Custom> lsPhong;
+        List<Phong_Custom> lsPhongDon;
+        List<Phong_Custom> lsPhongDoi;
+        List<Phong_Custom> lsPhongGiaDinh;
+        List<Phong_Custom> lsTrong;
         #endregion
         public uc_Phong()
         {
             InitializeComponent();
-            initListPhong();
-            initList();
-            loadList();
+            lsPhong = new List<Phong_Custom>();
+            lsPhongDon = new List<Phong_Custom>();
+            lsPhongDoi = new List<Phong_Custom>();
+            lsPhongGiaDinh = new List<Phong_Custom>();
+            lsTrong = new List<Phong_Custom>();
+            init();
         }
 
-        private void loadList()
+        private void init()
         {
-            foreach(Phong i in list)
-            {
-                foreach(Phong j in listKhoiTao)
-                {
-                    if (i.MaPhong.Equals(j.MaPhong))
-                    {
-                        j.MaPhong = i.MaPhong;
-                        j.LoaiPhong = i.LoaiPhong;
-                        j.NgayDen = i.NgayDen;
-                        j.SoNgayO = i.SoNgayO;
-                        j.SoNguoi = i.SoNguoi;
-                        j.TenKH = i.TenKH;
-                        j.TinhTrang = i.TinhTrang;
-                    }
-                }
-            }
-            lsPhongDon = listKhoiTao.Where(p => p.LoaiPhong.Equals("Phòng đơn")).ToList();
-            lsPhongDoi = listKhoiTao.Where(p => p.LoaiPhong.Equals("Phòng đôi")).ToList();
-            lsPhongGiaDinh = listKhoiTao.Where(p => p.LoaiPhong.Equals("Phòng gia đình")).ToList();
+            lsPhong = PhongBUS.getDataPhongCustom();
+
+            lsPhongDon = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng đơn")).ToList();
+            lsPhongDoi = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng đôi")).ToList();
+            lsPhongGiaDinh = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng gia đình")).ToList();
+
             lvPhongDon.ItemsSource = lsPhongDon;
             lvPhongDoi.ItemsSource = lsPhongDoi;
             lvPhongGiaDinh.ItemsSource = lsPhongGiaDinh;
-        }
-
-        private void initList()
-        {
-            for (int i = 0; i < 5; i++)
-            {
-                listKhoiTao.Add(new Phong()
-                {
-                    MaPhong = "P.10"+i,
-                    TinhTrang = "Phòng trống",
-                    DonDep = "Đã dọn dẹp",
-                    LoaiPhong = "Phòng đơn"
-                });
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                listKhoiTao.Add(new Phong()
-                {
-                    MaPhong = "P.20" + i,
-                    TinhTrang = "Phòng trống",
-                    DonDep = "Đã dọn dẹp",
-                    LoaiPhong = "Phòng đôi"
-                });
-            }
-            for (int i = 0; i < 5; i++)
-            {
-                listKhoiTao.Add(new Phong()
-                {
-                    MaPhong = "P.30" + i,
-                    TinhTrang = "Phòng trống",
-                    DonDep = "Đã dọn dẹp",
-                    LoaiPhong = "Phòng gia đình"
-                });
-            }
-        }
-        #region Method
-        private void initListPhong()
-        {
-            list.Add(new Phong() { MaPhong = "P.101", TinhTrang = "Phòng đang thuê", 
-                TenKH = "Nguyễn Văn Duy", SoNgayO = 2, 
-                DonDep = "Đã dọn dẹp", SoNguoi=1 , 
-                LoaiPhong="Phòng đơn" ,
-                NgayDen = new DateTime(2021,09,24)});
-            list.Add(new Phong() { MaPhong = "P.102",
-                TinhTrang = "Phòng trống", 
-                DonDep = "Chưa dọn dẹp",
-                LoaiPhong = "Phòng đơn" });
-            list.Add(new Phong() { MaPhong = "P.103",
-                TinhTrang = "Phòng đang thuê",
-                TenKH = "Nguyễn Việt Quang", SoNgayO = 2, 
-                DonDep = "Đã dọn dẹp",  SoNguoi = 1 , 
-                LoaiPhong = "Phòng đơn", 
-                NgayDen = new DateTime(2021, 09, 24) });
-            list.Add(new Phong() { MaPhong = "P.104", 
-                TinhTrang = "Phòng đã đặt", 
-                TenKH = "Trần Hải Quang", SoNgayO = 2, 
-                DonDep = "Đã dọn dẹp", SoNguoi = 1, 
-                LoaiPhong = "Phòng đơn", 
-                NgayDen = new DateTime(2021, 09, 24) });
-            //list.Add(new Phong() { MaPhong = "P.201", 
-            //    TinhTrang = "Phòng đang thuê", 
-            //    TenKH = "Bùi Thị Hồng Hường", 
-            //    SoNgayO = 2, DonDep = "Đã dọn dẹp", 
-            //    SoNguoi = 2, LoaiPhong = "Phòng đôi", 
-            //    NgayDen = new DateTime(2021, 09, 24) });
-            //list.Add(new Phong() { MaPhong = "P.202", 
-            //    TinhTrang = "Phòng trống", SoNgayO = 2, 
-            //    DonDep = "Sửa chữa", SoNguoi = 2, 
-            //    LoaiPhong = "Phòng đôi" });
-            //list.Add(new Phong() { MaPhong = "P.203", 
-            //    TinhTrang = "Phòng đang thuê", 
-            //    TenKH = "Bùi Thị Hồng Hường", SoNgayO = 2, 
-            //    DonDep = "Đã dọn dẹp", SoNguoi = 2, 
-            //    LoaiPhong = "Phòng đôi", NgayDen = new DateTime(2021, 09, 24) });
-            //list.Add(new Phong() { MaPhong = "P.204", 
-            //    TinhTrang = "Phòng trống",
-            //    DonDep = "Đã dọn dẹp", 
-            //    LoaiPhong = "Phòng đôi" });
-            //list.Add(new Phong() { MaPhong = "P.205", 
-            //    TinhTrang = "Phòng đang thuê",
-            //    TenKH = "Bùi Thị Hồng Hường", 
-            //    SoNgayO = 2, DonDep = "Đã dọn dẹp", 
-            //    SoNguoi = 4, LoaiPhong = "Phòng gia đình",
-            //    NgayDen = new DateTime(2021, 09, 24) });
-            //list.Add(new Phong() { MaPhong = "P.301", 
-            //    TinhTrang = "Phòng đang thuê", 
-            //    TenKH = "Bùi Thị Hồng Hường", SoNgayO = 2,
-            //    DonDep = "Đã dọn dẹp", SoNguoi = 4, 
-            //    LoaiPhong = "Phòng gia đình", NgayDen = new DateTime(2021, 09, 24) });
-            //list.Add(new Phong() { MaPhong = "P.302", 
-            //    TinhTrang = "Phòng trống", 
-            //    DonDep = "Đã dọn dẹp", 
-            //    LoaiPhong = "Phòng gia đình"});
-            //list.Add(new Phong() { MaPhong = "P.303", 
-            //    TinhTrang = "Phòng đã đặt", TenKH = "Trần Hải Quang",
-            //    SoNgayO = 2, DonDep = "Đã dọn dẹp", SoNguoi = 3, 
-            //    LoaiPhong = "Phòng gia đình", NgayDen = new DateTime(2021, 09, 24) });
-
-            //lsPhongDon = list.Where(p => p.LoaiPhong.Equals("Phòng đơn")).ToList();
-            //lsPhongDoi = list.Where(p => p.LoaiPhong.Equals("Phòng đôi")).ToList();
-            //lsPhongGiaDinh = list.Where(p => p.LoaiPhong.Equals("Phòng gia đình")).ToList();
-
-            //lvPhongDon.ItemsSource = lsPhongDon;
-            //lvPhongDoi.ItemsSource = lsPhongDoi;
-            //lvPhongGiaDinh.ItemsSource = lsPhongGiaDinh;
 
             lvPhongDon.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
             lvPhongDoi.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
             lvPhongGiaDinh.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
             initEvent();
-
         }
+
+
+        #region Method
+        
 
         private void LvPhongDon_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             ListView lv = sender as ListView;
-            MessageBox.Show((lv.SelectedItem as Phong).MaPhong);
+            MessageBox.Show((lv.SelectedItem as Phong_Custom).MaPhong);
             ChiTietPhong ct = new ChiTietPhong();
             ct.ShowDialog();
             lv.UnselectAll();
@@ -204,7 +92,7 @@ namespace GUI.UserControls
 
         private bool PhongFilter(object obj)
         {
-            Phong ph = obj as Phong;
+            Phong_Custom ph = obj as Phong_Custom;
             RadioButton radioTinhTrang = null;
             RadioButton radioDonDep = null;
 
@@ -274,7 +162,7 @@ namespace GUI.UserControls
             if (String.IsNullOrEmpty(txbTimKiem.Text))
                 return true;
             else
-                return (obj as Phong).MaPhong.Equals(txbTimKiem.Text);
+                return (obj as Phong_Custom).MaPhong.Contains(txbTimKiem.Text);
         }
 
         private void checkLoaiPhong(RadioButton rd)
@@ -362,25 +250,5 @@ namespace GUI.UserControls
         #endregion
 
 
-    }
-    public class Phong
-    {
-        private string maPhong;
-        private string tinhTrang;
-        private string tenKH;
-        private int soNgayO;
-        private int soNguoi;
-        private string donDep;
-        private string loaiPhong;
-        private DateTime? ngayDen;
-
-        public string MaPhong { get => maPhong; set => maPhong = value; }
-        public string TinhTrang { get => tinhTrang; set => tinhTrang = value; }
-        public string TenKH { get => tenKH; set => tenKH = value; }
-        public int SoNgayO { get => soNgayO; set => soNgayO = value; }
-        public string DonDep { get => donDep; set => donDep = value; }
-        public int SoNguoi { get => soNguoi; set => soNguoi = value; }
-        public string LoaiPhong { get => loaiPhong; set => loaiPhong = value; }
-        public DateTime? NgayDen { get => ngayDen; set => ngayDen = value; }
     }
 }

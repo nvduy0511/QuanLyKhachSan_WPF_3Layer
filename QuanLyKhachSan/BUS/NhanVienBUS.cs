@@ -7,18 +7,18 @@ using System.Windows.Controls;
 using DAL.Data;
 using DAL;
 
-
 namespace BUS
 {
-    public class bNhanVien
+    public class NhanVienBUS
     {
-        public static void SetDataSource(ListView ls)
+        public static List<NhanVien> getDataNhanVien()
         {
-            ls.ItemsSource = dNhanVien.getDataNhanVien();
+            return NhanVienDAL.getDataNhanVien();
         }
         public static void addNhanVien(NhanVien nv)
         {
-            dNhanVien.addDataNhanVien(nv);
+            nv.MaNV = GenID.genIDAuto(NhanVienDAL.getMaxMaNV());
+            NhanVienDAL.addDataNhanVien(nv);
         }
     }
 }

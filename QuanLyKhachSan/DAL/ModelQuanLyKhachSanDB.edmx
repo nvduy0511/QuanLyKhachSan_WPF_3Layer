@@ -14,7 +14,8 @@
           <Property Name="MaPhieuThue" Type="nchar" MaxLength="10" />
           <Property Name="NgayBD" Type="datetime" />
           <Property Name="NgayKT" Type="datetime" />
-          <Property Name="TinhTrangThue" Type="nchar" MaxLength="10" />
+          <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="30" />
+          <Property Name="SoNguoiO" Type="int" />
           <Property Name="TienPhong" Type="decimal" Precision="18" Scale="3" />
         </EntityType>
         <EntityType Name="CT_SDDichVu">
@@ -378,12 +379,13 @@
           <Property Name="MaPhieuThue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="NgayBD" Type="DateTime" Precision="3" />
           <Property Name="NgayKT" Type="DateTime" Precision="3" />
-          <Property Name="TinhTrangThue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="TinhTrangThue" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <Property Name="TienPhong" Type="Decimal" Precision="18" Scale="3" />
           <NavigationProperty Name="PhieuThue" Relationship="Self.FK_CT_PhieuThue_PhieuThue" FromRole="CT_PhieuThue" ToRole="PhieuThue" />
           <NavigationProperty Name="Phong" Relationship="Self.FK_CT_PhieuThue_Phong" FromRole="CT_PhieuThue" ToRole="Phong" />
           <NavigationProperty Name="CT_SDDichVu" Relationship="Self.FK_CT_SDDichVu_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="CT_SDDichVu" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="HoaDon" />
+          <Property Name="SoNguoiO" Type="Int32" />
         </EntityType>
         <EntityType Name="CT_SDDichVu">
           <Key>
@@ -764,6 +766,7 @@
           <EntitySetMapping Name="CT_PhieuThue">
             <EntityTypeMapping TypeName="QLKhachSanModel.CT_PhieuThue">
               <MappingFragment StoreEntitySet="CT_PhieuThue">
+                <ScalarProperty Name="SoNguoiO" ColumnName="SoNguoiO" />
                 <ScalarProperty Name="MaCTPT" ColumnName="MaCTPT" />
                 <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />
                 <ScalarProperty Name="MaPhieuThue" ColumnName="MaPhieuThue" />

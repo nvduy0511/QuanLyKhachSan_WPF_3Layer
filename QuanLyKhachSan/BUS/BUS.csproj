@@ -61,7 +61,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bNhanVien.cs" />
+    <Compile Include="GenID.cs" />
+    <Compile Include="NhanVienBUS.cs" />
+    <Compile Include="PhongBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

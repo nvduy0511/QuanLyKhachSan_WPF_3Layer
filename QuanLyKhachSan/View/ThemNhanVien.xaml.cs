@@ -37,7 +37,7 @@ namespace GUI.View
 
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
-            NhanVien nhanVien = new NhanVien() {  MaNV= "NV006", HoTen = txbHoTenNV.Text, CCCD = txbCCCD.Text, ChucVu = txbChucVu.Text , DiaChi = txbDiaChi.Text,
+            NhanVien nhanVien = new NhanVien() {  HoTen = txbHoTenNV.Text, CCCD = txbCCCD.Text, ChucVu = txbChucVu.Text , DiaChi = txbDiaChi.Text,
                                                  GioiTinh= cbGioiTinh.Text , Luong = decimal.Parse(txbLuong.Text) , NTNS =  DateTime.Parse( dtNTNS.SelectedDate.ToString()), SDT = txbSDT.Text};
             if(truyenNhanVien != null)
             {
