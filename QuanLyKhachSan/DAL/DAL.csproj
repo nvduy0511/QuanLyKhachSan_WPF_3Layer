@@ -85,6 +85,7 @@
     <Compile Include="DichVu.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\PhongTrong.cs" />
     <Compile Include="DTO\Phong_Custom.cs" />
     <Compile Include="HoaDon.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
@@ -109,6 +110,7 @@
     <Compile Include="PhieuThue.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\PhieuThueDAL.cs" />
     <Compile Include="Phong.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>

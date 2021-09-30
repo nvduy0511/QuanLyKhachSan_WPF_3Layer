@@ -9,9 +9,9 @@
           <Key>
             <PropertyRef Name="MaCTPT" />
           </Key>
-          <Property Name="MaCTPT" Type="nchar" MaxLength="15" Nullable="false" />
-          <Property Name="SoPhong" Type="nchar" MaxLength="10" />
-          <Property Name="MaPhieuThue" Type="nchar" MaxLength="10" />
+          <Property Name="MaCTPT" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="SoPhong" Type="varchar" MaxLength="10" />
+          <Property Name="MaPhieuThue" Type="varchar" MaxLength="10" />
           <Property Name="NgayBD" Type="datetime" />
           <Property Name="NgayKT" Type="datetime" />
           <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="30" />
@@ -22,9 +22,9 @@
           <Key>
             <PropertyRef Name="MaCTSDDV" />
           </Key>
-          <Property Name="MaCTSDDV" Type="nchar" MaxLength="15" Nullable="false" />
-          <Property Name="MaCTPT" Type="nchar" MaxLength="15" />
-          <Property Name="MaDV" Type="nchar" MaxLength="10" />
+          <Property Name="MaCTSDDV" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="MaCTPT" Type="varchar" MaxLength="15" />
+          <Property Name="MaDV" Type="varchar" MaxLength="10" />
           <Property Name="SL" Type="int" />
           <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="3" />
         </EntityType>
@@ -32,35 +32,35 @@
           <Key>
             <PropertyRef Name="MaCTTN" />
           </Key>
-          <Property Name="MaCTTN" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="SoPhong" Type="nchar" MaxLength="10" />
-          <Property Name="MaTN" Type="nchar" MaxLength="10" />
+          <Property Name="MaCTTN" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="SoPhong" Type="varchar" MaxLength="10" />
+          <Property Name="MaTN" Type="varchar" MaxLength="10" />
           <Property Name="SL" Type="int" />
         </EntityType>
         <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="MaDV" />
           </Key>
-          <Property Name="MaDV" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaDV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
           <Property Name="Gia" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="MaLoaiDV" Type="nchar" MaxLength="10" />
+          <Property Name="MaLoaiDV" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayLap" Type="datetime" />
-          <Property Name="MaNV" Type="nchar" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
           <Property Name="TongTien" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="MaCTPT" Type="nchar" MaxLength="15" />
+          <Property Name="MaCTPT" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
           <Property Name="CCCD" Type="nchar" MaxLength="12" />
           <Property Name="SDT" Type="nchar" MaxLength="10" />
@@ -72,14 +72,14 @@
           <Key>
             <PropertyRef Name="MaLoaiDV" />
           </Key>
-          <Property Name="MaLoaiDV" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaLoaiDV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenLoaiDV" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="LoaiPhong">
           <Key>
             <PropertyRef Name="MaLoaiPhong" />
           </Key>
-          <Property Name="MaLoaiPhong" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaLoaiPhong" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" />
           <Property Name="SoNguoiToiDa" Type="int" />
           <Property Name="GiaNgay" Type="decimal" Precision="18" Scale="3" />
@@ -89,32 +89,32 @@
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
           <Property Name="NTNS" Type="date" />
-          <Property Name="CCCD" Type="nchar" MaxLength="12" />
-          <Property Name="SDT" Type="nchar" MaxLength="11" />
+          <Property Name="CCCD" Type="varchar" MaxLength="12" />
+          <Property Name="SDT" Type="varchar" MaxLength="12" />
           <Property Name="DiaChi" Type="nvarchar" MaxLength="70" />
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" />
-          <Property Name="Luong" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="Luong" Type="decimal" Precision="18" Scale="0" />
           <Property Name="ChucVu" Type="nvarchar" MaxLength="30" />
         </EntityType>
         <EntityType Name="PhieuThue">
           <Key>
             <PropertyRef Name="MaPhieuThue" />
           </Key>
-          <Property Name="MaPhieuThue" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaPhieuThue" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="NgayLapPhieu" Type="datetime" />
-          <Property Name="MaKH" Type="nchar" MaxLength="10" />
-          <Property Name="MaNV" Type="nchar" MaxLength="10" />
+          <Property Name="MaKH" Type="varchar" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="Phong">
           <Key>
             <PropertyRef Name="SoPhong" />
           </Key>
-          <Property Name="SoPhong" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SoPhong" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="20" />
-          <Property Name="MaLoaiPhong" Type="nchar" MaxLength="10" />
+          <Property Name="MaLoaiPhong" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -130,16 +130,16 @@
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="password" Type="nchar" MaxLength="20" />
           <Property Name="CapDoQuyen" Type="int" />
-          <Property Name="MaNV" Type="nchar" MaxLength="10" />
+          <Property Name="MaNV" Type="varchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="TienNghi">
           <Key>
             <PropertyRef Name="MaTN" />
           </Key>
-          <Property Name="MaTN" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="MaTN" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="TenTN" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CT_PhieuThue_PhieuThue">
@@ -374,9 +374,9 @@
           <Key>
             <PropertyRef Name="MaCTPT" />
           </Key>
-          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MaPhieuThue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaPhieuThue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NgayBD" Type="DateTime" Precision="3" />
           <Property Name="NgayKT" Type="DateTime" Precision="3" />
           <Property Name="TinhTrangThue" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
@@ -391,9 +391,9 @@
           <Key>
             <PropertyRef Name="MaCTSDDV" />
           </Key>
-          <Property Name="MaCTSDDV" Type="String" MaxLength="15" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
-          <Property Name="MaDV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaCTSDDV" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MaDV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="SL" Type="Int32" />
           <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="3" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="Self.FK_CT_SDDichVu_CT_PhieuThue" FromRole="CT_SDDichVu" ToRole="CT_PhieuThue" />
@@ -403,9 +403,9 @@
           <Key>
             <PropertyRef Name="MaCTTN" />
           </Key>
-          <Property Name="MaCTTN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MaTN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaCTTN" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaTN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="SL" Type="Int32" />
           <NavigationProperty Name="Phong" Relationship="Self.FK_CT_TienNghi_Phong1" FromRole="CT_TienNghi" ToRole="Phong" />
           <NavigationProperty Name="TienNghi" Relationship="Self.FK_CT_TienNghi_TienNghi1" FromRole="CT_TienNghi" ToRole="TienNghi" />
@@ -414,10 +414,10 @@
           <Key>
             <PropertyRef Name="MaDV" />
           </Key>
-          <Property Name="MaDV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaDV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Gia" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="MaLoaiDV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaLoaiDV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CT_SDDichVu" Relationship="Self.FK_CT_SDDichVu_DichVu1" FromRole="DichVu" ToRole="CT_SDDichVu" />
           <NavigationProperty Name="LoaiDV" Relationship="Self.FK_DichVu_LoaiDV" FromRole="DichVu" ToRole="LoaiDV" />
         </EntityType>
@@ -425,11 +425,11 @@
           <Key>
             <PropertyRef Name="MaHD" />
           </Key>
-          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayLap" Type="DateTime" Precision="3" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="TongTien" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="MaCTPT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="Self.FK_HoaDon_CT_PhieuThue" FromRole="HoaDon" ToRole="CT_PhieuThue" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_HoaDon_NhanVien" FromRole="HoaDon" ToRole="NhanVien" />
         </EntityType>
@@ -437,7 +437,7 @@
           <Key>
             <PropertyRef Name="MaKH" />
           </Key>
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
@@ -450,7 +450,7 @@
           <Key>
             <PropertyRef Name="MaLoaiDV" />
           </Key>
-          <Property Name="MaLoaiDV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaLoaiDV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLoaiDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DichVus" Relationship="Self.FK_DichVu_LoaiDV" FromRole="LoaiDV" ToRole="DichVu" />
         </EntityType>
@@ -458,7 +458,7 @@
           <Key>
             <PropertyRef Name="MaLoaiPhong" />
           </Key>
-          <Property Name="MaLoaiPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaLoaiPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenLoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SoNguoiToiDa" Type="Int32" />
           <Property Name="GiaNgay" Type="Decimal" Precision="18" Scale="3" />
@@ -469,14 +469,14 @@
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NTNS" Type="DateTime" Precision="0" />
-          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
           <Property Name="DiaChi" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="Luong" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="Luong" Type="Decimal" Precision="18" Scale="0" />
           <Property Name="ChucVu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
           <NavigationProperty Name="PhieuThues" Relationship="Self.FK_PhieuThue_NhanVien" FromRole="NhanVien" ToRole="PhieuThue" />
@@ -486,10 +486,10 @@
           <Key>
             <PropertyRef Name="MaPhieuThue" />
           </Key>
-          <Property Name="MaPhieuThue" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaPhieuThue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="NgayLapPhieu" Type="DateTime" Precision="3" />
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="Self.FK_CT_PhieuThue_PhieuThue" FromRole="PhieuThue" ToRole="CT_PhieuThue" />
           <NavigationProperty Name="KhachHang" Relationship="Self.FK_PhieuThue_KhachHang" FromRole="PhieuThue" ToRole="KhachHang" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_PhieuThue_NhanVien" FromRole="PhieuThue" ToRole="NhanVien" />
@@ -498,9 +498,9 @@
           <Key>
             <PropertyRef Name="SoPhong" />
           </Key>
-          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TinhTrang" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="MaLoaiPhong" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaLoaiPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="Self.FK_CT_PhieuThue_Phong" FromRole="Phong" ToRole="CT_PhieuThue" />
           <NavigationProperty Name="CT_TienNghi" Relationship="Self.FK_CT_TienNghi_Phong1" FromRole="Phong" ToRole="CT_TienNghi" />
           <NavigationProperty Name="LoaiPhong" Relationship="Self.FK_Phong_LoaiPhong" FromRole="Phong" ToRole="LoaiPhong" />
@@ -519,17 +519,17 @@
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
           <Property Name="CapDoQuyen" Type="Int32" />
-          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="MaNV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="NhanVien" Relationship="Self.FK_TaiKhoan_NhanVien" FromRole="TaiKhoan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="TienNghi">
           <Key>
             <PropertyRef Name="MaTN" />
           </Key>
-          <Property Name="MaTN" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="MaTN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="TenTN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CT_TienNghi" Relationship="Self.FK_CT_TienNghi_TienNghi1" FromRole="TienNghi" ToRole="CT_TienNghi" />
         </EntityType>

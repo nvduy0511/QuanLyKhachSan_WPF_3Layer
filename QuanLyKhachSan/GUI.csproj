@@ -84,8 +84,8 @@
     <Compile Include="View\DatPhong.xaml.cs">
       <DependentUpon>DatPhong.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ThemNhanVien.xaml.cs">
-      <DependentUpon>ThemNhanVien.xaml</DependentUpon>
+    <Compile Include="View\Them_SuaNhanVien.xaml.cs">
+      <DependentUpon>Them_SuaNhanVien.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ThemPhong.xaml.cs">
       <DependentUpon>ThemPhong.xaml</DependentUpon>
@@ -133,7 +133,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ThemNhanVien.xaml">
+    <Page Include="View\Them_SuaNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,8 +179,8 @@
   <ItemGroup>
     <Resource Include="Res\backGround_DN.png" />
     <Resource Include="Res\edit.png" />
-    <Resource Include="Res\delete.png" />
     <Resource Include="Res\delete_vs2.png" />
+    <Resource Include="Res\add.png" />
     <Content Include="Res\Home0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

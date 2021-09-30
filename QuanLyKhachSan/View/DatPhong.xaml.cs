@@ -11,6 +11,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using DAL;
+using DAL.DTO;
+using BUS;
 
 namespace GUI.View
 {
@@ -19,9 +22,14 @@ namespace GUI.View
     /// </summary>
     public partial class DatPhong : Window
     {
+        List<PhongTrong> lsPhong;
         public DatPhong()
         {
             InitializeComponent();
+            lsPhong = new List<PhongTrong>();
+            lsPhong = PhongBUS.getPhongTrong();
+            lvPhongTrong.ItemsSource = lsPhong;
+            
         }
 
         private void click_Huy(object sender, RoutedEventArgs e)
@@ -36,16 +44,6 @@ namespace GUI.View
             Button luu = sender as Button;
             Window dP = Window.GetWindow(luu);
             dP.Close();
-        }
-        ~DatPhong()
-        {
-            Console.WriteLine("Huy DP");
-        }
-
-        private void click_ThemPhong(object sender, RoutedEventArgs e)
-        {
-            ThemPhong tp = new ThemPhong();
-            tp.ShowDialog();
         }
     }
 }

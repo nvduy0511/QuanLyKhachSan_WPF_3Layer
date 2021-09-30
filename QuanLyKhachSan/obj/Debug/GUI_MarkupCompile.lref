@@ -1,4 +1,4 @@
-﻿E:\C#\WPF\QuanLyKhachSan\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FE:\C#\WPF\QuanLyKhachSan\App.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_NhanVien.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\View\ChiTietPhong.xaml;;
@@ -8,7 +8,7 @@ FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_Controlbar.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_Home.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_Phong.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\View\DatPhong.xaml;;
-FE:\C#\WPF\QuanLyKhachSan\View\ThemNhanVien.xaml;;
+FE:\C#\WPF\QuanLyKhachSan\View\Them_SuaNhanVien.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\View\ThemPhong.xaml;;
 FE:\C#\WPF\QuanLyKhachSan\UserControls\uc_PhieuThue.xaml;;
 

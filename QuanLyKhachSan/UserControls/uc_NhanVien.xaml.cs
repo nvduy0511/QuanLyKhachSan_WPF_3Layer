@@ -35,8 +35,8 @@ namespace GUI.UserControls
 
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
-            ThemNhanVien tnv = new ThemNhanVien();
-            tnv.truyenNhanVien = new ThemNhanVien.truyenData(nhanData);
+            Them_SuaNhanVien tnv = new Them_SuaNhanVien();
+            tnv.truyenNhanVien = new Them_SuaNhanVien.truyenData(nhanData);
             tnv.ShowDialog();
         }
         void nhanData(NhanVien nv)
@@ -52,6 +52,13 @@ namespace GUI.UserControls
             list.Remove(nv);
         }
 
+        private void click_SuaNV(object sender, RoutedEventArgs e)
+        {
+            NhanVien nv = (sender as Button).DataContext as NhanVien;
+            Them_SuaNhanVien tnv = new Them_SuaNhanVien(nv);
+            tnv.ShowDialog();
+
+        }
     }
 
 }

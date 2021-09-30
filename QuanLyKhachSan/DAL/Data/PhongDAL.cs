@@ -21,7 +21,7 @@ namespace DAL.Data
                       select new Phong_Custom()
                       {
                           TenKH = (ct.PhieuThue.KhachHang.TenKH == null) ? "" : ct.PhieuThue.KhachHang.TenKH,
-                          MaPhong = p.SoPhong.Trim(),
+                          MaPhong = p.SoPhong,
                           DonDep = p.TinhTrang,
                           TinhTrang = (ct.TinhTrangThue == null) ? "Phòng trống" : ct.TinhTrangThue,
                           LoaiPhong = p.LoaiPhong.TenLoaiPhong,
@@ -33,6 +33,22 @@ namespace DAL.Data
 
             }
             return ls;
+        }
+
+        public static List<PhongTrong> getPhongTrong()
+        {
+            List<PhongTrong> lsPTrong = new List<PhongTrong>();
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                lsPTrong = (from p in db.Phongs
+                            where !(from ct in db.CT_PhieuThue
+                                    select ct.SoPhong).Contains(p.SoPhong)
+                            select new PhongTrong()
+                            { SoPhong = p.SoPhong,
+                              TenLoaiPhong= p.LoaiPhong.TenLoaiPhong
+                            }).ToList();
+            }
+            return lsPTrong;
         }
     }
 }

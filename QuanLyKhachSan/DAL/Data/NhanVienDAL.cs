@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DAL.Data
 {
     public class NhanVienDAL
@@ -13,18 +14,6 @@ namespace DAL.Data
             List<NhanVien> lsNV = new List<NhanVien>();
             using (QLKhachSanEntities db = new QLKhachSanEntities())
             {
-                //lsNV = db.NhanViens.ToList().Select(p => new NhanVien
-                //{
-                //    HoTen = p.HoTen,
-                //    CCCD = p.CCCD,
-                //    ChucVu = p.ChucVu,
-                //    DiaChi = p.DiaChi,
-                //    GioiTinh = p.GioiTinh,
-                //    Luong = p.Luong,
-                //    MaNV = p.MaNV.Trim(),
-                //    NTNS = p.NTNS,
-                //    SDT = p.SDT
-                //}).ToList();
                 lsNV = db.NhanViens.ToList();
                 
             }

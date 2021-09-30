@@ -53,12 +53,12 @@
                       materialDesign:HintAssist.Hint="Ngày bắt đầu"
                       Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
-                <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Center"
-                      Margin="0 175 0 0 ">
-                    <materialDesign:PackIcon Kind="OrderNumericDescending" Height="25" Width="25"/>
-                    <TextBox Margin="30 0 0 0"
-                          materialDesign:HintAssist.Hint="Nhập số ngày thuê">
-                    </TextBox>
+                <Grid Height="33" Width="212" VerticalAlignment="Top" HorizontalAlignment="Center"
+                      Margin="0 175 0 0">
+                    <materialDesign:PackIcon Kind="CalendarToday" Height="25" Width="25" VerticalAlignment="Bottom"/>
+                    <DatePicker Margin="30 0 0 0"
+                      materialDesign:HintAssist.Hint="Ngày kết thúc"
+                      Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                 </Grid>
 
             </Grid>
