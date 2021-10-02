@@ -8,7 +8,23 @@ namespace BUS
 {
     public class GenID
     {
-        public static string genIDAuto(string s)
+        private static GenID Instance ;
+
+        private GenID()
+        {
+
+        }
+
+        public static GenID GetInstance()
+        {
+            if(Instance == null)
+            {
+                Instance = new GenID();
+            }
+            return Instance;
+        }
+
+        public string genIDAuto(string s)
         {
             string prefix = "";
             string suffix = "";
@@ -25,5 +41,7 @@ namespace BUS
             int.TryParse(suffix, out sfPlus);
             return prefix + (++sfPlus);
         }
+
+
     }
 }

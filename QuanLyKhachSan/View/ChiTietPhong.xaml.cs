@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using DAL.DTO;
 namespace GUI.View
 {
     /// <summary>
@@ -23,16 +23,16 @@ namespace GUI.View
         {
             InitializeComponent();
         }
-        public ChiTietPhong(string maPhong,string tenKH, string soNgay, string soNguoi, DateTime? ngayDen ,string tinhTrang , string donDep)
+        public ChiTietPhong(Phong_Custom phong)
         {
             InitializeComponent();
-            txblTieuDe.Text += maPhong;
-            txblTenKH.Text = tenKH;
-            txblSoNgay.Text = soNgay;
-            txblSoNguoi.Text = soNguoi;
-            txblNgayDen.Text = ngayDen.ToString();
-            cbTinhTrang.Text = tinhTrang;
-            cbDonDep.Text = donDep;
+            txblTieuDe.Text += phong.MaPhong;
+            txblTenKH.Text = phong.TenKH;
+            txblSoNgay.Text = phong.SoNgayO.ToString();
+            txblSoNguoi.Text = phong.SoNguoi.ToString();
+            txblNgayDen.Text = phong.NgayDen.ToString();
+            cbTinhTrang.Text = phong.TinhTrang;
+            cbDonDep.Text = phong.DonDep;
 
         }
 

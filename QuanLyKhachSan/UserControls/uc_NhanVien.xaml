@@ -102,12 +102,12 @@
                             </GridView.ColumnHeaderContainerStyle>
 
 
-                            <GridViewColumn  Header="Mã NV"  Width="50" DisplayMemberBinding="{Binding MaNV}"/>
+                            <GridViewColumn  Header="Mã NV"  Width="60" DisplayMemberBinding="{Binding MaNV}"/>
                             <GridViewColumn Header="Tên Nhân Viên" Width="150" DisplayMemberBinding="{Binding HoTen}" />
-                            <GridViewColumn Header="NTNS" Width="100" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= dd/MM/yyyy }" />
+                            <GridViewColumn Header="NTNS" Width="100" DisplayMemberBinding="{Binding Path= NTNS, StringFormat= MM/dd/yyyy }" />
                             <GridViewColumn Header="Chức vụ" Width="120" DisplayMemberBinding="{Binding ChucVu}" />
                             <GridViewColumn Header="Giới tính" Width="70" DisplayMemberBinding="{Binding GioiTinh}" />
-                            <GridViewColumn Header="Dịa chỉ" Width="250" DisplayMemberBinding="{Binding DiaChi}" />
+                            <GridViewColumn Header="Dịa chỉ" Width="240" DisplayMemberBinding="{Binding DiaChi}" />
                             <GridViewColumn Header="SĐT" Width="110" DisplayMemberBinding="{Binding SDT }" />
                             <GridViewColumn Header="CCCD" Width="100" DisplayMemberBinding="{Binding CCCD}" />
                             <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong , StringFormat={}{0:N} VND}" />

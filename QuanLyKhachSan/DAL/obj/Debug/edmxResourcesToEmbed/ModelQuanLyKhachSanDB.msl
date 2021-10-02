@@ -4,6 +4,7 @@
     <EntitySetMapping Name="CT_PhieuThue">
       <EntityTypeMapping TypeName="QLKhachSanModel.CT_PhieuThue">
         <MappingFragment StoreEntitySet="CT_PhieuThue">
+          <ScalarProperty Name="NgayTraThucTe" ColumnName="NgayTraThucTe" />
           <ScalarProperty Name="SoNguoiO" ColumnName="SoNguoiO" />
           <ScalarProperty Name="MaCTPT" ColumnName="MaCTPT" />
           <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />

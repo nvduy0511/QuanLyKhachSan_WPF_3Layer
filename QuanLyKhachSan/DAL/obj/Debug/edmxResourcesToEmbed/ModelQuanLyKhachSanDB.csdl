@@ -16,6 +16,7 @@
     <NavigationProperty Name="CT_SDDichVu" Relationship="Self.FK_CT_SDDichVu_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="CT_SDDichVu" />
     <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="HoaDon" />
     <Property Name="SoNguoiO" Type="Int32" />
+    <Property Name="NgayTraThucTe" Type="DateTime" Precision="3" />
   </EntityType>
   <EntityType Name="CT_SDDichVu">
     <Key>

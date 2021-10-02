@@ -56,21 +56,21 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon Kind="AccountBox" Width="25" Height="25"/>
-                            <TextBlock x:Name="txblTenKH" Text="Nguyễn Văn Duy" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock x:Name="txblTenKH"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon Kind="CalendarRange" Width="25" Height="25"/>
-                            <TextBlock x:Name="txblNgayDen" Text="22/12/2020" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock x:Name="txblNgayDen"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon Kind="CalendarToday" Width="25" Height="25"/>
-                            <TextBlock x:Name="txblSoNgay" Text="2" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
-                            <TextBlock Text="ngày" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock x:Name="txblSoNgay"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock Text="ngày" FontSize="15" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon Kind="AccountMultiplePlus" Width="25" Height="25"/>
-                            <TextBlock x:Name="txblSoNguoi" Text="4" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
-                            <TextBlock Text="người" FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock x:Name="txblSoNguoi"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
+                            <TextBlock Text="người" FontSize="15" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                     </Grid>
                     <!--1-->

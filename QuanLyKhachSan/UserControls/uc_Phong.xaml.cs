@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using GUI.View;
 using BUS;
 using DAL.DTO;
+using System.Collections.ObjectModel;
 
 namespace GUI.UserControls
 {
@@ -25,55 +26,42 @@ namespace GUI.UserControls
     {
         #region Khai bao bien
         List<Phong_Custom> lsPhong;
-        List<Phong_Custom> lsPhongDon;
-        List<Phong_Custom> lsPhongDoi;
-        List<Phong_Custom> lsPhongGiaDinh;
-        List<Phong_Custom> lsTrong;
+        ObservableCollection<Phong_Custom> lsPhongDon;
+        ObservableCollection<Phong_Custom> lsPhongDoi;
+        ObservableCollection<Phong_Custom> lsPhongGiaDinh;
+        ObservableCollection<Phong_Custom> lsTrong;
         #endregion
         public uc_Phong()
         {
             InitializeComponent();
-            lsPhong = new List<Phong_Custom>();
-            lsPhongDon = new List<Phong_Custom>();
-            lsPhongDoi = new List<Phong_Custom>();
-            lsPhongGiaDinh = new List<Phong_Custom>();
-            lsTrong = new List<Phong_Custom>();
-            init();
+            
+        }
+        
+
+        #region Method
+
+
+        private List<Phong_Custom> filterPhongTheoLoai(string loai)
+        {
+            return lsPhong.Where(p => p.LoaiPhong.Equals(loai)).ToList();
         }
 
-        private void init()
+        private void refeshLoaiPhong()
         {
-            lsPhong = PhongBUS.getDataPhongCustom();
-
-            lsPhongDon = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng đơn")).ToList();
-            lsPhongDoi = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng đôi")).ToList();
-            lsPhongGiaDinh = lsPhong.Where(p => p.LoaiPhong.Equals("Phòng gia đình")).ToList();
-
+            lsPhongDon = new ObservableCollection<Phong_Custom>(filterPhongTheoLoai("Phòng đơn"));
+            lsPhongDoi = new ObservableCollection<Phong_Custom>(filterPhongTheoLoai("Phòng đôi"));
+            lsPhongGiaDinh = new ObservableCollection<Phong_Custom>(filterPhongTheoLoai("Phòng gia đình"));
             lvPhongDon.ItemsSource = lsPhongDon;
             lvPhongDoi.ItemsSource = lsPhongDoi;
             lvPhongGiaDinh.ItemsSource = lsPhongGiaDinh;
-
-            lvPhongDon.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
-            lvPhongDoi.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
-            lvPhongGiaDinh.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
-            initEvent();
-        }
-
-
-        #region Method
-        
-
-        private void LvPhongDon_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            ListView lv = sender as ListView;
-            MessageBox.Show((lv.SelectedItem as Phong_Custom).MaPhong);
-            ChiTietPhong ct = new ChiTietPhong();
-            ct.ShowDialog();
-            lv.UnselectAll();
         }
 
         private void initEvent()
         {
+            //Khởi tạo sự kiện cho listView
+            lvPhongDon.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
+            lvPhongDoi.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
+            lvPhongGiaDinh.PreviewMouseLeftButtonUp += LvPhongDon_PreviewMouseLeftButtonUp;
             //Khởi tạo sự kiện click cho RadioButton
             rdPhongTrong.Click += rb_Click;
             rdPhongDaDat.Click += rb_Click;
@@ -208,6 +196,18 @@ namespace GUI.UserControls
         #endregion
 
         #region Event
+        // Sự kiện loade UC
+        private void ucPhong_Loaded(object sender, RoutedEventArgs e)
+        {
+            lsPhong = new List<Phong_Custom>();
+            lsTrong = new ObservableCollection<Phong_Custom>();
+            lsPhong = PhongBUS.GetInstance().getDataPhongCustomTheoNgay(new DateTime(2021, 10, 02));
+            refeshLoaiPhong();
+            initEvent();
+            dtpChonNgay.Text = "10/02/2021";
+        }
+
+        //Khi click vào radioButton
         private void rb_Click(object sender, RoutedEventArgs e)
         {
 
@@ -227,12 +227,22 @@ namespace GUI.UserControls
             
         }
 
-       
+        //Khi click vào 1 item trong LV
+        private void LvPhongDon_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            ListView lv = sender as ListView;
+            Phong_Custom phong = lv.SelectedItem as Phong_Custom;
+            ChiTietPhong ct = new ChiTietPhong(phong);
+            ct.ShowDialog();
+
+            lv.UnselectAll();
+        }
         //Tìm kiếm theo mã phòng
         private void click_EnterSearch(object sender, RoutedEventArgs e)
         {
             timKiemTheomaPhong();
         }
+
         private void enter_TxbTimKiem(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key != System.Windows.Input.Key.Enter) return;
@@ -245,10 +255,25 @@ namespace GUI.UserControls
         private void selectedDateChang_DatePicker(object sender, SelectionChangedEventArgs e)
         {
             DateTime? datepicker = dtpChonNgay.SelectedDate;
-            MessageBox.Show(datepicker.Value.ToString());
+            if (datepicker == null)
+            {
+                MessageBox.Show("Chọn đúng định dạng tháng ngày năm!!!");
+            }
+            else
+            {
+                lsPhong = PhongBUS.GetInstance().getDataPhongCustomTheoNgay(datepicker);
+            }
+
+            refeshLoaiPhong();
+            
+            rdTatCa.IsChecked = true;
+            rdTatCaLoaiPhong.IsChecked = true;
+            rdTatCaPhong.IsChecked = true;
+
         }
+
         #endregion
 
-
+        
     }
 }

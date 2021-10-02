@@ -56,7 +56,7 @@
                             <materialDesign:PackIcon Kind="CalendarRange" Height="25" Width="25"/>
                             <DatePicker x:Name="dtNTNS" Margin="30 0 0 0" Padding="0"
                                           materialDesign:HintAssist.Hint="Ngày tháng năm sinh"
-                                          Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+                                          Style="{StaticResource MaterialDesignFloatingHintDatePicker}" DisplayDate="2021-10-01" />
                         </Grid>
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
                             <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25"/>

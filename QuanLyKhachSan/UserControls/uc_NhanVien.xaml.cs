@@ -41,6 +41,7 @@ namespace GUI.UserControls
         }
         void nhanData(NhanVien nv)
         {
+            nv.MaNV = NhanVienBUS.genIDNhanVien();
             list.Add(nv);
             NhanVienBUS.addNhanVien(nv);
             MessageBox.Show("Thêm thành công!");

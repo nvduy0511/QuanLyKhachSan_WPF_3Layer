@@ -17,8 +17,11 @@ namespace BUS
         }
         public static void addNhanVien(NhanVien nv)
         {
-            nv.MaNV = GenID.genIDAuto(NhanVienDAL.getMaxMaNV());
             NhanVienDAL.addDataNhanVien(nv);
+        }
+        public static string genIDNhanVien()
+        {
+            return GenID.GetInstance().genIDAuto( NhanVienDAL.getMaxMaNV() );
         }
     }
 }

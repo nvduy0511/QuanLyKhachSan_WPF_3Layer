@@ -12,6 +12,7 @@
     <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="30" />
     <Property Name="SoNguoiO" Type="int" />
     <Property Name="TienPhong" Type="decimal" Precision="18" Scale="3" />
+    <Property Name="NgayTraThucTe" Type="datetime" />
   </EntityType>
   <EntityType Name="CT_SDDichVu">
     <Key>

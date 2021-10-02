@@ -17,6 +17,7 @@
           <Property Name="TinhTrangThue" Type="nvarchar" MaxLength="30" />
           <Property Name="SoNguoiO" Type="int" />
           <Property Name="TienPhong" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="NgayTraThucTe" Type="datetime" />
         </EntityType>
         <EntityType Name="CT_SDDichVu">
           <Key>
@@ -386,6 +387,7 @@
           <NavigationProperty Name="CT_SDDichVu" Relationship="Self.FK_CT_SDDichVu_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="CT_SDDichVu" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_CT_PhieuThue" FromRole="CT_PhieuThue" ToRole="HoaDon" />
           <Property Name="SoNguoiO" Type="Int32" />
+          <Property Name="NgayTraThucTe" Type="DateTime" Precision="3" />
         </EntityType>
         <EntityType Name="CT_SDDichVu">
           <Key>
@@ -766,6 +768,7 @@
           <EntitySetMapping Name="CT_PhieuThue">
             <EntityTypeMapping TypeName="QLKhachSanModel.CT_PhieuThue">
               <MappingFragment StoreEntitySet="CT_PhieuThue">
+                <ScalarProperty Name="NgayTraThucTe" ColumnName="NgayTraThucTe" />
                 <ScalarProperty Name="SoNguoiO" ColumnName="SoNguoiO" />
                 <ScalarProperty Name="MaCTPT" ColumnName="MaCTPT" />
                 <ScalarProperty Name="SoPhong" ColumnName="SoPhong" />

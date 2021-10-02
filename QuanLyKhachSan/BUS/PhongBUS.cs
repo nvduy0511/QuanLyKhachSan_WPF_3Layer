@@ -11,13 +11,34 @@ namespace BUS
 {
     public class PhongBUS
     {
-        public static List<Phong_Custom> getDataPhongCustom()
+        private static PhongBUS Instance;
+
+        private PhongBUS()
         {
-            return PhongDAL.getDataFromDataBase(); 
+
         }
-        public static List<PhongTrong> getPhongTrong()
+
+        public static PhongBUS GetInstance()
         {
-            return PhongDAL.getPhongTrong();
+            if (Instance == null)
+            {
+                Instance = new PhongBUS();
+            }
+            return Instance;
+        }
+        public List<Phong_Custom> getDataPhongCustom()
+        {
+            return PhongDAL.GetInstance().getDataFromDataBase(); 
+        }
+
+        public List<Phong_Custom> getDataPhongCustomTheoNgay(DateTime? ngayChon)
+        {
+            return PhongDAL.GetInstance().getDataPhongTheoNgay(ngayChon);
+        }
+
+        public List<PhongTrong> getPhongTrong()
+        {
+            return PhongDAL.GetInstance().getPhongTrong();
         }
     }
 }

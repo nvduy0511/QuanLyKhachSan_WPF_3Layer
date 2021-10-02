@@ -85,6 +85,7 @@
     <Compile Include="DichVu.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\PhongDaChon.cs" />
     <Compile Include="DTO\PhongTrong.cs" />
     <Compile Include="DTO\Phong_Custom.cs" />
     <Compile Include="HoaDon.cs">

@@ -18,7 +18,8 @@
         FontFamily="{DynamicResource MaterialDesignFont}"
         WindowStyle="None"
         AllowsTransparency="True" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded" >
     <!--Bo góc-->
     <Window.Clip>
         <RectangleGeometry Rect="0,0,995,550" RadiusX="10" RadiusY="10">
@@ -95,7 +96,7 @@
                     <Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left"
                         Margin="70 80 0 0">
                         <materialDesign:PackIcon Kind="CalendarToday" Height="25" Width="25" VerticalAlignment="Bottom"/>
-                            <DatePicker Margin="30 0 0 0"
+                            <DatePicker Margin="30 0 0 0" x:Name="dtpNgayBD"
                             materialDesign:HintAssist.Hint="Ngày bắt đầu"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     </Grid>
@@ -103,7 +104,7 @@
                     <Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right"
                         Margin="0 80 70 0">
                             <materialDesign:PackIcon Kind="ClockOutline" Height="25" Width="25" VerticalAlignment="Bottom"/>
-                            <materialDesign:TimePicker
+                            <materialDesign:TimePicker x:Name="tpGioBD"
                                       Margin="30 0 0 0"
                                       Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                                       materialDesign:HintAssist.Hint="Giờ bắt đầu" />
@@ -112,7 +113,7 @@
                     <Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Left"
                         Margin="70 120 0 0">
                         <materialDesign:PackIcon Kind="CalendarToday" Height="25" Width="25" VerticalAlignment="Bottom"/>
-                        <DatePicker Margin="30 0 0 0"
+                        <DatePicker Margin="30 0 0 0" x:Name="dtpNgayKT"
                             materialDesign:HintAssist.Hint="Ngày kết thúc"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     </Grid>
@@ -120,7 +121,7 @@
                     <Grid Height="33" Width="150" VerticalAlignment="Top" HorizontalAlignment="Right"
                         Margin="0 120 70 0">
                             <materialDesign:PackIcon Kind="ClockOutline" Height="25" Width="25" VerticalAlignment="Bottom"/>
-                            <materialDesign:TimePicker
+                            <materialDesign:TimePicker x:Name="tpGioKT"
                                       Margin="30 0 0 0"
                                       Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
                                       materialDesign:HintAssist.Hint="Giờ kết thúc" />
@@ -151,7 +152,7 @@
                                     <GridViewColumn Width="54" Header="Thêm">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
-                                                <Button Width="25" Height="25" BorderThickness="0" Padding="0">
+                                                <Button Width="25" Height="25" BorderThickness="0" Padding="0" Click="click_ThemPhong" >
                                                     <Button.Background>
                                                         <ImageBrush ImageSource="/GUI;component/Res/add.png"/>
                                                     </Button.Background>
@@ -171,7 +172,7 @@
                         <Grid.Clip>
                             <RectangleGeometry Rect="0,0,230,172" RadiusX="10" RadiusY="10"/>
                         </Grid.Clip>
-                            <ListView>
+                            <ListView x:Name="lvPhongDaChon">
                                 <ListView.Resources>
                                     <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
                                     <sys:Double x:Key="{x:Static SystemParameters.HorizontalScrollBarHeightKey }">10</sys:Double>
@@ -185,18 +186,30 @@
                                                 <Setter Property="FontWeight" Value="Bold" />
                                             </Style>
                                         </GridView.ColumnHeaderContainerStyle>
-                                        <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding }" />
-                                        <GridViewColumn Width="70" Header="Số người">
+                                        <GridViewColumn  Header="Số phòng"  Width="65" DisplayMemberBinding="{Binding SoPhong }" />
+                                        <GridViewColumn Width="60" Header="Số người">
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBox
+                                                        Text="{Binding SoNguoi}"
                                                         materialDesign:HintAssist.Hint="Nhập số người ở">
                                                     </TextBox>
                                                 </DataTemplate>
                                             </GridViewColumn.CellTemplate>
                                         </GridViewColumn>
-                                        <GridViewColumn  Header="Ngày BD"  Width="70" DisplayMemberBinding="{Binding }" />
-                                        <GridViewColumn  Header="Ngày KT"  Width="70" DisplayMemberBinding="{Binding }" />
+                                        <GridViewColumn  Header="Ngày BD"  Width="150" DisplayMemberBinding="{Binding NgayBD }" />
+                                        <GridViewColumn  Header="Ngày KT"  Width="150" DisplayMemberBinding="{Binding NgayKT}" />
+                                        <GridViewColumn Width="54" Header="Xóa">
+                                            <GridViewColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <Button Width="25" Height="25" BorderThickness="0" Padding="0" Click="click_Delete"  >
+                                                        <Button.Background>
+                                                            <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
+                                                        </Button.Background>
+                                                    </Button>
+                                                </DataTemplate>
+                                            </GridViewColumn.CellTemplate>
+                                        </GridViewColumn>
                                     </GridView>
                                 </ListView.View>
                             </ListView>
