@@ -48,35 +48,44 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="0">
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
-                            <materialDesign:PackIcon Kind="AccountBox" Height="25" Width="25"/>
-                            <TextBox x:Name="txbHoTenNV" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập họ tên nhân viên"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
+                            <materialDesign:PackIcon Kind="AccountBox" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbHoTenNV" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập họ tên nhân viên"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="CalendarRange" Height="25" Width="25"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="CalendarRange" Height="25" Width="25" VerticalAlignment="Center"/>
                             <DatePicker x:Name="dtNTNS" Margin="30 0 0 0" Padding="0"
                                           materialDesign:HintAssist.Hint="Ngày tháng năm sinh"
                                           Style="{StaticResource MaterialDesignFloatingHintDatePicker}" DisplayDate="2021-10-01" />
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25"/>
-                            <TextBox x:Name="txbCCCD"  Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập căn cước công dân"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbCCCD" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập họ căn cước công dân"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25"/>
-                            <TextBox x:Name="txbLuong"  Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập lương"/>
+                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="Counter" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbLuong" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập lương"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                            
                         </Grid>
                     </StackPanel>
                     
                     <Grid Height="200" VerticalAlignment="Center" Background="#9A8A8A" Grid.Column="1"/>
 
                     <StackPanel Grid.Column="2">
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
-                            <materialDesign:PackIcon Kind="Phone" Height="25" Width="25"/>
-                            <TextBox x:Name="txbSDT" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập số điện thoại"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
+                            <materialDesign:PackIcon Kind="Phone" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbSDT" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập số điện thoại"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="GenderTransgender" Height="25" Width="25"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="GenderTransgender" Height="25" Width="25" VerticalAlignment="Center"/>
                             <ComboBox x:Name="cbGioiTinh" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30 0 0 0"
                                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                     materialDesign:HintAssist.Hint="Giới tính"
@@ -85,13 +94,18 @@
                                 <ComboBoxItem Content="Nữ" />
                             </ComboBox>
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="MapMarkerRadiusOutline" Height="25" Width="25"/>
-                            <TextBox x:Name="txbDiaChi" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập địa chỉ"/>
+                        <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="MapMarkerRadiusOutline" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbDiaChi" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập địa chỉ"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
-                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 45 0 0">
-                            <materialDesign:PackIcon Kind="MapMarkerRadiusOutline" Height="25" Width="25"/>
-                            <TextBox x:Name="txbChucVu" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập chức vụ"/>
+                        <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
+                            <materialDesign:PackIcon Kind="AccountHardHat" Height="25" Width="25" VerticalAlignment="Center"/>
+                            <TextBox  x:Name="txbChucVu" Margin="30 0 0 0" Padding="0"
+                                      materialDesign:HintAssist.Hint="Nhập chức vụ"
+                                      Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                           
                         </Grid>
                     </StackPanel>
 
@@ -99,12 +113,30 @@
                 
             </Grid>
             <Grid Grid.Row="2">
-                <Button Width="89" Height="36" Background="#478C10" Content="Thêm" Click="click_ThemNV" 
+                <Button Width="89" Height="36" Background="#478C10" Content="Cập nhật" Click="click_Sua" 
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
                     </Button.Clip>
+                    
                 </Button>
+                <Button Width="89" Height="36" Background="#478C10" Content="Thêm" Click="click_ThemNV" Foreground="White"
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 212 20" >
+                    <Button.Clip>
+                        <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10"/>
+                    </Button.Clip>
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Visibility" Value="Hidden"></Setter>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=Text, ElementName=txbTitle }" Value="Thêm nhân viên">
+                                    <Setter Property="Visibility" Value="Visible"></Setter>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                
                 <Button Width="89" Height="36" Background="#9D9999" Content="Hủy"
                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 80 20" Click="click_Huy"   >
                     <Button.Clip>

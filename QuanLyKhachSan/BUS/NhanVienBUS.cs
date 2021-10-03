@@ -11,17 +11,50 @@ namespace BUS
 {
     public class NhanVienBUS
     {
-        public static List<NhanVien> getDataNhanVien()
+        private static NhanVienBUS Instance;
+
+        private NhanVienBUS()
         {
-            return NhanVienDAL.getDataNhanVien();
+
         }
-        public static void addNhanVien(NhanVien nv)
+
+        public static NhanVienBUS GetInstance()
         {
-            NhanVienDAL.addDataNhanVien(nv);
+            if (Instance == null)
+            {
+                Instance = new NhanVienBUS();
+            }
+            return Instance;
         }
-        public static string genIDNhanVien()
+
+        //Lấy danh sách nhân viên từ DB
+        public List<NhanVien> getDataNhanVien()
         {
-            return GenID.GetInstance().genIDAuto( NhanVienDAL.getMaxMaNV() );
+            return NhanVienDAL.GetInstance().getDataNhanVien();
         }
+
+        //Thêm nhân viên vào DB
+        public bool addNhanVien(NhanVien nv)
+        {
+            return  NhanVienDAL.GetInstance().addDataNhanVien(nv);
+        }
+
+        //Sửa nhân viên 
+        public bool updateNhanVien(NhanVien nv)
+        {
+            return NhanVienDAL.GetInstance().updateDataNhanVien(nv);
+        }
+        //Xóa nhân viên
+        public bool deleteNhanVien(NhanVien nv)
+        {
+            return NhanVienDAL.GetInstance().deleteDataNhanVien(nv);
+        }
+
+        // Tự động tạo mã nhân viên khi thêm mới
+        public string genIDNhanVien()
+        {
+            return GenID.GetInstance().genIDAuto( NhanVienDAL.GetInstance().getMaxMaNV());
+        }
+
     }
 }

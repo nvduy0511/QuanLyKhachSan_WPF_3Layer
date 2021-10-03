@@ -19,9 +19,14 @@ namespace GUI.View
     
     public partial class Them_SuaNhanVien : Window
     {
-        public delegate void truyenData(NhanVien nv);
+        public delegate void themNV(NhanVien nv);
 
-        public truyenData truyenNhanVien;
+        public delegate void suaNV(NhanVien nv);
+
+        public themNV themNhanVien;
+        public suaNV suaNhanVien;
+
+        private string maNV;
 
         public Them_SuaNhanVien()
         {
@@ -39,6 +44,7 @@ namespace GUI.View
             cbGioiTinh.Text = nv.GioiTinh;
             dtNTNS.Text = nv.NTNS.ToString();
             txbTitle.Text = "Sửa nhân viên " + nv.MaNV;
+            maNV = nv.MaNV;
         }
 
         private void click_Huy(object sender, RoutedEventArgs e)
@@ -51,19 +57,46 @@ namespace GUI.View
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
             NhanVien nhanVien = new NhanVien()
-            {   HoTen = txbHoTenNV.Text, 
+            {   
+                HoTen = txbHoTenNV.Text,
                 CCCD = txbCCCD.Text,
-                ChucVu = txbChucVu.Text ,
+                ChucVu = txbChucVu.Text,
                 DiaChi = txbDiaChi.Text,
-                GioiTinh= cbGioiTinh.Text ,
-                Luong = (decimal.Parse(txbLuong.Text)), 
-                NTNS =  DateTime.Parse( dtNTNS.SelectedDate.ToString()),
+                GioiTinh = cbGioiTinh.Text,
+                Luong = (decimal.Parse(txbLuong.Text)),
+                NTNS = DateTime.Parse(dtNTNS.SelectedDate.ToString()),
                 SDT = txbSDT.Text
             };
 
-            if(truyenNhanVien != null)
+
+            if (themNhanVien != null)
             {
-                truyenNhanVien(nhanVien);
+                themNhanVien(nhanVien);
+            }
+
+            Window wd = Window.GetWindow(sender as Button);
+            wd.Close();
+        }
+
+        private void click_Sua(object sender, RoutedEventArgs e)
+        {
+            NhanVien nhanVien = new NhanVien()
+            {
+                MaNV = maNV,
+                HoTen = txbHoTenNV.Text,
+                CCCD = txbCCCD.Text,
+                ChucVu = txbChucVu.Text,
+                DiaChi = txbDiaChi.Text,
+                GioiTinh = cbGioiTinh.Text,
+                Luong = (decimal.Parse(txbLuong.Text)),
+                NTNS = DateTime.Parse(dtNTNS.SelectedDate.ToString()),
+                SDT = txbSDT.Text
+            };
+
+
+            if (suaNhanVien != null)
+            {
+                suaNhanVien(nhanVien);
             }
 
             Window wd = Window.GetWindow(sender as Button);

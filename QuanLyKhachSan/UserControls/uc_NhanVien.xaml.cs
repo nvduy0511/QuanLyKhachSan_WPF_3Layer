@@ -19,16 +19,14 @@ using DAL;
 
 namespace GUI.UserControls
 {
-    /// <summary>
-    /// Interaction logic for uc_NhanVien.xaml
-    /// </summary>
+
     public partial class uc_NhanVien : UserControl
     {
         ObservableCollection<NhanVien> list;
         public uc_NhanVien()
         {
             InitializeComponent();
-            list = new ObservableCollection<NhanVien>(NhanVienBUS.getDataNhanVien());
+            list = new ObservableCollection<NhanVien>(NhanVienBUS.GetInstance().getDataNhanVien());
             lvNhanVien.ItemsSource = list;
 
         }
@@ -36,30 +34,61 @@ namespace GUI.UserControls
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
             Them_SuaNhanVien tnv = new Them_SuaNhanVien();
-            tnv.truyenNhanVien = new Them_SuaNhanVien.truyenData(nhanData);
+            tnv.themNhanVien = new Them_SuaNhanVien.themNV(nhanData);
             tnv.ShowDialog();
         }
         void nhanData(NhanVien nv)
         {
-            nv.MaNV = NhanVienBUS.genIDNhanVien();
+            nv.MaNV = NhanVienBUS.GetInstance().genIDNhanVien();
             list.Add(nv);
-            NhanVienBUS.addNhanVien(nv);
-            MessageBox.Show("Thêm thành công!");
+            if( NhanVienBUS.GetInstance().addNhanVien(nv) )
+                MessageBox.Show("Thêm thành công!");
         }
 
         private void click_XoaNV(object sender, RoutedEventArgs e)
         {
             NhanVien nv = (sender as Button).DataContext as NhanVien;
-            list.Remove(nv);
+            var result = MessageBox.Show("Bạn có muốn xóa nhân viên " + nv.MaNV, "Thông báo", MessageBoxButton.YesNo);
+            if(result == MessageBoxResult.Yes)
+            {
+                if (NhanVienBUS.GetInstance().deleteNhanVien(nv))
+                {
+                    list.Remove(nv);
+                    MessageBox.Show("Xóa nhân viên thành công !");
+                }
+                    
+            }
         }
 
         private void click_SuaNV(object sender, RoutedEventArgs e)
         {
             NhanVien nv = (sender as Button).DataContext as NhanVien;
-            Them_SuaNhanVien tnv = new Them_SuaNhanVien(nv);
-            tnv.ShowDialog();
+            Them_SuaNhanVien themNhanVien = new Them_SuaNhanVien(nv);
+            themNhanVien.suaNhanVien = new Them_SuaNhanVien.suaNV(SuaThongTinNhanVien);
+            themNhanVien.ShowDialog();
 
         }
+        void SuaThongTinNhanVien(NhanVien nv)
+        {
+            // sửa để update lên list view
+            NhanVien nhanVien_Sua = list.Where(s => s.MaNV.Equals(nv.MaNV)).FirstOrDefault();
+            nhanVien_Sua.HoTen = nv.HoTen;
+            nhanVien_Sua.GioiTinh = nv.GioiTinh;
+            nhanVien_Sua.NTNS = nv.NTNS;
+            nhanVien_Sua.Luong = nv.Luong;
+            nhanVien_Sua.SDT = nv.SDT;
+            nhanVien_Sua.CCCD = nv.CCCD;
+            nhanVien_Sua.ChucVu = nv.ChucVu;
+            nhanVien_Sua.DiaChi = nv.DiaChi;
+
+            if( NhanVienBUS.GetInstance().updateNhanVien(nv) )
+            {
+                MessageBox.Show("Update nhân viên thành công !");
+            }
+
+        }
+
+
     }
 
 }

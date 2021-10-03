@@ -9,7 +9,24 @@ namespace DAL.Data
 {
     public class NhanVienDAL
     {
-        public static List<NhanVien> getDataNhanVien()
+        private static NhanVienDAL Instance;
+
+        private NhanVienDAL()
+        {
+
+        }
+
+        public static NhanVienDAL GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new NhanVienDAL();
+            }
+            return Instance;
+        }
+
+        //Lấy danh sách nhân viên từ DB
+        public List<NhanVien> getDataNhanVien()
         {
             List<NhanVien> lsNV = new List<NhanVien>();
             using (QLKhachSanEntities db = new QLKhachSanEntities())
@@ -19,17 +36,73 @@ namespace DAL.Data
             }
             return lsNV;
         }
-        public static void addDataNhanVien(NhanVien nv)
+        //Thêm mới nhân viên
+        public bool addDataNhanVien(NhanVien nv)
         {
-            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            try
             {
-                NhanVien nvMax = db.NhanViens.OrderByDescending(n => n.MaNV).FirstOrDefault();
-                
-                db.NhanViens.Add(nv);
-                db.SaveChanges();
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    db.NhanViens.Add(nv);
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+            
+        }
+        //Sửa nhân viên
+        public bool updateDataNhanVien(NhanVien nv)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                // cách củ chuối
+                    //var u_NhanVien = db.NhanViens.Find(nv.MaNV);
+                    //u_NhanVien.HoTen = nv.HoTen;
+                    //u_NhanVien.GioiTinh = nv.GioiTinh;
+                    //u_NhanVien.NTNS = nv.NTNS;
+                    //u_NhanVien.Luong = nv.Luong;
+                    //u_NhanVien.SDT = nv.SDT;
+                    //u_NhanVien.CCCD = nv.CCCD;
+                    //u_NhanVien.ChucVu = nv.ChucVu;
+                    //u_NhanVien.DiaChi = nv.DiaChi;
+                //cách Vip hơn tí
+                    db.Entry(nv).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
             }
         }
-        public static string getMaxMaNV()
+        //Xóa nhân viên
+        public bool deleteDataNhanVien(NhanVien nv)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    db.Entry(nv).State = System.Data.Entity.EntityState.Deleted;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
+            }
+            
+        }
+        //Lấy ra mã nhân viên lớn nhất
+        public string getMaxMaNV()
         {
             NhanVien nvMax;
             using (QLKhachSanEntities db = new QLKhachSanEntities())
