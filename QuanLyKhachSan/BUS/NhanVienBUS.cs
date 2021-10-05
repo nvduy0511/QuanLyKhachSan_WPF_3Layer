@@ -50,11 +50,5 @@ namespace BUS
             return NhanVienDAL.GetInstance().deleteDataNhanVien(nv);
         }
 
-        // Tự động tạo mã nhân viên khi thêm mới
-        public string genIDNhanVien()
-        {
-            return GenID.GetInstance().genIDAuto( NhanVienDAL.GetInstance().getMaxMaNV());
-        }
-
     }
 }

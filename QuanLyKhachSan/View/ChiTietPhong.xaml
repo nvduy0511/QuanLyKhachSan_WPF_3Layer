@@ -85,14 +85,8 @@
                                 <Grid.Clip>
                                     <RectangleGeometry Rect="0,0,307,188" RadiusX="10" RadiusY="10"/>
                                 </Grid.Clip>
-                                <ListView>
-                                    <!--Căn giữa-->
-                                    <ListView.ItemContainerStyle>
-                                        <Style TargetType="ListViewItem">
-                                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                                        </Style>
-                                    </ListView.ItemContainerStyle>
-
+                                <ListView x:Name="lvSuDungDV" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                                    
                                     <ListView.Resources>
                                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
                                     </ListView.Resources>
@@ -106,15 +100,15 @@
                                                     <Setter Property="FontWeight" Value="Bold" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn  Header="STT"  Width="50" DisplayMemberBinding="{Binding soPT}" />
-                                            <GridViewColumn Header="Dịch vụ" Width="190" DisplayMemberBinding="{Binding soPhong}"  />
-                                            <GridViewColumn Header="SL" Width="66"   />
+                                            <GridViewColumn  Header="STT"  Width="50" DisplayMemberBinding="{Binding STT}" />
+                                            <GridViewColumn Header="Dịch vụ" Width="190" DisplayMemberBinding="{Binding TenDV}"  />
+                                            <GridViewColumn Header="SL" Width="66" DisplayMemberBinding="{Binding SoLuong}"  />
                                         </GridView>
                                     </ListView.View>
                                     
                                 </ListView>
                             </Grid>
-                            <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ"
+                            <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" Click="click_ThemDV"    
                                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13">
                                 <Button.Clip>
                                     <RectangleGeometry Rect="0,0,140,37" RadiusX="10" RadiusY="10"/>

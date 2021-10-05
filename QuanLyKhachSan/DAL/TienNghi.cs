@@ -20,7 +20,7 @@ namespace DAL
             this.CT_TienNghi = new HashSet<CT_TienNghi>();
         }
     
-        public string MaTN { get; set; }
+        public int MaTN { get; set; }
         public string TenTN { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

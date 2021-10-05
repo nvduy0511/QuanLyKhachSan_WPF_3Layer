@@ -14,11 +14,11 @@ namespace DAL
     
     public partial class HoaDon
     {
-        public string MaHD { get; set; }
+        public int MaHD { get; set; }
         public Nullable<System.DateTime> NgayLap { get; set; }
-        public string MaNV { get; set; }
+        public Nullable<int> MaNV { get; set; }
         public Nullable<decimal> TongTien { get; set; }
-        public string MaCTPT { get; set; }
+        public Nullable<int> MaCTPT { get; set; }
     
         public virtual CT_PhieuThue CT_PhieuThue { get; set; }
         public virtual NhanVien NhanVien { get; set; }

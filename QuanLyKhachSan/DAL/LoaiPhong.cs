@@ -20,7 +20,7 @@ namespace DAL
             this.Phongs = new HashSet<Phong>();
         }
     
-        public string MaLoaiPhong { get; set; }
+        public int MaLoaiPhong { get; set; }
         public string TenLoaiPhong { get; set; }
         public Nullable<int> SoNguoiToiDa { get; set; }
         public Nullable<decimal> GiaNgay { get; set; }

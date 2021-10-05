@@ -30,20 +30,43 @@ namespace GUI.UserControls
             lvNhanVien.ItemsSource = list;
 
         }
+        #region method
+        void nhanData(NhanVien nv)
+        {
+            list.Add(nv);
+            if (NhanVienBUS.GetInstance().addNhanVien(nv))
+                MessageBox.Show("Thêm thành công!");
+        }
 
+        void SuaThongTinNhanVien(NhanVien nv)
+        {
+            // sửa để update lên list view
+            NhanVien nhanVien_Sua = list.Where(s => s.MaNV.Equals(nv.MaNV)).FirstOrDefault();
+            nhanVien_Sua.HoTen = nv.HoTen;
+            nhanVien_Sua.GioiTinh = nv.GioiTinh;
+            nhanVien_Sua.NTNS = nv.NTNS;
+            nhanVien_Sua.Luong = nv.Luong;
+            nhanVien_Sua.SDT = nv.SDT;
+            nhanVien_Sua.CCCD = nv.CCCD;
+            nhanVien_Sua.ChucVu = nv.ChucVu;
+            nhanVien_Sua.DiaChi = nv.DiaChi;
+
+            if (NhanVienBUS.GetInstance().updateNhanVien(nv))
+            {
+                MessageBox.Show("Update nhân viên thành công !");
+            }
+
+        }
+        #endregion
+
+        #region event
         private void click_ThemNV(object sender, RoutedEventArgs e)
         {
             Them_SuaNhanVien tnv = new Them_SuaNhanVien();
-            tnv.themNhanVien = new Them_SuaNhanVien.themNV(nhanData);
+            tnv.themNhanVien = new Them_SuaNhanVien.CRUD(nhanData);
             tnv.ShowDialog();
         }
-        void nhanData(NhanVien nv)
-        {
-            nv.MaNV = NhanVienBUS.GetInstance().genIDNhanVien();
-            list.Add(nv);
-            if( NhanVienBUS.GetInstance().addNhanVien(nv) )
-                MessageBox.Show("Thêm thành công!");
-        }
+        
 
         private void click_XoaNV(object sender, RoutedEventArgs e)
         {
@@ -63,30 +86,13 @@ namespace GUI.UserControls
         private void click_SuaNV(object sender, RoutedEventArgs e)
         {
             NhanVien nv = (sender as Button).DataContext as NhanVien;
-            Them_SuaNhanVien themNhanVien = new Them_SuaNhanVien(nv);
-            themNhanVien.suaNhanVien = new Them_SuaNhanVien.suaNV(SuaThongTinNhanVien);
+            Them_SuaNhanVien themNhanVien = new Them_SuaNhanVien();
+            themNhanVien.truyenNhanVien(nv);
+            themNhanVien.suaNhanVien = new Them_SuaNhanVien.CRUD(SuaThongTinNhanVien);
             themNhanVien.ShowDialog();
-
         }
-        void SuaThongTinNhanVien(NhanVien nv)
-        {
-            // sửa để update lên list view
-            NhanVien nhanVien_Sua = list.Where(s => s.MaNV.Equals(nv.MaNV)).FirstOrDefault();
-            nhanVien_Sua.HoTen = nv.HoTen;
-            nhanVien_Sua.GioiTinh = nv.GioiTinh;
-            nhanVien_Sua.NTNS = nv.NTNS;
-            nhanVien_Sua.Luong = nv.Luong;
-            nhanVien_Sua.SDT = nv.SDT;
-            nhanVien_Sua.CCCD = nv.CCCD;
-            nhanVien_Sua.ChucVu = nv.ChucVu;
-            nhanVien_Sua.DiaChi = nv.DiaChi;
+        #endregion
 
-            if( NhanVienBUS.GetInstance().updateNhanVien(nv) )
-            {
-                MessageBox.Show("Update nhân viên thành công !");
-            }
-
-        }
 
 
     }

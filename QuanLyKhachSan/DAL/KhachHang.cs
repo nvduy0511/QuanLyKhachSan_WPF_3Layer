@@ -20,7 +20,7 @@ namespace DAL
             this.PhieuThues = new HashSet<PhieuThue>();
         }
     
-        public string MaKH { get; set; }
+        public int MaKH { get; set; }
         public string TenKH { get; set; }
         public string CCCD { get; set; }
         public string SDT { get; set; }

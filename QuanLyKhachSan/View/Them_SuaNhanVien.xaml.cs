@@ -19,22 +19,21 @@ namespace GUI.View
     
     public partial class Them_SuaNhanVien : Window
     {
-        public delegate void themNV(NhanVien nv);
+        public delegate void CRUD(NhanVien nv);
 
-        public delegate void suaNV(NhanVien nv);
-
-        public themNV themNhanVien;
-        public suaNV suaNhanVien;
-
+        public CRUD themNhanVien;
+        public CRUD suaNhanVien;
+        public CRUD truyenNhanVien;
         private string maNV;
 
         public Them_SuaNhanVien()
         {
             InitializeComponent();
+            truyenNhanVien = new CRUD(nhanData);
         }
-        public Them_SuaNhanVien(NhanVien nv)
+        public void nhanData(NhanVien nv)
         {
-            InitializeComponent();
+            txbTitle.Text = "Sửa nhân viên";
             txbHoTenNV.Text = nv.HoTen;
             txbCCCD.Text = nv.CCCD;
             txbChucVu.Text = nv.ChucVu;
@@ -43,10 +42,10 @@ namespace GUI.View
             txbSDT.Text = nv.SDT;
             cbGioiTinh.Text = nv.GioiTinh;
             dtNTNS.Text = nv.NTNS.ToString();
-            txbTitle.Text = "Sửa nhân viên " + nv.MaNV;
-            maNV = nv.MaNV;
+            maNV = nv.MaNV.ToString();
         }
 
+        #region event
         private void click_Huy(object sender, RoutedEventArgs e)
         {
             Window wd = Window.GetWindow(sender as Button);
@@ -82,7 +81,7 @@ namespace GUI.View
         {
             NhanVien nhanVien = new NhanVien()
             {
-                MaNV = maNV,
+                MaNV = int.Parse(maNV),
                 HoTen = txbHoTenNV.Text,
                 CCCD = txbCCCD.Text,
                 ChucVu = txbChucVu.Text,
@@ -102,5 +101,6 @@ namespace GUI.View
             Window wd = Window.GetWindow(sender as Button);
             wd.Close();
         }
+        #endregion
     }
 }

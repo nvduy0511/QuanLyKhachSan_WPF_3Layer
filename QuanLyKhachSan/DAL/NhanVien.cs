@@ -13,9 +13,17 @@ namespace DAL
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class NhanVien : INotifyPropertyChanged
+    public partial class NhanVien: INotifyPropertyChanged
     {
-        private string maNV;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NhanVien()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+            this.PhieuThues = new HashSet<PhieuThue>();
+            this.TaiKhoans = new HashSet<TaiKhoan>();
+        }
+    
+        public int MaNV { get; set; }
         private string hoTen;
         private DateTime? nTNS;
         private string cCCD;
@@ -24,17 +32,7 @@ namespace DAL
         private string gioiTinh;
         private decimal? luong;
         private string chucVu;
-        
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NhanVien()
-        {
-            this.HoaDons = new HashSet<HoaDon>();
-            this.PhieuThues = new HashSet<PhieuThue>();
-            this.TaiKhoans = new HashSet<TaiKhoan>();
-        }
-
-        public string MaNV { get => maNV; set => maNV = value; }
         public string HoTen
         {
             get => hoTen;
@@ -114,7 +112,6 @@ namespace DAL
         public virtual ICollection<PhieuThue> PhieuThues { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TaiKhoan> TaiKhoans { get; set; }
-
 
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string newName)

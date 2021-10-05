@@ -14,9 +14,9 @@ namespace DAL
     
     public partial class CT_TienNghi
     {
-        public string MaCTTN { get; set; }
+        public int MaCTTN { get; set; }
         public string SoPhong { get; set; }
-        public string MaTN { get; set; }
+        public Nullable<int> MaTN { get; set; }
         public Nullable<int> SL { get; set; }
     
         public virtual Phong Phong { get; set; }

@@ -21,14 +21,14 @@ namespace DAL
             this.HoaDons = new HashSet<HoaDon>();
         }
     
-        public string MaCTPT { get; set; }
+        public int MaCTPT { get; set; }
         public string SoPhong { get; set; }
-        public string MaPhieuThue { get; set; }
+        public Nullable<int> MaPhieuThue { get; set; }
         public Nullable<System.DateTime> NgayBD { get; set; }
         public Nullable<System.DateTime> NgayKT { get; set; }
         public string TinhTrangThue { get; set; }
-        public Nullable<decimal> TienPhong { get; set; }
         public Nullable<int> SoNguoiO { get; set; }
+        public Nullable<decimal> TienPhong { get; set; }
         public Nullable<System.DateTime> NgayTraThucTe { get; set; }
     
         public virtual PhieuThue PhieuThue { get; set; }

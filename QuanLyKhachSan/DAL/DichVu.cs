@@ -20,10 +20,10 @@ namespace DAL
             this.CT_SDDichVu = new HashSet<CT_SDDichVu>();
         }
     
-        public string MaDV { get; set; }
+        public int MaDV { get; set; }
         public string TenDV { get; set; }
         public Nullable<decimal> Gia { get; set; }
-        public string MaLoaiDV { get; set; }
+        public Nullable<int> MaLoaiDV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_SDDichVu> CT_SDDichVu { get; set; }

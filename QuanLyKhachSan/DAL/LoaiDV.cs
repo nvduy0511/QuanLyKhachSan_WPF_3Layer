@@ -20,7 +20,7 @@ namespace DAL
             this.DichVus = new HashSet<DichVu>();
         }
     
-        public string MaLoaiDV { get; set; }
+        public int MaLoaiDV { get; set; }
         public string TenLoaiDV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

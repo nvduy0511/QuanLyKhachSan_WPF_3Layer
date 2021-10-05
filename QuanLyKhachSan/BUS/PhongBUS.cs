@@ -26,10 +26,7 @@ namespace BUS
             }
             return Instance;
         }
-        public List<Phong_Custom> getDataPhongCustom()
-        {
-            return PhongDAL.GetInstance().getDataFromDataBase(); 
-        }
+        
 
         public List<Phong_Custom> getDataPhongCustomTheoNgay(DateTime? ngayChon)
         {

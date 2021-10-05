@@ -15,8 +15,8 @@ namespace DAL
     public partial class CT_SDDichVu
     {
         public string MaCTSDDV { get; set; }
-        public string MaCTPT { get; set; }
-        public string MaDV { get; set; }
+        public Nullable<int> MaCTPT { get; set; }
+        public Nullable<int> MaDV { get; set; }
         public Nullable<int> SL { get; set; }
         public Nullable<decimal> ThanhTien { get; set; }
     

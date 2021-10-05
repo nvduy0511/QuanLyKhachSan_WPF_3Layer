@@ -23,7 +23,7 @@ namespace DAL
     
         public string SoPhong { get; set; }
         public string TinhTrang { get; set; }
-        public string MaLoaiPhong { get; set; }
+        public Nullable<int> MaLoaiPhong { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PhieuThue> CT_PhieuThue { get; set; }

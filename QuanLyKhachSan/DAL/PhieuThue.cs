@@ -20,10 +20,10 @@ namespace DAL
             this.CT_PhieuThue = new HashSet<CT_PhieuThue>();
         }
     
-        public string MaPhieuThue { get; set; }
+        public int MaPhieuThue { get; set; }
         public Nullable<System.DateTime> NgayLapPhieu { get; set; }
-        public string MaKH { get; set; }
-        public string MaNV { get; set; }
+        public Nullable<int> MaKH { get; set; }
+        public Nullable<int> MaNV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PhieuThue> CT_PhieuThue { get; set; }

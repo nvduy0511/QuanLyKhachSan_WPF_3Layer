@@ -79,19 +79,16 @@ namespace GUI.View
         {
             //Khoi tao Menu
             listMenu = new List<ItemMenuMainWindow>();
-            listMenu.Add(new ItemMenuMainWindow() { name = "Trang Chủ", foreColor = "Gray", kind_Icon = "Recycle" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Phòng", foreColor = "#FFF08033", kind_Icon = "HelpCircleOutline" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Đặt Phòng", foreColor = "Green", kind_Icon = "Lightbulb" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Nhân Viên", foreColor = "#FFD41515", kind_Icon = "Heart" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Premium Subscription", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
-            listMenu.Add(new ItemMenuMainWindow() { name = "Settings", foreColor = "#FF0069C1", kind_Icon = "Settings" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Trang Chủ", foreColor = "Gray", kind_Icon = "Home" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Phòng", foreColor = "#FFF08033", kind_Icon = "HomeCity" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Đặt Phòng", foreColor = "Green", kind_Icon = "BookAccount" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "QL nhân Viên", foreColor = "#FFD41515", kind_Icon = "Account" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Hóa đơn", foreColor = "#FFD41515", kind_Icon = "Receipt" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "QL phòng", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "QL dịch vụ", foreColor = "Blue", kind_Icon = "FaceAgent" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "QL tiện nghi", foreColor = "#FFF08033", kind_Icon = "Fridge" });
+            listMenu.Add(new ItemMenuMainWindow() { name = "Thống kê", foreColor = "#FF0069C1", kind_Icon = "ChartAreaspline" });
+
             lisviewMenu.ItemsSource = listMenu;
             lisviewMenu.SelectedValuePath = "name";
             Title_Main = "Trang Chủ";

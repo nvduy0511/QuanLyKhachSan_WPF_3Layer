@@ -232,9 +232,9 @@ namespace GUI.UserControls
         {
             ListView lv = sender as ListView;
             Phong_Custom phong = lv.SelectedItem as Phong_Custom;
-            ChiTietPhong ct = new ChiTietPhong(phong);
+            ChiTietPhong ct = new ChiTietPhong();
+            ct.truyenData(phong);
             ct.ShowDialog();
-
             lv.UnselectAll();
         }
         //Tìm kiếm theo mã phòng

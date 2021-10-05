@@ -8,6 +8,7 @@ namespace DAL.DTO
 {
     public class Phong_Custom
     {
+        private int? maCTPT;
         private string maPhong;
         private string tinhTrang;
         private string tenKH;
@@ -25,5 +26,6 @@ namespace DAL.DTO
         public DateTime? NgayDen { get => ngayDen; set => ngayDen = value; }
         public int? SoNguoi { get => soNguoi; set => soNguoi = value; }
         public int? SoNgayO { get => soNgayO; set => soNgayO = value; }
+        public int? MaCTPT { get => maCTPT; set => maCTPT = value; }
     }
 }
