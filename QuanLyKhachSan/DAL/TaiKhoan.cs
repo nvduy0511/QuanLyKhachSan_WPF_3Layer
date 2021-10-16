@@ -16,8 +16,8 @@ namespace DAL
     {
         public string username { get; set; }
         public string password { get; set; }
-        public Nullable<int> CapDoQuyen { get; set; }
-        public Nullable<int> MaNV { get; set; }
+        public int CapDoQuyen { get; set; }
+        public int MaNV { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
     }

@@ -26,36 +26,20 @@
         <materialDesign:ColorZone Grid.Row="0" Height="45"
                 Mode="PrimaryLight" Background="#FFF4F4F4">
             <StackPanel Orientation="Horizontal">
-                <DatePicker Margin="50 0 0 5" Width="150" x:Name="dtpChonNgay"
+                <DatePicker Margin="10 0 0 5" Width="150" x:Name="dtpChonNgay"
                             materialDesign:HintAssist.Hint="Chọn ngày"
                             Padding="10 10 10 5"
-                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" SelectedDateChanged="selectedDateChang_DatePicker" />
-                <!--quẹo trái nè-->
-                <Button 
-                    Width="40" Height="40" Padding="0"
-                    Margin="10 0 0 0" Background="Transparent"
-                    BorderThickness="0">
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,50,50" RadiusX="50" RadiusY="60">
-                        </RectangleGeometry>
-                    </Button.Clip>
-                    <materialDesign:PackIcon Kind="ChevronLeft" Width="27"
-                                         Height="30" 
-                                         Foreground="Black" Opacity="0.7" />
-                </Button>
-                <!--quẹo phải ne-->
-                <Button 
-                    Width="40" Height="40" Padding="0"
-                    Background="Transparent"
-                    BorderThickness="0">
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,50,50" RadiusX="50" RadiusY="60">
-                        </RectangleGeometry>
-                    </Button.Clip>
-                    <materialDesign:PackIcon Kind="ChevronRight" Width="27"
-                                         Height="30" 
-                                         Foreground="Black" Opacity="0.7" />
-                </Button>
+                            Style="{StaticResource MaterialDesignOutlinedDatePicker}" 
+                            SelectedDateChanged="selectedDateChang_DatePicker" FirstDayOfWeek="Monday" 
+                            Focusable="False" />
+                <!--Ngày tháng năm-->
+                <Border BorderThickness="1" BorderBrush="Black" Height="33" CornerRadius="4" Margin="10 0 0 5" Width="110" >
+                    <materialDesign:TimePicker x:Name="tpGio" Height="35" SelectedTimeChanged="tpGio_SelectedTimeChanged"
+                                      Margin="0 0 0 5" Style="{StaticResource MaterialDesignFloatingHintTimePicker}"
+                                      materialDesign:HintAssist.Hint="Chọn giờ"  Focusable="False" />
+
+                </Border>
+                
                 <!--searchbox-->
                 <materialDesign:ColorZone Mode="Standard" Padding="8 0 8 0"
                         CornerRadius="5" Margin="200 5 0 5"
@@ -74,7 +58,8 @@
                                 materialDesign:HintAssist.Hint="Tìm phòng"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
-                                MinWidth="200" KeyUp="enter_TxbTimKiem"
+                                TextChanged="txbTimKiem_TextChanged"
+                                MinWidth="200" 
                                 VerticalAlignment="Center" />
                     </Grid>
                 </materialDesign:ColorZone>
@@ -140,7 +125,7 @@
             </Grid>
             <!--nửa phải để hiện thị phòng-->
             <Grid Grid.Column="1">
-                <ScrollViewer>
+                <ScrollViewer >
                     <ScrollViewer.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">12</sys:Double>
                     </ScrollViewer.Resources>
@@ -151,13 +136,21 @@
                                Margin="40 20 0 0"/>
                             <ListView x:Name="lvPhongDon" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                                <!--Vô hiệu hóa cuộn-->
+                                <ListView.Template>
+                                    <ControlTemplate>
+                                        <ItemsPresenter />
+                                    </ControlTemplate>
+                                </ListView.Template>
+                                
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
                                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"/>
                                     </ItemsPanelTemplate>
                                 </ListView.ItemsPanel>
+                                
                                 <ListView.ItemTemplate>
                                     <DataTemplate>
 
@@ -234,7 +227,7 @@
                                                                 </Style>
                                                             </TextBlock.Style>
                                                         </TextBlock>
-                                                        
+
                                                     </Grid>
                                                 </Grid>
 
@@ -247,12 +240,42 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0">
-                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
-                                                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="32 0 0 0" FontSize="11"/>
-                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="45 0 0 0" FontSize="11"/>
+                                                    <materialDesign:PackIcon  Width="15" Height="15" Margin=" 13 0 0 0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="AlarmCheck"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Kind" Value="CalendarRange"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="32 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="{Binding SoGio}"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="{Binding SoNgayO}"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="giờ"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="ngày"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
                                                 </Grid>
                                                 <Grid Grid.Column="1">
                                                     <Grid.ColumnDefinitions >
@@ -292,7 +315,14 @@
                                Margin="40 20 0 0"/>
                             <ListView x:Name="lvPhongDoi" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                                <!--Vô hiệu hóa cuộn-->
+                                <ListView.Template>
+                                    <ControlTemplate>
+                                        <ItemsPresenter />
+                                    </ControlTemplate>
+                                </ListView.Template>
+                                
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -387,12 +417,42 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0">
-                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
-                                                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="32 0 0 0" FontSize="11"/>
-                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="45 0 0 0" FontSize="11"/>
+                                                    <materialDesign:PackIcon Width="15" Height="15" Margin=" 13 0 0 0" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="AlarmCheck"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Kind" Value="CalendarRange"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="32 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="{Binding SoGio}"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="{Binding SoNgayO}"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="giờ"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="ngày"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
                                                 </Grid>
                                                 <Grid Grid.Column="1">
                                                     <Grid.ColumnDefinitions >
@@ -431,7 +491,14 @@
                             <TextBlock Text="Phòng gia đình" FontSize="20" Foreground="#00A3FF" Margin="40 20 0 0"/>
                             <ListView x:Name="lvPhongGiaDinh" Width="1091" Margin="50 10 0 0"
                               ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-                              ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                              ScrollViewer.VerticalScrollBarVisibility="Disabled" >
+                                <!--Vô hiệu hóa cuộn-->
+                                <ListView.Template>
+                                    <ControlTemplate>
+                                        <ItemsPresenter />
+                                    </ControlTemplate>
+                                </ListView.Template>
+                                
                                 <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <WrapPanel Orientation="Horizontal" ScrollViewer.VerticalScrollBarVisibility="Disabled"
@@ -526,12 +593,43 @@
                                                     <ColumnDefinition></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
                                                 <Grid Grid.Column="0">
-                                                    <materialDesign:PackIcon Kind="CalendarRange" Width="15" Height="15" Margin=" 13 0 0 0"
-                                                            HorizontalAlignment="Left" VerticalAlignment="Center"/>
-                                                    <TextBlock Text="{Binding SoNgayO}" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="32 0 0 0" FontSize="11"/>
-                                                    <TextBlock Text="ngày" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                            Margin="45 0 0 0" FontSize="11"/>
+                                                    <materialDesign:PackIcon  Width="15" Height="15" Margin=" 13 0 0 0"
+                                                            HorizontalAlignment="Left" VerticalAlignment="Center">
+                                                        <materialDesign:PackIcon.Style>
+                                                            <Style TargetType="materialDesign:PackIcon">
+                                                                <Setter Property="Kind" Value="AlarmCheck"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Kind" Value="CalendarRange"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </materialDesign:PackIcon.Style>
+                                                    </materialDesign:PackIcon>
+                                                    <TextBlock  HorizontalAlignment="Left" VerticalAlignment="Center" Margin="32 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="{Binding SoGio}"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="{Binding SoNgayO}"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
+                                                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Margin="45 0 0 0" FontSize="11">
+                                                        <TextBlock.Style>
+                                                            <Style TargetType="TextBlock">
+                                                                <Setter Property="Text" Value="giờ"></Setter>
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding IsDay}" Value="True" >
+                                                                        <Setter Property="Text" Value="ngày"></Setter>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </TextBlock.Style>
+                                                    </TextBlock>
                                                 </Grid>
                                                 <Grid Grid.Column="1">
                                                     <Grid.ColumnDefinitions >

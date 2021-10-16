@@ -22,9 +22,9 @@ namespace DAL
     
         public int MaLoaiPhong { get; set; }
         public string TenLoaiPhong { get; set; }
-        public Nullable<int> SoNguoiToiDa { get; set; }
-        public Nullable<decimal> GiaNgay { get; set; }
-        public Nullable<decimal> GiaGio { get; set; }
+        public int SoNguoiToiDa { get; set; }
+        public decimal GiaNgay { get; set; }
+        public decimal GiaGio { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Phong> Phongs { get; set; }

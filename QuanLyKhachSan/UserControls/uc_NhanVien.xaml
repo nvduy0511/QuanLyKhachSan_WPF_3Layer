@@ -50,13 +50,14 @@
                         <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
                             <materialDesign:PackIcon Kind="Search" Opacity="0.56" />
                         </Button>
-                        <TextBox Grid.Column="1"
+                        <TextBox Grid.Column="1" x:Name="txbTimKiem"
                                 Margin="0 0 10 0"
                                 materialDesign:HintAssist.Hint="Tìm nhân viên "
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 MinWidth="200"
                                 FlowDirection="LeftToRight"
+                                TextChanged="TimKiem_TextChanged"   
                                 VerticalAlignment="Center" />
 
                     </Grid>
@@ -110,7 +111,7 @@
                             <GridViewColumn Header="Dịa chỉ" Width="240" DisplayMemberBinding="{Binding DiaChi}" />
                             <GridViewColumn Header="SĐT" Width="110" DisplayMemberBinding="{Binding SDT }" />
                             <GridViewColumn Header="CCCD" Width="100" DisplayMemberBinding="{Binding CCCD}" />
-                            <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong , StringFormat={}{0:N} VND}" />
+                            <GridViewColumn Header="Lương" Width="150" DisplayMemberBinding="{Binding Luong , StringFormat={}{0:N0} VND}" />
                             
                             <GridViewColumn Width="60" Header="Sửa">
                                 <GridViewColumn.CellTemplate>

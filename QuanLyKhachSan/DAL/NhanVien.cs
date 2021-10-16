@@ -13,7 +13,7 @@ namespace DAL
     using System.Collections.Generic;
     using System.ComponentModel;
 
-    public partial class NhanVien: INotifyPropertyChanged
+    public partial class NhanVien : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
@@ -22,7 +22,7 @@ namespace DAL
             this.PhieuThues = new HashSet<PhieuThue>();
             this.TaiKhoans = new HashSet<TaiKhoan>();
         }
-    
+
         public int MaNV { get; set; }
         private string hoTen;
         private DateTime? nTNS;

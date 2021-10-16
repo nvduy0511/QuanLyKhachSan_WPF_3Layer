@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DAL.Data;
 using DAL;
+using DAL.DTO;
 
 namespace BUS
 {
@@ -25,16 +26,26 @@ namespace BUS
             }
             return Instance;
         }
-        public bool addDataCTSDDC(CT_SDDichVu ctsddv)
+        public bool addDataCTSDDC(CT_SDDichVu ctsddv, out string error)
         {
-            return CTSDDV_DAL.GetInstance().addDataCTSDDC(ctsddv);
+            return CTSDDV_DAL.GetInstance().addDataCTSDDC(ctsddv,out error);
+        }
+        public List<DichVu_DaChon> getCTSDDVtheoMaCTPT(int? maCTPT)
+        {
+            return CTSDDV_DAL.GetInstance().getCTSDDVtheoMaCTPT(maCTPT);
         }
 
-        public string getMaxCTSDDV()
+        public decimal? tinhTongTienDichVuTheoMaCTPT(int? maCTPT)
         {
-            return CTSDDV_DAL.GetInstance().getMaxCTSDDV();
+            List<decimal> ls =  CTSDDV_DAL.GetInstance().tongTienChiTietSuDungDichVu(maCTPT);
+            if(ls.Count==0)
+            {
+                return 0;
+            }
+            else
+            {
+                return ls.Sum();
+            }
         }
-
-
     }
 }

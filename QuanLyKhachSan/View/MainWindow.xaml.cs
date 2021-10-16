@@ -10,6 +10,9 @@ using System.ComponentModel;
 using System.Windows.Media;
 using System.Threading;
 using MaterialDesignThemes.Wpf;
+using System.Windows.Media.Imaging;
+using Microsoft.Win32;
+using System.IO;
 
 namespace GUI.View
 {
@@ -19,14 +22,18 @@ namespace GUI.View
     public partial class MainWindow : Window, INotifyPropertyChanged
     {
         #region uc_view
-        private uc_Controlbar ctl_bar;
         private uc_Home Home;
-        private uc_PhieuThue ThuePhong_UC;
         private uc_Phong Phong_UC;
+        private uc_PhieuThue ThuePhong_UC;
         private uc_NhanVien NhanVien_UC;
         #endregion
+        #region Khai báo biến
         public List<ItemMenuMainWindow> listMenu { get; set; }
         private string title_Main;
+        private int minHeight_ucControlbar;
+        private int maNV;
+        private int capDoQuyen;
+
         public string Title_Main
         {
             get => title_Main;
@@ -36,7 +43,6 @@ namespace GUI.View
                 OnPropertyChanged("Title_Main");
             }
         }
-        private int minHeight_ucControlbar;
         public int MinHeight_ucControlbar
         {
             get => minHeight_ucControlbar;
@@ -54,15 +60,20 @@ namespace GUI.View
                 }
             }
         }
-
+        public int CapDoQuyen { get => capDoQuyen; set => capDoQuyen = value; }
+        public int MaNV { get => maNV; set => maNV = value; }
+        #endregion
         public MainWindow()
         {
             InitializeComponent();
 
-            //DangNhap dangNhap = new DangNhap();
-            //dangNhap.ShowDialog();
             
-            
+        }
+
+        public MainWindow(int maNV, int capDoQuyen):this()
+        {
+            this.MaNV = maNV;
+            this.CapDoQuyen = capDoQuyen;
             this.MaxHeight = SystemParameters.MaximizedPrimaryScreenHeight;
             this.MaxWidth = SystemParameters.MaximizedPrimaryScreenWidth;
         }
@@ -96,7 +107,32 @@ namespace GUI.View
         #endregion
 
         #region event
-        private void selectionChanged_Menu(object sender, SelectionChangedEventArgs e)
+
+        private void load_Windows(object sender, RoutedEventArgs e)
+        {
+            this.DataContext = this;
+            initListViewMenu();
+            Home = new uc_Home();
+            contenDisplayMain.Content = Home;
+            string staupPath = Environment.CurrentDirectory + "\\Res";
+            string filePath = Path.Combine(staupPath, "NV3.jpg");
+            if (File.Exists(filePath))
+            {
+                Uri uri = new Uri(filePath);
+                ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
+                imgAvatar.Fill = imageBrush;
+
+            }
+            else
+            {
+                Uri uri = new Uri("pack://application:,,,/Res/mountains.jpg");
+                ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
+                imgAvatar.Fill = imageBrush;
+            }
+            
+        }
+
+        private void lisviewMenu_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             switch (lisviewMenu.SelectedIndex)
             {
@@ -109,19 +145,24 @@ namespace GUI.View
                     contenDisplayMain.Content = Home;
                     break;
                 case 1:
-                    
-                    if (Phong_UC == null)
-                        Phong_UC = new uc_Phong();
+                    if(Phong_UC == null)
+                    {
+                        Phong_UC = new uc_Phong(MaNV);
+                    }
                     contenDisplayMain.Content = Phong_UC;
                     break;
                 case 2:
                     if (ThuePhong_UC == null)
-                        ThuePhong_UC = new uc_PhieuThue();
+                    {
+                        ThuePhong_UC = new uc_PhieuThue(MaNV);
+                    }
                     contenDisplayMain.Content = ThuePhong_UC;
                     break;
                 case 3:
                     if (NhanVien_UC == null)
+                    {
                         NhanVien_UC = new uc_NhanVien();
+                    }
                     contenDisplayMain.Content = NhanVien_UC;
                     break;
             }
@@ -129,20 +170,53 @@ namespace GUI.View
             {
                 Title_Main = lisviewMenu.SelectedValue.ToString();
                 //Tự động hóa việc click Button toggleBtnMenu_Close
-                toggleBtnMenu_Close.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
-                toggleBtnMenu_Close.IsChecked = !toggleBtnMenu_Close.IsChecked;
+                btnCloseLVMenu.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }
-
         }
-
         #endregion
 
-        private void load_Windows(object sender, RoutedEventArgs e)
+        private void click_ThayDoiAnh(object sender, RoutedEventArgs e)
         {
-            this.DataContext = this;
-            initListViewMenu();
-            Home = new uc_Home();
-            contenDisplayMain.Content = Home;
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Filter = "Pictures files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png)|*.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+            openFile.FilterIndex = 1;
+            openFile.RestoreDirectory = true;
+            if (openFile.ShowDialog()  == true)
+            {
+                //xử lý đổi tên file truyền vào
+                string [] arr = openFile.FileName.Split('\\');
+                string[] arrFileName = arr[arr.Length - 1].Split('.');
+                string newNameFile = "NV" + maNV + "." + arrFileName[arrFileName.Length - 1];
+
+                try
+                {
+                    string sourceFile = openFile.FileName;
+                    string targetPath = Environment.CurrentDirectory+"\\Res";
+                    //Combine file và đường dẫn
+                    string destFile = Path.Combine(targetPath, newNameFile);
+                    //Kiểm tra sự tồn tại
+                    if (File.Exists(destFile))
+                    {
+                        // Xóa file
+                        File.Delete(destFile);
+
+                    }
+                    //Copy file từ file nguồn đến file đích
+                    File.Copy(sourceFile, destFile, true);
+                    //gán ngược lại giao diện
+                    Uri uri = new Uri(destFile);
+                    ImageBrush imageBrush = new ImageBrush(new BitmapImage(uri));
+                    imgAvatar.Fill = imageBrush;
+
+                    new DialogCustoms("Copy done successfully !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    
+                }
+                catch (Exception ex)
+                {
+                    new DialogCustoms("Lỗi: "+ ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
+            }
+
         }
     }
 

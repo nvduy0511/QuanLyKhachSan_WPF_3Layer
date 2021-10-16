@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GUI.View;
 
 namespace GUI.UserControls
 {
@@ -30,7 +31,8 @@ namespace GUI.UserControls
             //lấy ra đường dẫn tương đối
             baseDir = Environment.CurrentDirectory;
 
-            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home0.png")));
+            //ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home0.png")));
+            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Res/Home0.png")));
             this.Background = ENABLED_BACKGROUND;
 
             System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
@@ -42,32 +44,56 @@ namespace GUI.UserControls
         #region method
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            index++;
-            if (index > 3)
-                index = 0;
-            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home" + index.ToString() + ".png")));
-            this.Background = ENABLED_BACKGROUND;
+            try
+            {
+                index++;
+                if (index > 3)
+                    index = 0;
+                ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Res/Home"+ index.ToString()  + ".png")));
+                this.Background = ENABLED_BACKGROUND;
+            }
+            catch (Exception ex)
+            {
+                new DialogCustoms("Lỗi: T " + ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
+            }
+            
         }
         #endregion
 
         #region event
         private void right_Click(object sender, RoutedEventArgs e)
         {
-            index++;
-            if (index > 3)
-                index = 0;
-            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home" + index.ToString() + ".png")));
-            this.Background = ENABLED_BACKGROUND;
+            try
+            {
+                index++;
+                if (index > 3)
+                    index = 0;
+                ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Res/Home" + index.ToString() + ".png")));
+                this.Background = ENABLED_BACKGROUND;
+            }
+            catch (Exception ex)
+            {
+                new DialogCustoms("Lỗi: R " + ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
+            }
+            
         }
 
 
         private void left_Click(object sender, RoutedEventArgs e)
         {
-            index--;
-            if (index < 0)
-                index = 3;
-            ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri(baseDir + "\\Res\\Home" + index.ToString() + ".png")));
-            this.Background = ENABLED_BACKGROUND;
+            try
+            {
+                index--;
+                if (index < 0)
+                    index = 3;
+                ImageBrush ENABLED_BACKGROUND = new ImageBrush(new BitmapImage(new Uri("pack://application:,,,/Res/Home" + index.ToString() + ".png")));
+                this.Background = ENABLED_BACKGROUND;
+            }
+            catch (Exception ex)
+            {
+                new DialogCustoms("Lỗi: L " + ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
+            }
+            
         }
         #endregion
     }

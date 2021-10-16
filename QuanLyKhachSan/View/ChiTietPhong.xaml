@@ -63,9 +63,8 @@
                             <TextBlock x:Name="txblNgayDen"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <materialDesign:PackIcon Kind="CalendarToday" Width="25" Height="25"/>
+                            <materialDesign:PackIcon x:Name="icDayorHour" Width="25" Height="25"/>
                             <TextBlock x:Name="txblSoNgay"  FontSize="15" VerticalAlignment="Center" Margin="10 0 0 0"></TextBlock>
-                            <TextBlock Text="ngày" FontSize="15" VerticalAlignment="Center" Margin="15 0 0 0"></TextBlock>
                         </StackPanel>
                         <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <materialDesign:PackIcon Kind="AccountMultiplePlus" Width="25" Height="25"/>
@@ -100,19 +99,29 @@
                                                     <Setter Property="FontWeight" Value="Bold" />
                                                 </Style>
                                             </GridView.ColumnHeaderContainerStyle>
-                                            <GridViewColumn  Header="STT"  Width="50" DisplayMemberBinding="{Binding STT}" />
-                                            <GridViewColumn Header="Dịch vụ" Width="190" DisplayMemberBinding="{Binding TenDV}"  />
-                                            <GridViewColumn Header="SL" Width="66" DisplayMemberBinding="{Binding SoLuong}"  />
+                                            <GridViewColumn  Header="Dịch vụ"  Width="150" DisplayMemberBinding="{Binding TenDV}" />
+                                            <GridViewColumn Header="SL" Width="50" DisplayMemberBinding="{Binding SoLuong}"  />
+                                            <GridViewColumn Header="Thành tiền" Width="106" DisplayMemberBinding="{Binding ThanhTien , StringFormat={}{0:N0}}"  />
                                         </GridView>
                                     </ListView.View>
                                     
                                 </ListView>
                             </Grid>
-                            <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" Click="click_ThemDV"    
-                                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13">
+                            <Button Width="140" Height="37" Background="#478C10" Content="Thêm dịch vụ" Click="click_ThemDV" BorderThickness="0"   
+                                    HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="217 0 0 13" Foreground="#F2F1F1">
                                 <Button.Clip>
                                     <RectangleGeometry Rect="0,0,140,37" RadiusX="10" RadiusY="10"/>
                                 </Button.Clip>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="IsEnabled" Value="False"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName= cbTinhTrang, Path=Text}" Value="Phòng đang thuê">
+                                                <Setter Property="IsEnabled" Value="True"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
                             </Button>
                         </Grid>
                         <!--1-->
@@ -127,16 +136,11 @@
                                 </Grid.RowDefinitions>
                                 <Grid Grid.Row="0">
                                     <TextBlock FontSize="15" Foreground="#00A3FF" Text="Cập nhật tình trạng phòng"
-                                               HorizontalAlignment="Left" Margin="19 7 0 0"/>
-                                    <ComboBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 20 10"
-                                        Style="{StaticResource MaterialDesignOutlinedComboBox}"
-                                        Text="" x:Name="cbTinhTrang"
-                                        Height="38" Padding="7"
-                                        Width="200">
-                                        <ComboBoxItem Content="Phòng trống" />
-                                        <ComboBoxItem Content="Phòng đang thuê" />
-                                        <ComboBoxItem  Content="Phòng đã đặt" />
-                                    </ComboBox>
+                                               HorizontalAlignment="Left" Margin="19 7 0 0" />
+                                    <Border Margin="0 0 20 10" HorizontalAlignment="Right" VerticalAlignment="Bottom"
+                                            Height="38"  Width="200"  BorderBrush="Black" BorderThickness="1" CornerRadius="4">
+                                        <TextBlock Height="19" x:Name="cbTinhTrang" Margin="10 0 0 0" ></TextBlock>
+                                    </Border>
                                 </Grid>
                                 <Grid Grid.Row="1">
                                     <TextBlock FontSize="15" Foreground="#00A3FF" Text="Cập nhật tình trạng dọn dẹp"
@@ -144,7 +148,7 @@
                                     <ComboBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 20 10"
                                         Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                         Text="" x:Name="cbDonDep"
-                                        Height="38" Padding="7"
+                                        Height="38" Padding="7" SelectionChanged="cbDonDep_SelectionChanged"
                                         Width="200" >
                                         <ComboBoxItem Content="Đã dọn dẹp" />
                                         <ComboBoxItem Content="Chưa dọn dẹp" />
@@ -194,7 +198,7 @@
                         </Style>
                     </Button.Style>
                 </Button>
-                <Button Width="130" Height="37" Background="#478C10" Content="Lưu"
+                <Button Width="130" Height="37" Background="#478C10" Content="Lưu" Click="click_Luu"
                         HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0 0 280 0" >
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,130,37" RadiusX="10" RadiusY="10"/>

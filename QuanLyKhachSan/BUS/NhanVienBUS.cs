@@ -49,6 +49,14 @@ namespace BUS
         {
             return NhanVienDAL.GetInstance().deleteDataNhanVien(nv);
         }
-
+        //lấy nhân viên theo mã  nhân viên
+        public string layNhanVienTheoMaNV(int maNV)
+        {
+            NhanVien nv = NhanVienDAL.GetInstance().layNhanVienTheoMaNV(maNV);
+            if (nv != null)
+                return nv.HoTen;
+            else
+                return "Uknow";
+        }
     }
 }

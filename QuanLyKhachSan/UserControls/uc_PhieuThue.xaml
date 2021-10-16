@@ -26,20 +26,20 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <StackPanel  Grid.Column="1" Orientation="Horizontal" FlowDirection="RightToLeft">
+            <Grid  Grid.Column="1">
 
-                <Button Width="150" Height="38" Content="Đặt phòng" FontSize="15" 
+                <Button Width="150" Height="38" Content="Đặt phòng" FontSize="15" HorizontalAlignment="Right"
                     FontFamily="Roboto" FontWeight="Bold" Background="#FF478C10"
-                    Margin="85 0 0 0" Click="click_DatPhong">
+                    Margin="0 0 150 0" Click="click_DatPhong">
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,150,38" RadiusX="10" RadiusY="10" >
                         </RectangleGeometry>
                     </Button.Clip>
                 </Button>
-            </StackPanel>
+            </Grid>
             <Grid Grid.Column="0">
                 <!--ô tìm kiếm-->
-                <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="85,0,0,0"
+                <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="160,0,0,0"
                                           VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -49,49 +49,31 @@
                         <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
                             <materialDesign:PackIcon Kind="Search" Opacity="0.56" />
                         </Button>
-                        <TextBox Grid.Column="1"
+                        <TextBox Grid.Column="1" x:Name="txbTimKiem"
                                 Margin="0 0 10 0"
-                                materialDesign:HintAssist.Hint="Tìm phiếu thuê"
+                                materialDesign:HintAssist.Hint="Tìm theo tên khách hàng"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 MinWidth="200"
+                                TextChanged="txbTimKiem_TextChanged"
                                 FlowDirection="LeftToRight"
                                 VerticalAlignment="Center" />
-                        
+
                     </Grid>
                 </materialDesign:ColorZone>
-                
-                <Button Margin="100 0 0 0"
-                    Width="60" Height="50"
-                    Background="Transparent"
-                    BorderThickness="0">
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,60,50" RadiusX="50" RadiusY="60">
-                        </RectangleGeometry>
-                    </Button.Clip>
-                    <materialDesign:PackIcon Kind="Send" Width="30"
-                                         Height="30" 
-                                         Foreground="Black" Opacity="0.7" />
-                </Button>
             </Grid>
         </Grid>
         
 
         <!--Listview hiển thị-->
         <Grid Grid.Row="1">
-            <Grid Width="1130" Height="500" Background="#F2F1F1">
+            <Grid Width="1000" Height="500" Background="#F2F1F1">
                 <Grid.Clip>
-                    <RectangleGeometry Rect="0,0,1130,500" RadiusX="10" RadiusY="10" >
+                    <RectangleGeometry Rect="0,0,1000,500" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
                 </Grid.Clip>
-                <ListView x:Name="lvUsers" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
-                    <!--căn giữa-->
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    
+                <ListView x:Name="lvPhieuThue" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+
                     <ListView.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
                     </ListView.Resources>
@@ -107,27 +89,23 @@
                                 </GridView.ColumnHeaderContainerStyle>
                                 
 
-                                <GridViewColumn  Header="Số phiếu thuê"  Width="100" DisplayMemberBinding="{Binding soPT}" />
-                                <GridViewColumn Header="Số phòng" Width="100" DisplayMemberBinding="{Binding soPhong}" />
-                                <GridViewColumn Header="Tên khách hàng" Width="200" DisplayMemberBinding="{Binding tenKH}" />
-                                <GridViewColumn Header="Ngày lập phiếu" Width="200" DisplayMemberBinding="{Binding ngayLapPhieu }" />
-                                <GridViewColumn Header="Ngày bắt đầu" Width="200" DisplayMemberBinding="{Binding ngayBatDau}" />
-                                <GridViewColumn Header="Ngày kết thúc" Width="200" DisplayMemberBinding="{Binding ngayKetThuc}" />
-                                <GridViewColumn Width="65" Header="Sửa">
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="65" Header="Xóa">
+                                <GridViewColumn  Header="Số phiếu thuê"  Width="190" DisplayMemberBinding="{Binding MaPhieuThue}" />
+                                <GridViewColumn Header="Tên khách hàng" Width="230" DisplayMemberBinding="{Binding TenKH}" />
+                                <GridViewColumn Header="Ngày lập phiếu" Width="230" DisplayMemberBinding="{Binding NgayLapPhieu, StringFormat=dd//MM/yyy }" />
+                                <GridViewColumn Header="Tên nhân viên" Width="230" DisplayMemberBinding="{Binding TenNV }" />
+                            <GridViewColumn Width="55" Header="Chi tiết">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Width="25" Height="25" BorderThickness="0" Click="click_ChiTiet" Padding="0" Background="Transparent">
+                                            <materialDesign:PackIcon Kind="More" Foreground="Black"/>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="55" Header="Xóa">
                                     <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Width="25" Height="25" BorderThickness="0">
+                                        <Button Width="25" Height="25" BorderThickness="0" Click="click_Xoa">
                                             <Button.Background>
                                                 <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
                                             </Button.Background>

@@ -90,5 +90,12 @@ namespace DAL.Data
             }
             
         }
+        public NhanVien layNhanVienTheoMaNV(int maNV)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                return db.NhanViens.Where(p => p.MaNV == maNV).FirstOrDefault();
+            }
+        }
     }
 }

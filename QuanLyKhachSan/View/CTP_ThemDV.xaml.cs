@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using BUS;
 using DAL.DTO;
 using DAL;
+using System.Text.RegularExpressions;
 
 namespace GUI.View
 {
@@ -30,21 +31,19 @@ namespace GUI.View
         ObservableCollection<DichVu_DaChon> lsDichVu_DaChon;
         List<string> lsLoaiDV;
         List<DichVu_Custom> lsCache;
-        private int soThuTu;
 
-        private string maCTPhieuThue;
+        private int? maCTPhieuThue;
         public CTP_ThemDV()
         {
             InitializeComponent();
         }
-        public CTP_ThemDV(string mactpt): this()
+        public CTP_ThemDV(int? mactpt): this()
         {
             maCTPhieuThue = mactpt;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            soThuTu = 1;
             lsdichVu_Customs = new ObservableCollection<DichVu_Custom>( DichVuBUS.GetInstance().getDichVu_Custom() );
             lsDichVu_DaChon = new ObservableCollection<DichVu_DaChon>();
             lsCache = new List<DichVu_Custom>();
@@ -59,7 +58,7 @@ namespace GUI.View
         private void click_Them(object sender, RoutedEventArgs e)
         {
             DichVu_Custom dvct = (sender as Button).DataContext as DichVu_Custom;
-            lsDichVu_DaChon.Add(new DichVu_DaChon() { STT = soThuTu++,  TenDV = dvct.TenDV, SoLuong = 1, MaDV = dvct.MaDV });
+            lsDichVu_DaChon.Add(new DichVu_DaChon() {ThanhTien = dvct.Gia,  TenDV = dvct.TenDV, SoLuong = 1, MaDV = dvct.MaDV , Gia = dvct.Gia});
             lsCache.Add(dvct);
             lsdichVu_Customs.Remove(dvct);
 
@@ -71,22 +70,6 @@ namespace GUI.View
             DichVu_Custom dichVu_Custom = (lsCache.Where(p => p.MaDV.Equals(dvdachon.MaDV) ) ).FirstOrDefault() ;
             lsdichVu_Customs.Add(dichVu_Custom);
             lsDichVu_DaChon.Remove(dvdachon);
-            updateSTT();
-
-        }
-
-        private void updateSTT()
-        {
-            int index = 1;
-            foreach(var item in lsDichVu_DaChon)
-            {
-                item.STT = index++;
-            }
-            soThuTu = index;
-        }
-
-        private void txbTimKiem_KeyUp(object sender, KeyEventArgs e)
-        {
 
         }
 
@@ -98,18 +81,95 @@ namespace GUI.View
 
         private void click_Luu(object sender, RoutedEventArgs e)
         {
-            //CT_SDDichVu ctsddv = new CT_SDDichVu() 
-            //{ MaCTSDDV = GenID.GetInstance().genIDAuto(( CTSDDV_BUS.GetInstance().getMaxCTSDDV() )),
-
-            //}
-            
-            if (truyenData != null)
+            string error = string.Empty;
+            int dem = 0;
+            foreach (var item in lsDichVu_DaChon)
             {
-                truyenData(lsDichVu_DaChon);
+                CT_SDDichVu ct = new CT_SDDichVu() 
+                { 
+                    MaCTPT = maCTPhieuThue,
+                    MaDV = item.MaDV,
+                    SL = item.SoLuong == null ? 0: int.Parse(item.SoLuong.ToString()),
+                    ThanhTien = item.ThanhTien == null ? 0: decimal.Parse(item.ThanhTien.ToString())
+                };
+                
+                if( CTSDDV_BUS.GetInstance().addDataCTSDDC(ct, out error) )
+                {
+                    dem++;
+                }
+                else 
+                {
+                    new DialogCustoms("Lỗi: "+error, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
             }
-            Window wd = Window.GetWindow(sender as Button);
-            wd.Close();
+            if(dem == lsDichVu_DaChon.Count)
+            {
+                new DialogCustoms("Thêm dịch vụ sử dụng thành công !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                if (truyenData != null)
+                {
+                    truyenData(lsDichVu_DaChon);
+                }
+            }
+
+            this.Close();
         }
+
+        private void txbSoLuong_LostFocus(object sender, RoutedEventArgs e)
+        {
+            TextBox txb = sender as TextBox;
+            DichVu_DaChon dvdc = (sender as TextBox).DataContext as DichVu_DaChon;
+            int sl = int.Parse(txb.Text);
+            dvdc.SoLuong = sl;
+            dvdc.ThanhTien = dvdc.Gia * sl;
+        }
+
+        private void txbTimKiem_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionView viewDV = (CollectionView)CollectionViewSource.GetDefaultView(lvDanhSachDV.ItemsSource);
+            viewDV.Filter = filterTimKiem;
+        }
+
+        private void cbTimKiemLoaiDV_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView viewDV = (CollectionView)CollectionViewSource.GetDefaultView(lvDanhSachDV.ItemsSource);
+            viewDV.Filter = filterTimKiemLoaiDV;
+        }
+        #region method
+        private bool filterTimKiem(object obj)
+        {
+            if (String.IsNullOrEmpty(txbTimKiem.Text))
+                return true;
+            else
+            {
+                string objTenDV = RemoveVietnameseTone((obj as DichVu_Custom).TenDV);
+                string timkiem = RemoveVietnameseTone(txbTimKiem.Text);
+                return objTenDV.Contains(timkiem);
+            }
+        }
+        private bool filterTimKiemLoaiDV(object obj)
+        {
+            if (cbTimKiemLoaiDV.SelectedItem.ToString().Equals("Tất cả"))
+                return true;
+            else
+            {
+                string objTenDV = RemoveVietnameseTone((obj as DichVu_Custom).LoaiDV);
+                string timkiem = RemoveVietnameseTone(cbTimKiemLoaiDV.SelectedItem.ToString());
+                return objTenDV.Contains(timkiem);
+            }
+        }
+        public string RemoveVietnameseTone(string text)
+        {
+            string result = text.ToLower();
+            result = Regex.Replace(result, "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g", "a");
+            result = Regex.Replace(result, "è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g", "e");
+            result = Regex.Replace(result, "ì|í|ị|ỉ|ĩ|/g", "i");
+            result = Regex.Replace(result, "ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|/g", "o");
+            result = Regex.Replace(result, "ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|/g", "u");
+            result = Regex.Replace(result, "ỳ|ý|ỵ|ỷ|ỹ|/g", "y");
+            result = Regex.Replace(result, "đ", "d");
+            return result;
+        }
+        #endregion
 
         
     }

@@ -16,6 +16,7 @@ using GUI.View;
 using System.Collections.ObjectModel;
 using BUS;
 using DAL;
+using System.Text.RegularExpressions;
 
 namespace GUI.UserControls
 {
@@ -35,7 +36,8 @@ namespace GUI.UserControls
         {
             list.Add(nv);
             if (NhanVienBUS.GetInstance().addNhanVien(nv))
-                MessageBox.Show("Thêm thành công!");
+                new DialogCustoms("Thêm nhân viên thành công!", "Thông báo", DialogCustoms.OK).ShowDialog();
+
         }
 
         void SuaThongTinNhanVien(NhanVien nv)
@@ -53,9 +55,32 @@ namespace GUI.UserControls
 
             if (NhanVienBUS.GetInstance().updateNhanVien(nv))
             {
-                MessageBox.Show("Update nhân viên thành công !");
+                new DialogCustoms("Cập nhật nhân viên thành công!", "Thông báo", DialogCustoms.OK).ShowDialog();
             }
 
+        }
+        public string RemoveVietnameseTone(string text)
+        {
+            string result = text.ToLower();
+            result = Regex.Replace(result, "à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ|/g", "a");
+            result = Regex.Replace(result, "è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ|/g", "e");
+            result = Regex.Replace(result, "ì|í|ị|ỉ|ĩ|/g", "i");
+            result = Regex.Replace(result, "ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ|/g", "o");
+            result = Regex.Replace(result, "ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ|/g", "u");
+            result = Regex.Replace(result, "ỳ|ý|ỵ|ỷ|ỹ|/g", "y");
+            result = Regex.Replace(result, "đ", "d");
+            return result;
+        }
+        private bool filterTimKiem(object obj)
+        {
+            if (String.IsNullOrEmpty(txbTimKiem.Text))
+                return true;
+            else
+            {
+                string objTenNV = RemoveVietnameseTone((obj as NhanVien).HoTen);
+                string timkiem = RemoveVietnameseTone(txbTimKiem.Text);
+                return objTenNV.Contains(timkiem);
+            }
         }
         #endregion
 
@@ -71,13 +96,13 @@ namespace GUI.UserControls
         private void click_XoaNV(object sender, RoutedEventArgs e)
         {
             NhanVien nv = (sender as Button).DataContext as NhanVien;
-            var result = MessageBox.Show("Bạn có muốn xóa nhân viên " + nv.MaNV, "Thông báo", MessageBoxButton.YesNo);
-            if(result == MessageBoxResult.Yes)
+            DialogCustoms dlg = new DialogCustoms("Bạn có muốn xóa nhân viên " + nv.HoTen, "Thông báo", DialogCustoms.YesNo);
+            if(dlg.ShowDialog() == true )
             {
                 if (NhanVienBUS.GetInstance().deleteNhanVien(nv))
                 {
                     list.Remove(nv);
-                    MessageBox.Show("Xóa nhân viên thành công !");
+                    new DialogCustoms("Xóa nhân viên thành công !", "Thông báo", DialogCustoms.OK).ShowDialog();
                 }
                     
             }
@@ -91,9 +116,16 @@ namespace GUI.UserControls
             themNhanVien.suaNhanVien = new Them_SuaNhanVien.CRUD(SuaThongTinNhanVien);
             themNhanVien.ShowDialog();
         }
+
+
         #endregion
 
-
+        private void TimKiem_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionView viewNV = (CollectionView)CollectionViewSource.GetDefaultView(lvNhanVien.ItemsSource);
+            viewNV.Filter = filterTimKiem;
+        }
+        
 
     }
 

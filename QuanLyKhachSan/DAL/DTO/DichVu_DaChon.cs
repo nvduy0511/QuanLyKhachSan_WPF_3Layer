@@ -9,19 +9,34 @@ namespace DAL.DTO
 {
     public class DichVu_DaChon: INotifyPropertyChanged
     {
-        private int sTT;
         private string tenDV;
-        private int soLuong;
-        private int maDV;
+        private int? soLuong;
+        private decimal? thanhTien;
+        private decimal gia;
+        private int? maDV;
 
         public string TenDV { get => tenDV; set => tenDV = value; }
-        public int SoLuong { get => soLuong; set => soLuong = value; }
-        public int MaDV { get => maDV; set => maDV = value; }
-        public int STT { get => sTT;
+        public int? MaDV { get => maDV; set => maDV = value; }
+        public decimal Gia { get => gia; set => gia = value; }
+
+        public int? SoLuong
+        {
+            get => soLuong;
             set
-            { 
-                sTT = value;
-                OnPropertyChanged("STT");
+            {
+                soLuong = value;
+                OnPropertyChanged("SoLuong");
+            }
+        }
+
+
+        public decimal? ThanhTien
+        {
+            get => thanhTien;
+            set
+            {
+                thanhTien = value;
+                OnPropertyChanged("ThanhTien");
             }
         }
 

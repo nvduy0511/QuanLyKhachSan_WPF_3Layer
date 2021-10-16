@@ -13,7 +13,6 @@
      TextElement.FontSize="13"
      TextOptions.TextFormattingMode="Ideal"
      TextOptions.TextRenderingMode="Auto"
-     Background="White"
      FontFamily="{DynamicResource MaterialDesignFont}"
         mc:Ignorable="d"
         Title="Quản lý khách sạn" Height="700" Width="1300"
@@ -35,12 +34,15 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Window.Resources>
+    <Window.Background>
+        <ImageBrush/>
+    </Window.Background>
     <!--Triger-->
     <Window.Triggers>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="toggleBtnMenu_Close">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnCloseLVMenu">
             <BeginStoryboard x:Name="CloseMenu_BeginStoryboard" Storyboard="{StaticResource CloseMenu}"/>
         </EventTrigger>
-        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="toggleBtnColorZone_Open">
+        <EventTrigger RoutedEvent="ButtonBase.Click" SourceName="btnOpenLVMenu">
             <BeginStoryboard Storyboard="{StaticResource OpenMenu}"/>
         </EventTrigger>
     </Window.Triggers>
@@ -51,13 +53,13 @@
     </Window.Clip>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="28"></RowDefinition>
+            <RowDefinition Height="26"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <!--Thanh Contrlbar-->
-        <uc:uc_Controlbar Grid.Row="0" MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"
-                          Tag="{Binding Title, ElementName=mainwindows}"  Opacity="0.8" VerticalAlignment="Center">
+        <uc:uc_Controlbar  Grid.Row="0" MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"
+                          Tag="{Binding Title, ElementName=mainwindows}"   VerticalAlignment="Center">
         </uc:uc_Controlbar>
         <!--Phan Main-->
         <Grid Grid.Row="1">
@@ -81,9 +83,11 @@
 
                         <StackPanel Orientation="Horizontal" Grid.Column="0">
 
-                            <ToggleButton Height="30"
-                                    x:Name="toggleBtnColorZone_Open" IsChecked="False"
-                                    Style="{DynamicResource MaterialDesignHamburgerToggleButton}" />
+                            <Button Height="30"
+                                    x:Name="btnOpenLVMenu" Background="Transparent" BorderThickness="0" Padding="0">
+                                <materialDesign:PackIcon Kind="Menu" Foreground="Black" Width="30" Height="30"/>
+                            </Button>
+
                         </StackPanel>
 
                         <Grid Grid.Column="1">
@@ -115,13 +119,11 @@
                 </Grid>
             </Grid>
             <!--Menu-->
-            <Grid   Width="250" 
-                        Background="White" 
+            <Grid   Width="250" Background="White"
                         HorizontalAlignment="Left"
                         Margin="-250 0 0 0" 
                         RenderTransformOrigin="0.5,0.5"
                         x:Name="grdMenu">
-
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -136,23 +138,66 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <!--Khu vực listView Menu-->
-                <Grid Grid.Row="0" Height="140">
-                    <Image Source="../Res/mountains.jpg" Stretch="Fill"/>
+                <!--Khu vực header listView Menu-->
+                <Grid Grid.Row="0" Height="170">
+                    <Grid >
+                        <Grid.Background>
+                            <ImageBrush ImageSource="/GUI;component/Res/Light 010.png"/>
+                        </Grid.Background>
+                        <Button Width="60" Height="30" HorizontalAlignment="Left" Padding="0" Foreground="DarkKhaki"
+                                VerticalAlignment="Top" FontSize="10"  BorderThickness="0" Background="Transparent" BorderBrush="White" >
+                            <TextBlock Text="Đăng xuất" Foreground="#FF3662A5" />
+                        </Button>
+
+                        <Ellipse x:Name="imgAvatar" Width="130" Height="130" VerticalAlignment="Top" Margin="0 10 0 0">
+                            <!--<Ellipse.Fill>
+                                <ImageBrush ImageSource="/GUI;component/Res/mountains.jpg"/>
+                            </Ellipse.Fill>-->
+                        </Ellipse>
+                        <Grid x:Name="grdAvatar" Width="130" Height="130"  VerticalAlignment="Top" Margin="0 10 0 0">
+                            <Grid.Clip>
+                                <RectangleGeometry Rect="0,0,130,130" RadiusX="65" RadiusY="65"/>
+                            </Grid.Clip>
+                            <TextBlock x:Name="txblAvatarBinding"/>
+                            <Button x:Name="btnThayAnh" VerticalAlignment="Bottom" Background="White" Opacity="0.6"
+                                    BorderThickness="0" Height="30" Click="click_ThayDoiAnh">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Visibility" Value="Hidden"></Setter>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding ElementName=txblAvatarBinding, Path=IsMouseOver}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"> </Setter>
+                                            </DataTrigger>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"></Setter>
+                                            </Trigger>
+                                        </Style.Triggers>
+
+                                    </Style>
+                                </Button.Style>
+                                <materialDesign:PackIcon Opacity="0.8" Kind="CameraImage" Foreground="Blue" Width="20" Height="20" />
+                            </Button>
+
+                        </Grid>
+                        
+                        <TextBlock Text="Nguyễn Văn Duy" FontSize="17" Margin="0 0 0 4" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="#DD192332" TextDecorations="{x:Null}" FontFamily="Arial" FontWeight="Bold"/>
+                    </Grid>
+
                     <!--Button đóng mở menu-->
-                    <ToggleButton   x:Name="toggleBtnMenu_Close" 
-                                    VerticalAlignment="Top"
-                                    HorizontalAlignment="Right"   
-                                    Style="{DynamicResource MaterialDesignHamburgerToggleButton}"
-                                    IsChecked="{Binding ElementName=toggleBtnColorZone_Open, Path=IsChecked, Mode=TwoWay}"/>
+                    <Button Height="30" Width="40" VerticalAlignment="Top" HorizontalAlignment="Right"  
+                            x:Name="btnCloseLVMenu" Background="Transparent" BorderThickness="0" Padding="0">
+                        <materialDesign:PackIcon Kind="ChevronTripleLeft" Foreground="#FF605C5C" Width="40" Height="30"/>
+                    </Button>
                 </Grid>
 
                 <!--Listview Menu-->
                 <ListView   Grid.Row="1" Foreground="#FF313131" FontFamily="Champagne &amp; Limousines" FontSize="18" 
-                            x:Name="lisviewMenu" SelectionChanged="selectionChanged_Menu" 
+                            x:Name="lisviewMenu" 
                             ScrollViewer.VerticalScrollBarVisibility="Hidden" 
                             ScrollViewer.HorizontalScrollBarVisibility="Hidden" 
-                            ScrollViewer.CanContentScroll="True"  >
+                            ScrollViewer.CanContentScroll="True" 
+                            PreviewMouseLeftButtonUp="lisviewMenu_PreviewMouseLeftButtonUp" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="10 0">

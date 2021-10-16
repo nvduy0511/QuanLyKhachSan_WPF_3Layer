@@ -31,12 +31,24 @@ namespace GUI.UserControls
         ObservableCollection<Phong_Custom> lsPhongGiaDinh;
         ObservableCollection<Phong_Custom> lsTrong;
         #endregion
-        public uc_Phong()
+
+        private int maNV;
+
+        public int MaNV { get => maNV; set => maNV = value; }
+
+        private uc_Phong()
         {
             InitializeComponent();
-            
+
+            lsPhong = new List<Phong_Custom>();
+            lsTrong = new ObservableCollection<Phong_Custom>();
+            initEvent();
         }
-        
+        public uc_Phong(int maNV):this()
+        {
+            this.MaNV = maNV;
+        }
+
 
         #region Method
 
@@ -192,6 +204,28 @@ namespace GUI.UserControls
             CollectionViewSource.GetDefaultView(lvPhongDoi.ItemsSource).Refresh();
             CollectionViewSource.GetDefaultView(lvPhongGiaDinh.ItemsSource).Refresh();
         }
+        private void capNhatLaiDuLieuListViewTheoNgayGio()
+        {
+            DateTime dateTime = new DateTime();
+            if (!DateTime.TryParse(dtpChonNgay.Text + " " + tpGio.Text, out dateTime))
+            {
+                new DialogCustoms("Nhập đúng định dạng ngày giờ !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                return;
+            }
+            if (dateTime == null)
+            {
+                new DialogCustoms("Chọn đúng định dạng tháng ngày năm!", "Ngày chọn", DialogCustoms.OK).ShowDialog();
+            }
+            else
+            {
+                lsPhong = PhongBUS.GetInstance().getDataPhongCustomTheoNgay(dateTime);
+            }
+
+            refeshLoaiPhong();
+            rdTatCa.IsChecked = true;
+            rdTatCaLoaiPhong.IsChecked = true;
+            rdTatCaPhong.IsChecked = true;
+        }
 
         #endregion
 
@@ -199,12 +233,8 @@ namespace GUI.UserControls
         // Sự kiện loade UC
         private void ucPhong_Loaded(object sender, RoutedEventArgs e)
         {
-            lsPhong = new List<Phong_Custom>();
-            lsTrong = new ObservableCollection<Phong_Custom>();
-            lsPhong = PhongBUS.GetInstance().getDataPhongCustomTheoNgay(new DateTime(2021, 10, 02));
-            refeshLoaiPhong();
-            initEvent();
             dtpChonNgay.Text = "10/02/2021";
+            tpGio.Text = "12:00 AM";
         }
 
         //Khi click vào radioButton
@@ -232,10 +262,17 @@ namespace GUI.UserControls
         {
             ListView lv = sender as ListView;
             Phong_Custom phong = lv.SelectedItem as Phong_Custom;
-            ChiTietPhong ct = new ChiTietPhong();
-            ct.truyenData(phong);
-            ct.ShowDialog();
-            lv.UnselectAll();
+            if(phong != null)
+            {
+                ChiTietPhong ct = new ChiTietPhong(maNV);
+                ct.truyenData(phong);
+                if ( ct.ShowDialog() == true )
+                {
+                    capNhatLaiDuLieuListViewTheoNgayGio();
+                }
+                lv.UnselectAll();
+            }
+            
         }
         //Tìm kiếm theo mã phòng
         private void click_EnterSearch(object sender, RoutedEventArgs e)
@@ -243,37 +280,22 @@ namespace GUI.UserControls
             timKiemTheomaPhong();
         }
 
-        private void enter_TxbTimKiem(object sender, System.Windows.Input.KeyEventArgs e)
+        private void txbTimKiem_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (e.Key != System.Windows.Input.Key.Enter) return;
-            
-            // thực hiện
-            e.Handled = true;
             timKiemTheomaPhong();
         }
         // Filter theo ngày tháng năm
+        private void tpGio_SelectedTimeChanged(object sender, RoutedPropertyChangedEventArgs<DateTime?> e)
+        {
+            capNhatLaiDuLieuListViewTheoNgayGio();
+        }
+        
         private void selectedDateChang_DatePicker(object sender, SelectionChangedEventArgs e)
         {
-            DateTime? datepicker = dtpChonNgay.SelectedDate;
-            if (datepicker == null)
-            {
-                MessageBox.Show("Chọn đúng định dạng tháng ngày năm!!!");
-            }
-            else
-            {
-                lsPhong = PhongBUS.GetInstance().getDataPhongCustomTheoNgay(datepicker);
-            }
-
-            refeshLoaiPhong();
-            
-            rdTatCa.IsChecked = true;
-            rdTatCaLoaiPhong.IsChecked = true;
-            rdTatCaPhong.IsChecked = true;
-
+            capNhatLaiDuLieuListViewTheoNgayGio();
         }
 
         #endregion
 
-        
     }
 }

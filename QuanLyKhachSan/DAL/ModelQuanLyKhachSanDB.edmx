@@ -23,11 +23,11 @@
           <Key>
             <PropertyRef Name="MaCTSDDV" />
           </Key>
-          <Property Name="MaCTSDDV" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="MaCTSDDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaCTPT" Type="int" />
           <Property Name="MaDV" Type="int" />
-          <Property Name="SL" Type="int" />
-          <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="SL" Type="int" Nullable="false" />
+          <Property Name="ThanhTien" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="CT_TienNghi">
           <Key>
@@ -36,15 +36,15 @@
           <Property Name="MaCTTN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SoPhong" Type="varchar" MaxLength="10" />
           <Property Name="MaTN" Type="int" />
-          <Property Name="SL" Type="int" />
+          <Property Name="SL" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="DichVu">
           <Key>
             <PropertyRef Name="MaDV" />
           </Key>
           <Property Name="MaDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenDV" Type="nvarchar" MaxLength="50" />
-          <Property Name="Gia" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="TenDV" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gia" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="MaLoaiDV" Type="int" />
         </EntityType>
         <EntityType Name="HoaDon">
@@ -52,9 +52,9 @@
             <PropertyRef Name="MaHD" />
           </Key>
           <Property Name="MaHD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NgayLap" Type="datetime" />
+          <Property Name="NgayLap" Type="datetime" Nullable="false" />
           <Property Name="MaNV" Type="int" />
-          <Property Name="TongTien" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="TongTien" Type="decimal" Precision="18" Scale="0" Nullable="false" />
           <Property Name="MaCTPT" Type="int" />
         </EntityType>
         <EntityType Name="KhachHang">
@@ -62,50 +62,50 @@
             <PropertyRef Name="MaKH" />
           </Key>
           <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenKH" Type="nvarchar" MaxLength="50" />
-          <Property Name="CCCD" Type="nchar" MaxLength="12" />
-          <Property Name="SDT" Type="nchar" MaxLength="10" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" />
-          <Property Name="QuocTich" Type="nvarchar" MaxLength="20" />
+          <Property Name="TenKH" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CCCD" Type="nchar" MaxLength="12" Nullable="false" />
+          <Property Name="SDT" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="QuocTich" Type="nvarchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiDV">
           <Key>
             <PropertyRef Name="MaLoaiDV" />
           </Key>
           <Property Name="MaLoaiDV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenLoaiDV" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenLoaiDV" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="LoaiPhong">
           <Key>
             <PropertyRef Name="MaLoaiPhong" />
           </Key>
           <Property Name="MaLoaiPhong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" />
-          <Property Name="SoNguoiToiDa" Type="int" />
-          <Property Name="GiaNgay" Type="decimal" Precision="18" Scale="3" />
-          <Property Name="GiaGio" Type="decimal" Precision="18" Scale="3" />
+          <Property Name="TenLoaiPhong" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SoNguoiToiDa" Type="int" Nullable="false" />
+          <Property Name="GiaNgay" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GiaGio" Type="decimal" Precision="18" Scale="0" Nullable="false" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
             <PropertyRef Name="MaNV" />
           </Key>
           <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
-          <Property Name="NTNS" Type="date" />
-          <Property Name="CCCD" Type="varchar" MaxLength="12" />
-          <Property Name="SDT" Type="varchar" MaxLength="12" />
-          <Property Name="DiaChi" Type="nvarchar" MaxLength="70" />
-          <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" />
-          <Property Name="Luong" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="ChucVu" Type="nvarchar" MaxLength="30" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NTNS" Type="date" Nullable="false" />
+          <Property Name="CCCD" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="SDT" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="70" Nullable="false" />
+          <Property Name="GioiTinh" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="Luong" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="ChucVu" Type="nvarchar" MaxLength="30" Nullable="false" />
         </EntityType>
         <EntityType Name="PhieuThue">
           <Key>
             <PropertyRef Name="MaPhieuThue" />
           </Key>
           <Property Name="MaPhieuThue" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NgayLapPhieu" Type="datetime" />
+          <Property Name="NgayLapPhieu" Type="datetime" Nullable="false" />
           <Property Name="MaKH" Type="int" />
           <Property Name="MaNV" Type="int" />
         </EntityType>
@@ -131,20 +131,22 @@
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="password" Type="nchar" MaxLength="20" />
-          <Property Name="CapDoQuyen" Type="int" />
-          <Property Name="MaNV" Type="int" />
+          <Property Name="username" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CapDoQuyen" Type="int" Nullable="false" />
+          <Property Name="MaNV" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TienNghi">
           <Key>
             <PropertyRef Name="MaTN" />
           </Key>
           <Property Name="MaTN" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="TenTN" Type="nvarchar" MaxLength="50" />
+          <Property Name="TenTN" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <Association Name="FK_CT_PhieuThue_PhieuThue">
-          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="0..1" />
+          <End Role="PhieuThue" Type="Self.PhieuThue" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="CT_PhieuThue" Type="Self.CT_PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhieuThue">
@@ -288,7 +290,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaiKhoan_NhanVien">
-          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="0..1" />
+          <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
           <End Role="TaiKhoan" Type="Self.TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
@@ -461,11 +463,11 @@
           <Key>
             <PropertyRef Name="MaCTSDDV" />
           </Key>
-          <Property Name="MaCTSDDV" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="MaCTSDDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="MaCTPT" Type="Int32" />
           <Property Name="MaDV" Type="Int32" />
-          <Property Name="SL" Type="Int32" />
-          <Property Name="ThanhTien" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="SL" Type="Int32" Nullable="false" />
+          <Property Name="ThanhTien" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="QLKhachSanModel.FK_CT_SDDichVu_CT_PhieuThue" FromRole="CT_SDDichVu" ToRole="CT_PhieuThue" />
           <NavigationProperty Name="DichVu" Relationship="QLKhachSanModel.FK_CT_SDDichVu_DichVu1" FromRole="CT_SDDichVu" ToRole="DichVu" />
         </EntityType>
@@ -476,7 +478,7 @@
           <Property Name="MaCTTN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SoPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="MaTN" Type="Int32" />
-          <Property Name="SL" Type="Int32" />
+          <Property Name="SL" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Phong" Relationship="QLKhachSanModel.FK_CT_TienNghi_Phong1" FromRole="CT_TienNghi" ToRole="Phong" />
           <NavigationProperty Name="TienNghi" Relationship="QLKhachSanModel.FK_CT_TienNghi_TienNghi1" FromRole="CT_TienNghi" ToRole="TienNghi" />
         </EntityType>
@@ -485,8 +487,8 @@
             <PropertyRef Name="MaDV" />
           </Key>
           <Property Name="MaDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Gia" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="TenDV" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gia" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="MaLoaiDV" Type="Int32" />
           <NavigationProperty Name="CT_SDDichVu" Relationship="QLKhachSanModel.FK_CT_SDDichVu_DichVu1" FromRole="DichVu" ToRole="CT_SDDichVu" />
           <NavigationProperty Name="LoaiDV" Relationship="QLKhachSanModel.FK_DichVu_LoaiDV" FromRole="DichVu" ToRole="LoaiDV" />
@@ -496,9 +498,9 @@
             <PropertyRef Name="MaHD" />
           </Key>
           <Property Name="MaHD" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NgayLap" Type="DateTime" Precision="3" />
+          <Property Name="NgayLap" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MaNV" Type="Int32" />
-          <Property Name="TongTien" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="TongTien" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <Property Name="MaCTPT" Type="Int32" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="QLKhachSanModel.FK_HoaDon_CT_PhieuThue" FromRole="HoaDon" ToRole="CT_PhieuThue" />
           <NavigationProperty Name="NhanVien" Relationship="QLKhachSanModel.FK_HoaDon_NhanVien" FromRole="HoaDon" ToRole="NhanVien" />
@@ -508,12 +510,12 @@
             <PropertyRef Name="MaKH" />
           </Key>
           <Property Name="MaKH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
-          <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="DiaChi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="QuocTich" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TenKH" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CCCD" Type="String" Nullable="false" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="QuocTich" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="PhieuThues" Relationship="QLKhachSanModel.FK_PhieuThue_KhachHang" FromRole="KhachHang" ToRole="PhieuThue" />
         </EntityType>
         <EntityType Name="LoaiDV">
@@ -521,7 +523,7 @@
             <PropertyRef Name="MaLoaiDV" />
           </Key>
           <Property Name="MaLoaiDV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLoaiDV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenLoaiDV" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="DichVus" Relationship="QLKhachSanModel.FK_DichVu_LoaiDV" FromRole="LoaiDV" ToRole="DichVu" />
         </EntityType>
         <EntityType Name="LoaiPhong">
@@ -529,10 +531,10 @@
             <PropertyRef Name="MaLoaiPhong" />
           </Key>
           <Property Name="MaLoaiPhong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenLoaiPhong" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SoNguoiToiDa" Type="Int32" />
-          <Property Name="GiaNgay" Type="Decimal" Precision="18" Scale="3" />
-          <Property Name="GiaGio" Type="Decimal" Precision="18" Scale="3" />
+          <Property Name="TenLoaiPhong" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SoNguoiToiDa" Type="Int32" Nullable="false" />
+          <Property Name="GiaNgay" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="GiaGio" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
           <NavigationProperty Name="Phongs" Relationship="QLKhachSanModel.FK_Phong_LoaiPhong" FromRole="LoaiPhong" ToRole="Phong" />
         </EntityType>
         <EntityType Name="NhanVien">
@@ -540,14 +542,14 @@
             <PropertyRef Name="MaNV" />
           </Key>
           <Property Name="MaNV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="NTNS" Type="DateTime" Precision="0" />
-          <Property Name="CCCD" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
-          <Property Name="DiaChi" Type="String" MaxLength="70" FixedLength="false" Unicode="true" />
-          <Property Name="GioiTinh" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
-          <Property Name="Luong" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="ChucVu" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="HoTen" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NTNS" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="CCCD" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="SDT" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="DiaChi" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Luong" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="ChucVu" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HoaDons" Relationship="QLKhachSanModel.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
           <NavigationProperty Name="PhieuThues" Relationship="QLKhachSanModel.FK_PhieuThue_NhanVien" FromRole="NhanVien" ToRole="PhieuThue" />
           <NavigationProperty Name="TaiKhoans" Relationship="QLKhachSanModel.FK_TaiKhoan_NhanVien" FromRole="NhanVien" ToRole="TaiKhoan" />
@@ -557,7 +559,7 @@
             <PropertyRef Name="MaPhieuThue" />
           </Key>
           <Property Name="MaPhieuThue" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NgayLapPhieu" Type="DateTime" Precision="3" />
+          <Property Name="NgayLapPhieu" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="MaKH" Type="Int32" />
           <Property Name="MaNV" Type="Int32" />
           <NavigationProperty Name="CT_PhieuThue" Relationship="QLKhachSanModel.FK_CT_PhieuThue_PhieuThue" FromRole="PhieuThue" ToRole="CT_PhieuThue" />
@@ -589,10 +591,10 @@
           <Key>
             <PropertyRef Name="username" />
           </Key>
-          <Property Name="username" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
-          <Property Name="CapDoQuyen" Type="Int32" />
-          <Property Name="MaNV" Type="Int32" />
+          <Property Name="username" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CapDoQuyen" Type="Int32" Nullable="false" />
+          <Property Name="MaNV" Type="Int32" Nullable="false" />
           <NavigationProperty Name="NhanVien" Relationship="QLKhachSanModel.FK_TaiKhoan_NhanVien" FromRole="TaiKhoan" ToRole="NhanVien" />
         </EntityType>
         <EntityType Name="TienNghi">
@@ -600,11 +602,13 @@
             <PropertyRef Name="MaTN" />
           </Key>
           <Property Name="MaTN" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="TenTN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TenTN" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="CT_TienNghi" Relationship="QLKhachSanModel.FK_CT_TienNghi_TienNghi1" FromRole="TienNghi" ToRole="CT_TienNghi" />
         </EntityType>
         <Association Name="FK_CT_PhieuThue_PhieuThue">
-          <End Type="QLKhachSanModel.PhieuThue" Role="PhieuThue" Multiplicity="0..1" />
+          <End Type="QLKhachSanModel.PhieuThue" Role="PhieuThue" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="QLKhachSanModel.CT_PhieuThue" Role="CT_PhieuThue" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="PhieuThue">
@@ -748,7 +752,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_TaiKhoan_NhanVien">
-          <End Type="QLKhachSanModel.NhanVien" Role="NhanVien" Multiplicity="0..1" />
+          <End Type="QLKhachSanModel.NhanVien" Role="NhanVien" Multiplicity="1" />
           <End Type="QLKhachSanModel.TaiKhoan" Role="TaiKhoan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="NhanVien">
@@ -759,7 +763,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

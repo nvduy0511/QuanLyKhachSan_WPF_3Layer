@@ -12,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BUS;
+using DAL;
 
 namespace GUI.View
 {
@@ -35,9 +37,25 @@ namespace GUI.View
 
         private void btn_Close_Click(object sender, RoutedEventArgs e)
         {
-            Button btnclose = sender as Button;
-            Window dnWindow = Window.GetWindow(btnclose);
-            dnWindow.Close();
+            this.Close();
+        }
+
+        private void click_DangNhap(object sender, RoutedEventArgs e)
+        {
+            string username = txbTenDangNhap.Text;
+            string pass = txbMatKhau.Password;
+            TaiKhoan taiKhoan = TaiKhoanBUS.GetInstance().kiemTraTKTonTaiKhong(username, pass);
+            if (taiKhoan != null)
+            {
+                MainWindow main = new MainWindow(taiKhoan.MaNV, taiKhoan.CapDoQuyen);
+                main.Show();
+                this.Close();
+            }
+            else
+            {
+                new DialogCustoms("Không tồn tại tài khoản mật khẩu  !", "Thông báo" , DialogCustoms.OK).ShowDialog();
+            }
+            
         }
     }
 }

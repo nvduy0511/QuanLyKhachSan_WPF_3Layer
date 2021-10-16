@@ -21,7 +21,7 @@ namespace DAL
         }
     
         public int MaPhieuThue { get; set; }
-        public Nullable<System.DateTime> NgayLapPhieu { get; set; }
+        public System.DateTime NgayLapPhieu { get; set; }
         public Nullable<int> MaKH { get; set; }
         public Nullable<int> MaNV { get; set; }
     

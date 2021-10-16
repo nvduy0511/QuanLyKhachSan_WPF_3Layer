@@ -81,15 +81,18 @@
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Data\CTSDDV_DAL.cs" />
+    <Compile Include="Data\CT_PhieuThueDAL.cs" />
     <Compile Include="Data\DichVuDAL.cs" />
+    <Compile Include="Data\KhachHangDAL.cs" />
     <Compile Include="Data\NhanVienDAL.cs" />
     <Compile Include="Data\PhongDAL.cs" />
+    <Compile Include="Data\TaiKhoanDAL.cs" />
     <Compile Include="DichVu.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\DichVu_Custom.cs" />
     <Compile Include="DTO\DichVu_DaChon.cs" />
-    <Compile Include="DTO\PhongDaChon.cs" />
+    <Compile Include="DTO\PhieuThue_Custom.cs" />
     <Compile Include="DTO\PhongTrong.cs" />
     <Compile Include="DTO\Phong_Custom.cs" />
     <Compile Include="HoaDon.cs">

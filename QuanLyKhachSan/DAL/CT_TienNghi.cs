@@ -17,7 +17,7 @@ namespace DAL
         public int MaCTTN { get; set; }
         public string SoPhong { get; set; }
         public Nullable<int> MaTN { get; set; }
-        public Nullable<int> SL { get; set; }
+        public int SL { get; set; }
     
         public virtual Phong Phong { get; set; }
         public virtual TienNghi TienNghi { get; set; }

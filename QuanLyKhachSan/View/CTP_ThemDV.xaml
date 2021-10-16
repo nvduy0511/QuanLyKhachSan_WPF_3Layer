@@ -55,7 +55,7 @@
                     <ComboBox x:Name="cbTimKiemLoaiDV" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="30 45 0 0"
                                     Style="{StaticResource MaterialDesignOutlinedComboBox}" Background="White" BorderThickness="0.5"
                                     materialDesign:HintAssist.Hint="Tìm loại dịch vụ"
-                                    Height="30" Padding="5" Width="150">
+                                    Height="30" Padding="5" Width="150" SelectionChanged="cbTimKiemLoaiDV_SelectionChanged">
                     </ComboBox>
                     <materialDesign:ColorZone Mode="Standard" Padding="8 0 8 0" Margin="0 45 30 0"
                         CornerRadius="5" Width="150" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right"
@@ -75,7 +75,7 @@
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                 BorderThickness="0"
                                 MinWidth="200" 
-                                KeyUp="txbTimKiem_KeyUp"    
+                                TextChanged="txbTimKiem_TextChanged"   
                                 VerticalAlignment="Center" />
                         </Grid>
                     </materialDesign:ColorZone>
@@ -99,8 +99,8 @@
                                         </Style>
                                     </GridView.ColumnHeaderContainerStyle>
                                     <GridViewColumn  Header="Loại DV"  Width="100" DisplayMemberBinding="{Binding LoaiDV}" />
-                                    <GridViewColumn Header="Dịch vụ" Width="100" DisplayMemberBinding="{Binding TenDV}"  />
-                                    <GridViewColumn Header="Giá" Width="120"  DisplayMemberBinding="{Binding Gia}" />
+                                    <GridViewColumn Header="Dịch vụ" Width="110" DisplayMemberBinding="{Binding TenDV}"  />
+                                    <GridViewColumn Header="Giá" Width="105"  DisplayMemberBinding="{Binding Gia , StringFormat={}{0:N0}}" />
                                     <GridViewColumn Width="50" Header="Thêm">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
@@ -145,18 +145,19 @@
                                             <Setter Property="FontWeight" Value="Bold" />
                                         </Style>
                                     </GridView.ColumnHeaderContainerStyle>
-                                    <GridViewColumn  Header="STT"  Width="70" DisplayMemberBinding="{Binding STT}" />
-                                    <GridViewColumn Header="Dịch vụ" Width="170" DisplayMemberBinding="{Binding TenDV}"  />
+                                    <GridViewColumn  Header="Dịch vụ"  Width="125" DisplayMemberBinding="{Binding TenDV}" />
                                     <GridViewColumn Width="80" Header="Số Lượng">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBox
                                                         Text="{Binding SoLuong}"
+                                                        LostFocus="txbSoLuong_LostFocus"
                                                         materialDesign:HintAssist.Hint="Nhập số lượng">
                                                 </TextBox>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
+                                    <GridViewColumn Header="Thành tiền" Width="120" DisplayMemberBinding="{Binding ThanhTien}"  />
                                     <GridViewColumn Width="50" Header="Xóa">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

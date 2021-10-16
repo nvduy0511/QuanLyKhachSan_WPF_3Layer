@@ -59,11 +59,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MD5_HashBUS.cs" />
+    <Compile Include="TaiKhoanBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CTSDDV_BUS.cs" />
+    <Compile Include="CT_PhieuThueBUS.cs" />
     <Compile Include="DichVuBUS.cs" />
-    <Compile Include="GenID.cs" />
+    <Compile Include="KhachHangBUS.cs" />
     <Compile Include="NhanVienBUS.cs" />
     <Compile Include="PhieuThueBUS.cs" />
     <Compile Include="PhongBUS.cs" />

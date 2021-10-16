@@ -55,12 +55,12 @@
                 <materialDesign:PackIcon Kind="Lock" HorizontalAlignment="Left" VerticalAlignment="Top" 
                                          Height="19" Width="19"
                                          Margin="20,160,0,0"/>
-                <TextBox    Margin="55 107 0 0" Height="26" Width="130"
+                <TextBox    Margin="55 107 0 0" Height="26" Width="130" x:Name="txbTenDangNhap"
                             HorizontalAlignment="Left" VerticalAlignment="Top"
                             materialDesign:HintAssist.Hint="Tên đăng nhập">
                 </TextBox>
 
-                <PasswordBox  materialDesign:HintAssist.Hint="Mật khẩu" 
+                <PasswordBox  materialDesign:HintAssist.Hint="Mật khẩu"  x:Name="txbMatKhau"
                               HorizontalAlignment="Left" VerticalAlignment="Top"
                               Margin="55,154,0,0" Height="26" Width="130"
                               materialDesign:TextFieldAssist.HasClearButton="True" />
@@ -75,7 +75,7 @@
 
                 <Button Height="28" Width="107" Background="#0056FC" 
                         HorizontalAlignment="Left" VerticalAlignment="Top"
-                        Margin="63,240,0,0">
+                        Margin="63,240,0,0" Click="click_DangNhap">
                     <Button.Clip>
                         <RectangleGeometry Rect="0,0,107,28" RadiusX="10" RadiusY="10" >
                         </RectangleGeometry>

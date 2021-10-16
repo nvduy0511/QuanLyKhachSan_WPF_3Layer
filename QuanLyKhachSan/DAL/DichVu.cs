@@ -22,7 +22,7 @@ namespace DAL
     
         public int MaDV { get; set; }
         public string TenDV { get; set; }
-        public Nullable<decimal> Gia { get; set; }
+        public decimal Gia { get; set; }
         public Nullable<int> MaLoaiDV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

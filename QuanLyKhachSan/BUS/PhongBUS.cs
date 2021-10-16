@@ -33,9 +33,31 @@ namespace BUS
             return PhongDAL.GetInstance().getDataPhongTheoNgay(ngayChon);
         }
 
-        public List<PhongTrong> getPhongTrong()
+        public List<PhongTrong> getPhongTrong(DateTime? ngayBD, DateTime? ngayKT)
         {
-            return PhongDAL.GetInstance().getPhongTrong();
+            return PhongDAL.GetInstance().getPhongTrong(ngayBD,ngayKT);
+        }
+        public decimal? tinhTienPhong(Phong_Custom phong)
+        {
+            decimal? tienPhong;
+            tienPhong = PhongDAL.GetInstance().layGiaTienTheoMaPhong(phong);
+            if(phong.IsDay== true)
+            {
+                return phong.SoNgayO * tienPhong;
+            }
+            else
+            {
+                return phong.SoGio * tienPhong;
+            }
+        }
+        public decimal layTienPhongTheoSoPhong(Phong_Custom phong)
+        {
+            return PhongDAL.GetInstance().layGiaTienTheoMaPhong(phong);
+        }
+
+        public bool suaTinhTrangDonDep(string maPhong, string text, out string error)
+        {
+            return PhongDAL.GetInstance().suaTinhTrangPhong(maPhong, text, out error);
         }
     }
 }

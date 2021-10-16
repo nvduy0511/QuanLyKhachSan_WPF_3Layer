@@ -15,9 +15,9 @@ namespace DAL
     public partial class HoaDon
     {
         public int MaHD { get; set; }
-        public Nullable<System.DateTime> NgayLap { get; set; }
+        public System.DateTime NgayLap { get; set; }
         public Nullable<int> MaNV { get; set; }
-        public Nullable<decimal> TongTien { get; set; }
+        public decimal TongTien { get; set; }
         public Nullable<int> MaCTPT { get; set; }
     
         public virtual CT_PhieuThue CT_PhieuThue { get; set; }

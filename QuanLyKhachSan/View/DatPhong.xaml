@@ -51,32 +51,32 @@
                    Foreground="#00A3FF" VerticalAlignment="Top" HorizontalAlignment="Center"/>
                     <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 25 0 0">
                         <materialDesign:PackIcon Kind="AccountBox" Height="25" Width="25"/>                     
-                        <TextBox Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập họ tên khách hàng"/>    
+                        <TextBox x:Name="txbHoTen" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập họ tên khách hàng"/>    
                     </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                         <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25"/>     
-                        <TextBox Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập CCCD"/>                
+                        <TextBox x:Name="txbCCCD" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập CCCD"/>                
                     </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                         <materialDesign:PackIcon Kind="Phone" Height="25" Width="25"/>                          
-                        <TextBox Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập SDT"/>                  
+                        <TextBox x:Name="txbSDT" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập SDT"/>                  
                      </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                         <materialDesign:PackIcon Kind="MapMarkerRadiusOutline" Height="25" Width="25"/>
-                        <TextBox Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập địa chỉ"/>
+                        <TextBox x:Name="txbDiaChi" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập địa chỉ"/>
                      </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                             <materialDesign:PackIcon Kind="Earth" Height="25" Width="25"/>
-                        <TextBox Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập quốc tịch"/>
+                        <TextBox x:Name="txbQuocTich" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập quốc tịch"/>
                     </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                             <materialDesign:PackIcon Kind="GenderTransgender" Height="25" Width="25"/>
-                        <ComboBox HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30 0 0 0"
+                        <ComboBox x:Name="cbGioiTinh" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="30 0 0 0"
                                     Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                     materialDesign:HintAssist.Hint="Giới tính"
                                     Height="25" Padding="5" Width="180">
@@ -97,6 +97,7 @@
                         Margin="70 80 0 0">
                         <materialDesign:PackIcon Kind="CalendarToday" Height="25" Width="25" VerticalAlignment="Bottom"/>
                             <DatePicker Margin="30 0 0 0" x:Name="dtpNgayBD"
+                                        
                             materialDesign:HintAssist.Hint="Ngày bắt đầu"
                             Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
                     </Grid>
@@ -191,7 +192,8 @@
                                             <GridViewColumn.CellTemplate>
                                                 <DataTemplate>
                                                     <TextBox
-                                                        Text="{Binding SoNguoi}"
+                                                        Text="{Binding SoNguoiO}"
+                                                        LostFocus="txbSoLuong_LostFocus"
                                                         materialDesign:HintAssist.Hint="Nhập số người ở">
                                                     </TextBox>
                                                 </DataTemplate>

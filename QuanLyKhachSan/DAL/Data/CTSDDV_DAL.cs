@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DAL;
+using DAL.DTO;
 namespace DAL.Data
 {
     public class CTSDDV_DAL
@@ -24,8 +25,9 @@ namespace DAL.Data
             return Instance;
         }
         //Thêm mới chi tiết sử dụng dịch vụ
-        public bool addDataCTSDDC(CT_SDDichVu ctsddv)
+        public bool addDataCTSDDC(CT_SDDichVu ctsddv , out string error)
         {
+            error = string.Empty;
             try
             {
                 using (QLKhachSanEntities db = new QLKhachSanEntities())
@@ -35,23 +37,52 @@ namespace DAL.Data
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
+                error = e.Message;
                 return false;
             }
 
         }
 
-        //Lấy ra mã CTSDDV lớn nhất
-        public string getMaxCTSDDV()
+        public List<decimal> tongTienChiTietSuDungDichVu(int? maCTPT)
         {
-            CT_SDDichVu ctsdMax;
             using (QLKhachSanEntities db = new QLKhachSanEntities())
             {
-                ctsdMax = db.CT_SDDichVu.OrderByDescending(n => n.MaCTSDDV).FirstOrDefault();
-
+                return (from ct in db.CT_SDDichVu
+                        where ct.MaCTPT == maCTPT
+                        select ct.ThanhTien).ToList();
             }
-            return ctsdMax.MaCTSDDV;
         }
+
+        //Lấy danh sách sử dụng dịch vụ của 1 phòng nào đó dựa vào mã CTPT
+        public List<DichVu_DaChon> getCTSDDVtheoMaCTPT(int? maCTPT)
+        {
+            List<DichVu_DaChon> ls = new List<DichVu_DaChon>();
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    ls = (from ct in db.CT_SDDichVu
+                          where ct.MaCTPT == maCTPT
+                          select new DichVu_DaChon()
+                          {
+                              ThanhTien = ct.ThanhTien,
+                              MaDV = ct.MaDV,
+                              TenDV = ct.DichVu.TenDV,
+                              SoLuong = ct.SL,
+                              Gia = ct.DichVu.Gia
+
+                          }).ToList();
+                }
+                return ls;
+            }
+            catch (Exception )
+            {
+                return ls;
+            }
+        }
+
+
     }
 }

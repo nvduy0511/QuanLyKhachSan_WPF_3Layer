@@ -14,11 +14,11 @@ namespace DAL
     
     public partial class CT_SDDichVu
     {
-        public string MaCTSDDV { get; set; }
+        public int MaCTSDDV { get; set; }
         public Nullable<int> MaCTPT { get; set; }
         public Nullable<int> MaDV { get; set; }
-        public Nullable<int> SL { get; set; }
-        public Nullable<decimal> ThanhTien { get; set; }
+        public int SL { get; set; }
+        public decimal ThanhTien { get; set; }
     
         public virtual CT_PhieuThue CT_PhieuThue { get; set; }
         public virtual DichVu DichVu { get; set; }
