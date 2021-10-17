@@ -44,7 +44,7 @@
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Số hóa đơn:" FontSize="12" Margin="5"/>
-                                    <TextBlock Text="0001" x:Name="txbSoHoaDon" FontSize="12" Margin="5" FontWeight="DemiBold"/>
+                                    <TextBlock  x:Name="txbSoHoaDon" FontSize="12" Margin="5" FontWeight="DemiBold"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="Nhân viên:" FontSize="12" Margin="5"/>

@@ -370,11 +370,33 @@ namespace GUI.View
         {
             TextBox txb = sender as TextBox;
             CT_PhieuThue ctpt = (sender as TextBox).DataContext as CT_PhieuThue;
-            ctpt.SoNguoiO = int.Parse(txb.Text);
+            int soNguoi = 1;
+            if(!int.TryParse(txb.Text, out soNguoi))
+            {
+                new DialogCustoms("Lỗi: Nhập số người kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                return;
+            }
+            ctpt.SoNguoiO = soNguoi;
         }
+
 
         #endregion
 
-
+        private void txbSoLuong_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                TextBox txb = sender as TextBox;
+                CT_PhieuThue ctpt = (sender as TextBox).DataContext as CT_PhieuThue;
+                int soNguoi = 1;
+                if (!int.TryParse(txb.Text, out soNguoi))
+                {
+                    new DialogCustoms("Lỗi: Nhập số người kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    return;
+                }
+                ctpt.SoNguoiO = soNguoi;
+            }
+            
+        }
     }
 }

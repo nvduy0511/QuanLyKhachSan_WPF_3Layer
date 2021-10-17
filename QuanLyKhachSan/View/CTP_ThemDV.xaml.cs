@@ -118,11 +118,31 @@ namespace GUI.View
         {
             TextBox txb = sender as TextBox;
             DichVu_DaChon dvdc = (sender as TextBox).DataContext as DichVu_DaChon;
-            int sl = int.Parse(txb.Text);
-            dvdc.SoLuong = sl;
-            dvdc.ThanhTien = dvdc.Gia * sl;
+            int soLuong = 1;
+            if (!int.TryParse(txb.Text, out soLuong))
+            {
+                new DialogCustoms("Lỗi: Nhập số lượng kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                return;
+            }
+            dvdc.SoLuong = soLuong;
+            dvdc.ThanhTien = dvdc.Gia * soLuong;
         }
-
+        private void txbSoLuong_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                TextBox txb = sender as TextBox;
+                DichVu_DaChon dvdc = (sender as TextBox).DataContext as DichVu_DaChon;
+                int soLuong = 1;
+                if (!int.TryParse(txb.Text, out soLuong))
+                {
+                    new DialogCustoms("Lỗi: Nhập số lượng kiểu số nguyên!", "Thông báo", DialogCustoms.OK).ShowDialog();
+                    return;
+                }
+                dvdc.SoLuong = soLuong;
+                dvdc.ThanhTien = dvdc.Gia * soLuong;
+            }
+        }
         private void txbTimKiem_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionView viewDV = (CollectionView)CollectionViewSource.GetDefaultView(lvDanhSachDV.ItemsSource);
@@ -169,6 +189,7 @@ namespace GUI.View
             result = Regex.Replace(result, "đ", "d");
             return result;
         }
+
         #endregion
 
         

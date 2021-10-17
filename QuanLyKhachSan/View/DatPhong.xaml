@@ -193,7 +193,7 @@
                                                 <DataTemplate>
                                                     <TextBox
                                                         Text="{Binding SoNguoiO}"
-                                                        LostFocus="txbSoLuong_LostFocus"
+                                                        LostFocus="txbSoLuong_LostFocus" KeyUp="txbSoLuong_KeyUp"
                                                         materialDesign:HintAssist.Hint="Nhập số người ở">
                                                     </TextBox>
                                                 </DataTemplate>

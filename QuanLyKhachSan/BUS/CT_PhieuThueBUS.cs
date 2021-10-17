@@ -34,9 +34,9 @@ namespace BUS
             return CT_PhieuThueDAL.GetInstance().getPhieuThueTheoMaPT(maPT);
         }
 
-        public bool suaTinhTrangThuePhong(int? maCTPT, out string error)
+        public bool suaTinhTrangThuePhong(int? maCTPT, string tinhtrangthuephong, out string error)
         {
-            return CT_PhieuThueDAL.GetInstance().suaTinhTrangThuePhong(maCTPT, out error);
+            return CT_PhieuThueDAL.GetInstance().suaTinhTrangThuePhong(maCTPT, tinhtrangthuephong, out error);
         }
     }
 }

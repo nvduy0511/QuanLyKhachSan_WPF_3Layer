@@ -130,6 +130,7 @@
     <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="CapDoQuyen" Type="int" Nullable="false" />
     <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="avatar" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="TienNghi">
     <Key>

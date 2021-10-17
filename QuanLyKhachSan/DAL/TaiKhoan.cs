@@ -18,6 +18,7 @@ namespace DAL
         public string password { get; set; }
         public int CapDoQuyen { get; set; }
         public int MaNV { get; set; }
+        public string avatar { get; set; }
     
         public virtual NhanVien NhanVien { get; set; }
     }

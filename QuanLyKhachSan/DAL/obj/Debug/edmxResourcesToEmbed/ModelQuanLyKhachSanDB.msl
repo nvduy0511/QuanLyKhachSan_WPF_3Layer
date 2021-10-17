@@ -138,6 +138,7 @@
     <EntitySetMapping Name="TaiKhoans">
       <EntityTypeMapping TypeName="QLKhachSanModel.TaiKhoan">
         <MappingFragment StoreEntitySet="TaiKhoan">
+          <ScalarProperty Name="avatar" ColumnName="avatar" />
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
           <ScalarProperty Name="CapDoQuyen" ColumnName="CapDoQuyen" />
           <ScalarProperty Name="password" ColumnName="password" />

@@ -59,6 +59,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="HoaDonBUS.cs" />
     <Compile Include="MD5_HashBUS.cs" />
     <Compile Include="TaiKhoanBUS.cs" />
   </ItemGroup>

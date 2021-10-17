@@ -44,7 +44,7 @@ namespace DAL.Data
 
         }
 
-        public bool suaTinhTrangThuePhong(int? maCTPT, out string error)
+        public bool suaTinhTrangThuePhong(int? maCTPT, string tinhtrangthuephong, out string error)
         {
             error = string.Empty;
             if(maCTPT == null)
@@ -66,7 +66,7 @@ namespace DAL.Data
                         }
                         else
                         {
-                            ct.TinhTrangThue = "Phòng đang thuê";
+                            ct.TinhTrangThue = tinhtrangthuephong;
                             db.SaveChanges();
                             return true;
 

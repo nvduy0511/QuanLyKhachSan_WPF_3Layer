@@ -54,7 +54,7 @@ namespace DAL.Data
                     return db.KhachHangs.FirstOrDefault(p => p.CCCD.Equals(CCCD));
                 }
             }
-            catch (Exception e)
+            catch (Exception )
             {
                 return null;
             }

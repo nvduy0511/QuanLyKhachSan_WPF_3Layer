@@ -83,6 +83,7 @@
     <Compile Include="Data\CTSDDV_DAL.cs" />
     <Compile Include="Data\CT_PhieuThueDAL.cs" />
     <Compile Include="Data\DichVuDAL.cs" />
+    <Compile Include="Data\HoaDonDAL.cs" />
     <Compile Include="Data\KhachHangDAL.cs" />
     <Compile Include="Data\NhanVienDAL.cs" />
     <Compile Include="Data\PhongDAL.cs" />

@@ -47,7 +47,7 @@ namespace GUI.View
             TaiKhoan taiKhoan = TaiKhoanBUS.GetInstance().kiemTraTKTonTaiKhong(username, pass);
             if (taiKhoan != null)
             {
-                MainWindow main = new MainWindow(taiKhoan.MaNV, taiKhoan.CapDoQuyen);
+                MainWindow main = new MainWindow(taiKhoan);
                 main.Show();
                 this.Close();
             }

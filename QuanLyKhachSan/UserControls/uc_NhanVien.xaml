@@ -86,7 +86,7 @@
                     <RectangleGeometry Rect="0,0,1220,500" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
                 </Grid.Clip>
-                <ListView x:Name="lvNhanVien" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
+                <ListView x:Name="lvNhanVien" ScrollViewer.HorizontalScrollBarVisibility="Disabled" >
 
                     <ListView.Resources>
                         <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>

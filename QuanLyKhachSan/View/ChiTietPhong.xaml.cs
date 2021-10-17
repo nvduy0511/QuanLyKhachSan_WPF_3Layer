@@ -106,10 +106,11 @@ namespace GUI.View
 
         private void click_ThanhToan(object sender, RoutedEventArgs e)
         {
+            this.DialogResult = true;
             this.Visibility = Visibility.Hidden;
             XuatHoaDon hoaDon = new XuatHoaDon(MaNV, phong_CTPhong, obDichVu);
             hoaDon.ShowDialog();
-            this.Visibility = Visibility.Visible;
+            this.Close();
         }
 
         private void click_ThemDV(object sender, RoutedEventArgs e)
@@ -142,7 +143,7 @@ namespace GUI.View
             if (kiemTraNhanPhong)
             {
                 string error = string.Empty;
-                if (!CT_PhieuThueBUS.GetInstance().suaTinhTrangThuePhong(phong_CTPhong.MaCTPT, out error))
+                if (!CT_PhieuThueBUS.GetInstance().suaTinhTrangThuePhong(phong_CTPhong.MaCTPT,"Phòng đang thuê", out error))
                 {
                     new DialogCustoms("Lưu thất bại !\n Lỗi:" + error, "Thông báo", DialogCustoms.OK).ShowDialog();
                     return;

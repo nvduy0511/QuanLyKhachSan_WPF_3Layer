@@ -222,6 +222,7 @@
     <Property Name="password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="CapDoQuyen" Type="Int32" Nullable="false" />
     <Property Name="MaNV" Type="Int32" Nullable="false" />
+    <Property Name="avatar" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="NhanVien" Relationship="QLKhachSanModel.FK_TaiKhoan_NhanVien" FromRole="TaiKhoan" ToRole="NhanVien" />
   </EntityType>
   <EntityType Name="TienNghi">

@@ -152,12 +152,13 @@
                                                 <TextBox
                                                         Text="{Binding SoLuong}"
                                                         LostFocus="txbSoLuong_LostFocus"
+                                                        KeyUp="txbSoLuong_KeyUp"
                                                         materialDesign:HintAssist.Hint="Nhập số lượng">
                                                 </TextBox>
                                             </DataTemplate>
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
-                                    <GridViewColumn Header="Thành tiền" Width="120" DisplayMemberBinding="{Binding ThanhTien}"  />
+                                    <GridViewColumn Header="Thành tiền" Width="120" DisplayMemberBinding="{Binding ThanhTien, StringFormat={}{0:N0}}"  />
                                     <GridViewColumn Width="50" Header="Xóa">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>

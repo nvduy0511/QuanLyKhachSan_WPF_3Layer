@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using DAL.DTO;
 using BUS;
+using DAL;
 
 namespace GUI.View
 {
@@ -63,7 +64,28 @@ namespace GUI.View
                 txbNhanVien.Text = NhanVienBUS.GetInstance().layNhanVienTheoMaNV(MaNV);
                 txbNgayLapHD.Text = DateTime.Now.ToString();
                 txbTongTien.Text = string.Format("{0:0,0 VND}", ((tienDV == null ? 0 : tienDV) + tienPhong));
-                
+
+                //Thêm hóa đơn vào DB
+                HoaDon hd = new HoaDon()
+                {
+                    MaNV = this.MaNV,
+                    MaCTPT = Phong.MaCTPT,
+                    NgayLap = DateTime.Now,
+                    TongTien = decimal.Parse(((tienDV == null ? 0 : tienDV) + tienPhong).ToString())
+                };
+                string error = string.Empty;
+                if (!HoaDonBUS.GetInstance().themHoaDon(hd,out error))
+                {
+                    new DialogCustoms("Thêm hóa đơn thất bại!\nLỗi:"+error, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
+                txbSoHoaDon.Text = hd.MaHD.ToString();
+                //Sửa trạng thái của ctpt
+                string errorSuaCTPT = string.Empty;
+                if(!CT_PhieuThueBUS.GetInstance().suaTinhTrangThuePhong(Phong.MaCTPT,"Đã thanh toán",out errorSuaCTPT))
+                {
+                    new DialogCustoms("Lỗi sửa CTPT\nLỗi:" + errorSuaCTPT, "Thông báo", DialogCustoms.OK).ShowDialog();
+                }
+                // Thêm 1 dịch vụ là thuê phòng vào 
                 DichVu_DaChon dv = new DichVu_DaChon()
                 {
                     SoLuong = Phong.IsDay == true ? Phong.SoNgayO : Phong.SoGio,

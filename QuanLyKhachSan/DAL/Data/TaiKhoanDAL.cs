@@ -31,5 +31,35 @@ namespace DAL.Data
                 return db.TaiKhoans.Include("NhanVien"). FirstOrDefault(p => p.username.Equals(username) && p.password.Equals(pass));
             }
         }
+
+        public bool capNhatAvatar(string username, string avatar, out string error)
+        {
+            error = string.Empty;
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    TaiKhoan tk = db.TaiKhoans.FirstOrDefault(p => p.username.Equals(username));
+                    if (tk == null)
+                    {
+                        error = "Không tồn tại tài khoản " + username;
+                        return false;
+                    }
+                    else
+                    {
+                        tk.avatar = avatar;
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                error = ex.Message;
+                return false;
+            }
+            
+
+        }
     }
 }

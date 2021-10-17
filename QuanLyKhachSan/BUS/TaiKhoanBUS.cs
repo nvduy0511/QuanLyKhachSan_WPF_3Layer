@@ -32,5 +32,9 @@ namespace BUS
 
             return TaiKhoanDAL.GetInstance().layTaiKhoanTuDataBase(username, matKhau);
         }
+        public bool capNhatAvatar(string username,string avatar, out string error)
+        {
+            return TaiKhoanDAL.GetInstance().capNhatAvatar( username , avatar, out error);
+        }
     }
 }

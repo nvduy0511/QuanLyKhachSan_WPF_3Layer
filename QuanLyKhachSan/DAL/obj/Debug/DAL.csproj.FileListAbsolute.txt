@@ -14,3 +14,4 @@ E:\C#\WPF\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.xml
 E:\C#\WPF\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.SqlServer.xml
 E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL_Content.g.cs
 E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\C#\WPF\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
