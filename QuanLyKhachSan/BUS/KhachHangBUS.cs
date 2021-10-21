@@ -26,6 +26,11 @@ namespace BUS
             return Instance;
         }
 
+        public List<KhachHang> GetKhachHangs()
+        {
+            return KhachHangDAL.GetInstance().getData();
+        }
+
         public bool addKhachHang(KhachHang kh, out string error)
         {
             return KhachHangDAL.GetInstance().addKhachHang(kh,out error);
@@ -43,6 +48,16 @@ namespace BUS
             {
                 return -1;
             }
+        }
+
+        public bool capNhatDataKhachHang(KhachHang khachHang)
+        {
+            return KhachHangDAL.GetInstance().capnhatKhachHang(khachHang);
+        }
+
+        public bool xoaDataKhachHang(KhachHang khachHang)
+        {
+            return KhachHangDAL.GetInstance().xoaKhachHang(khachHang);
         }
     }
 }

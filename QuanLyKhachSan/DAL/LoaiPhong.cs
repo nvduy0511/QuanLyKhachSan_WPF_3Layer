@@ -11,22 +11,67 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class LoaiPhong
+    using System.ComponentModel;
+
+    public partial class LoaiPhong : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiPhong()
         {
             this.Phongs = new HashSet<Phong>();
         }
-    
+
+        private string tenLoaiPhong;
+        private int soNguoi;
+        private decimal giaNgay;
+        private decimal giaGio;
         public int MaLoaiPhong { get; set; }
-        public string TenLoaiPhong { get; set; }
-        public int SoNguoiToiDa { get; set; }
-        public decimal GiaNgay { get; set; }
-        public decimal GiaGio { get; set; }
+        public string TenLoaiPhong 
+        {
+            get => tenLoaiPhong;
+            set
+            {
+                tenLoaiPhong = value;
+                OnPropertyChanged("TenLoaiPhong");
+            }
+        }
+        public int SoNguoiToiDa 
+        {
+            get => soNguoi;
+            set
+            {
+                soNguoi = value;
+                OnPropertyChanged("SoNguoiToiDa");
+            }
+        }
+        public decimal GiaNgay 
+        {
+            get => giaNgay;
+            set
+            {
+                giaNgay = value;
+                OnPropertyChanged("GiaNgay");
+            }
+        }
+        public decimal GiaGio 
+        {
+            get => giaGio;
+            set
+            {
+                giaGio = value;
+                OnPropertyChanged("GiaGio");
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Phong> Phongs { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

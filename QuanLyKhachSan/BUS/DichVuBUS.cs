@@ -35,5 +35,29 @@ namespace BUS
         {
             return DichVuDAL.GetInstance().getDataLoaiDichVu();
         }
+
+        public List<DichVuDTO> getDichVu()
+        {
+            return DichVuDAL.GetInstance().getDataDichVu();
+        }
+        public bool ThemDichVu(DichVuDTO dv)
+        {
+            return DichVuDAL.GetInstance().addDichVu(dv);
+        }
+        public void xoaDataDichVu(DichVuDTO dv)
+        {
+            DichVuDAL.GetInstance().xoaDichVu(dv);
+        }
+
+        public bool capNhatDichVu(DichVuDTO dv)
+        {
+            return DichVuDAL.GetInstance().capNhatDichVu(dv);
+        }
+
+        public bool KiemTraTrungTen(DichVuDTO dv)
+        {
+            return DichVuDAL.GetInstance().KiemTraTrungTen(dv);
+        }
+
     }
 }

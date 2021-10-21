@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DAL.Data;
+using DAL.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,9 +27,14 @@ namespace BUS
             return Instance;
         }
 
+        public List<HoaDonDTO> GetHoaDons()
+        {
+            return HoaDonDAL.GetInstance().LayDuLieuHoaDon();
+        }
         public bool themHoaDon(HoaDon hd, out string error)
         {
             return HoaDonDAL.GetInstance().themHoaDon(hd, out error);
         }
+
     }
 }

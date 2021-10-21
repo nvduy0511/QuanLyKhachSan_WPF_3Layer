@@ -11,8 +11,9 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class Phong
+    using System.ComponentModel;
+
+    public partial class Phong : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Phong()
@@ -22,13 +23,39 @@ namespace DAL
         }
     
         public string SoPhong { get; set; }
-        public string TinhTrang { get; set; }
-        public Nullable<int> MaLoaiPhong { get; set; }
+        private string tinhTrang;
+        private int? maLoaiPhong;
+        public string TinhTrang
+        {
+            get => tinhTrang;
+            set
+            {
+                tinhTrang = value;
+                OnPropertyChanged("TinhTrang");
+            }
+        }
+        public Nullable<int> MaLoaiPhong 
+        {
+            get => maLoaiPhong;
+            set
+            {
+                maLoaiPhong = value;
+                OnPropertyChanged("MaLoaiPhong");
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_PhieuThue> CT_PhieuThue { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_TienNghi> CT_TienNghi { get; set; }
         public virtual LoaiPhong LoaiPhong { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

@@ -28,6 +28,14 @@ namespace GUI.View
         private uc_Phong Phong_UC;
         private uc_PhieuThue ThuePhong_UC;
         private uc_NhanVien NhanVien_UC;
+        private uc_QuanLyPhong QuanLyPhong_UC;
+        private uc_QuanLyKhachHang QuanLyKhachHang_UC;
+        private uc_QuanLyLoaiPhong QuanLyLoaiPhong_UC;
+        private uc_QuanLyDichVu QuanLyDichVu_UC;
+        private uc_QuanLyTienNghi QuanLyTienNghi_UC;
+        private uc_QuanLyChiTietTienNghi QuanLyChiTietTienNghi_UC;
+        private uc_QuanLyLoaiDichVu QuanLyLoaiDichVu_UC;
+        private uc_HoaDon HoaDon_UC;
         #endregion
         #region Khai báo biến
         public List<ItemMenuMainWindow> listMenu { get; set; }
@@ -102,9 +110,13 @@ namespace GUI.View
                 listMenu.Add(new ItemMenuMainWindow() { name = "Đặt Phòng", foreColor = "Green", kind_Icon = "BookAccount" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "Hóa đơn", foreColor = "#FFD41515", kind_Icon = "Receipt" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL nhân Viên", foreColor = "#FFD41515", kind_Icon = "Account" });
+                listMenu.Add(new ItemMenuMainWindow() { name = "QL khách hàng", foreColor = "#FFD41515", kind_Icon = "Account" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL phòng", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
+                listMenu.Add(new ItemMenuMainWindow() { name = "QL loại phòng", foreColor = "#FFE6A701", kind_Icon = "StarCircle" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL dịch vụ", foreColor = "Blue", kind_Icon = "FaceAgent" });
+                listMenu.Add(new ItemMenuMainWindow() { name = "QL loại dịch vụ", foreColor = "Blue", kind_Icon = "FaceAgent" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL tiện nghi", foreColor = "#FFF08033", kind_Icon = "Fridge" });
+                listMenu.Add(new ItemMenuMainWindow() { name = "QL chi tiết tiện nghi", foreColor = "#FFF08033", kind_Icon = "Fridge" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "Thống kê", foreColor = "#FF0069C1", kind_Icon = "ChartAreaspline" });
             }
             else if(CapDoQuyen == 2)
@@ -186,11 +198,67 @@ namespace GUI.View
                         contenDisplayMain.Content = ThuePhong_UC;
                         break;
                     case 3:
+                        if (HoaDon_UC == null)
+                        {
+                            HoaDon_UC = new uc_HoaDon();
+                        }
+                        contenDisplayMain.Content = HoaDon_UC;
+                        break;
+                    case 4:
                         if (NhanVien_UC == null)
                         {
                             NhanVien_UC = new uc_NhanVien();
                         }
                         contenDisplayMain.Content = NhanVien_UC;
+                        break;
+                    case 5:
+                        if (QuanLyKhachHang_UC == null)
+                        {
+                            QuanLyKhachHang_UC = new uc_QuanLyKhachHang();
+                        }
+                        contenDisplayMain.Content = QuanLyKhachHang_UC;
+                        break;
+                    case 6:
+                        if(QuanLyPhong_UC == null)
+                        {
+                            QuanLyPhong_UC = new uc_QuanLyPhong();
+                        }
+                        contenDisplayMain.Content = QuanLyPhong_UC;
+                        break;
+                    case 7:
+                        if(QuanLyLoaiPhong_UC == null)
+                        {
+                            QuanLyLoaiPhong_UC = new uc_QuanLyLoaiPhong();
+                        }
+                        contenDisplayMain.Content = QuanLyLoaiPhong_UC;
+                        break;
+                    case 8:
+                        if (QuanLyDichVu_UC == null)
+                        {
+                            QuanLyDichVu_UC = new uc_QuanLyDichVu();
+                        }
+                        contenDisplayMain.Content = QuanLyDichVu_UC;
+                        break;
+                    case 9:
+                        if (QuanLyLoaiDichVu_UC == null)
+                        {
+                            QuanLyLoaiDichVu_UC = new uc_QuanLyLoaiDichVu();
+                        }
+                        contenDisplayMain.Content = QuanLyLoaiDichVu_UC;
+                        break;
+                    case 10:
+                        if (QuanLyTienNghi_UC == null)
+                        {
+                            QuanLyTienNghi_UC = new uc_QuanLyTienNghi();
+                        }
+                        contenDisplayMain.Content = QuanLyTienNghi_UC;
+                        break;
+                    case 11:
+                        if (QuanLyChiTietTienNghi_UC == null)
+                        {
+                            QuanLyChiTietTienNghi_UC = new uc_QuanLyChiTietTienNghi();
+                        }
+                        contenDisplayMain.Content = QuanLyChiTietTienNghi_UC;
                         break;
                 }
                 Title_Main = lisviewMenu.SelectedValue.ToString();

@@ -11,8 +11,9 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class LoaiDV
+    using System.ComponentModel;
+
+    public partial class LoaiDV : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiDV()
@@ -21,9 +22,26 @@ namespace DAL
         }
     
         public int MaLoaiDV { get; set; }
-        public string TenLoaiDV { get; set; }
+        private string tenLoaiDV;
+        public string TenLoaiDV 
+        {
+            get => tenLoaiDV;
+            set
+            {
+                tenLoaiDV = value;
+                OnPropertyChanged("TenLoaiDV");
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DichVu> DichVus { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

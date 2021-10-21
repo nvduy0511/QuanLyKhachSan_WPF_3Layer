@@ -123,6 +123,86 @@ namespace DAL.Data
             return lsPTrong;
         }
 
+        public List<PhongDTO> getPhong()
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                return (from x in db.Phongs
+                        select new PhongDTO()
+                        {
+                            SoPhong = x.SoPhong,
+                            TinhTrang = x.TinhTrang,
+                            LoaiPhong = x.LoaiPhong.TenLoaiPhong
+                        }).ToList();
+            }
+        }
+
+        public bool addDataPhong(PhongDTO phong)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    Phong phongMax = db.Phongs.OrderByDescending(n => n.SoPhong).FirstOrDefault();
+                    if (phongMax.SoPhong == phong.SoPhong)
+                    {
+                        return false;
+                    }
+                    Phong p = new Phong();
+                    p.MaLoaiPhong = int.Parse(phong.LoaiPhong.ToString());
+                    p.SoPhong = phong.SoPhong;
+                    p.TinhTrang = phong.TinhTrang;
+
+                    db.Phongs.Add(p);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+
+        public void xoaThongTinPhong(PhongDTO phong)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                var remove = (from p in db.Phongs where p.SoPhong == phong.SoPhong select p).FirstOrDefault();
+                if (remove != null)
+                {
+                    db.Phongs.Remove(remove);
+                }
+                db.SaveChanges();
+            }
+        }
+
+        public bool capNhatPhong(PhongDTO phong)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    Phong p = db.Phongs.SingleOrDefault(x => x.SoPhong == phong.SoPhong);
+                    if (p == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        p.TinhTrang = phong.TinhTrang;
+                        p.MaLoaiPhong = int.Parse(phong.LoaiPhong.ToString());
+                        db.SaveChanges();
+                    }
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
     }
 }

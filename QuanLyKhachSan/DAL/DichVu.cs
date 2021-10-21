@@ -11,8 +11,9 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class DichVu
+    using System.ComponentModel;
+
+    public partial class DichVu : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DichVu()
@@ -21,12 +22,39 @@ namespace DAL
         }
     
         public int MaDV { get; set; }
-        public string TenDV { get; set; }
-        public decimal Gia { get; set; }
+
+        private string tenDV;
+        private decimal gia;
+        public string TenDV 
+        {
+            get => tenDV;
+            set
+            {
+                tenDV = value;
+                OnPropertyChanged("TenDV");
+            }
+        }
+        public decimal Gia
+        {
+            get => gia;
+            set
+            {
+                gia = value;
+                OnPropertyChanged("Gia");
+            }
+        }
         public Nullable<int> MaLoaiDV { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_SDDichVu> CT_SDDichVu { get; set; }
         public virtual LoaiDV LoaiDV { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

@@ -73,8 +73,32 @@
     <Compile Include="UserControls\ucControlbar2.xaml.cs">
       <DependentUpon>ucControlbar2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\uc_HoaDon.xaml.cs">
+      <DependentUpon>uc_HoaDon.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\uc_NhanVien.xaml.cs">
       <DependentUpon>uc_NhanVien.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyChiTietTienNghi.xaml.cs">
+      <DependentUpon>uc_QuanLyChiTietTienNghi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyDichVu.xaml.cs">
+      <DependentUpon>uc_QuanLyDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyKhachHang.xaml.cs">
+      <DependentUpon>uc_QuanLyKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyLoaiDichVu.xaml.cs">
+      <DependentUpon>uc_QuanLyLoaiDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyLoaiPhong.xaml.cs">
+      <DependentUpon>uc_QuanLyLoaiPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyPhong.xaml.cs">
+      <DependentUpon>uc_QuanLyPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\uc_QuanLyTienNghi.xaml.cs">
+      <DependentUpon>uc_QuanLyTienNghi.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\ChiTietPhieuThue.xaml.cs">
       <DependentUpon>ChiTietPhieuThue.xaml</DependentUpon>
@@ -103,11 +127,32 @@
     <Compile Include="View\DialogCustoms.xaml.cs">
       <DependentUpon>DialogCustoms.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Them_SuaChiTietTienNghi.xaml.cs">
+      <DependentUpon>Them_SuaChiTietTienNghi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaDichVu.xaml.cs">
+      <DependentUpon>Them_SuaDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaKhachHang.xaml.cs">
+      <DependentUpon>Them_SuaKhachHang.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaLoaiDichVu.xaml.cs">
+      <DependentUpon>Them_SuaLoaiDichVu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaLoaiPhong.xaml.cs">
+      <DependentUpon>Them_SuaLoaiPhong.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Them_SuaNhanVien.xaml.cs">
       <DependentUpon>Them_SuaNhanVien.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\uc_PhieuThue.xaml.cs">
       <DependentUpon>uc_PhieuThue.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaPhong.xaml.cs">
+      <DependentUpon>Them_SuaPhong.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Them_SuaTienNghi.xaml.cs">
+      <DependentUpon>Them_SuaTienNghi.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\XuatHoaDon.xaml.cs">
       <DependentUpon>XuatHoaDon.xaml</DependentUpon>
@@ -116,7 +161,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControls\uc_HoaDon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControls\uc_NhanVien.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyChiTietTienNghi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyLoaiDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyLoaiPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyTienNghi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,11 +245,39 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Them_SuaChiTietTienNghi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaKhachHang.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaLoaiDichVu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaLoaiPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Them_SuaNhanVien.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\uc_PhieuThue.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaTienNghi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

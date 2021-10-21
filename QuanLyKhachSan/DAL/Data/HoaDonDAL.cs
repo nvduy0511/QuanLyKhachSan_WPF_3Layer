@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,25 @@ namespace DAL.Data
             return Instance;
         }
 
+
+        public List<HoaDonDTO> LayDuLieuHoaDon()
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                return (from s in db.HoaDons
+                        select new HoaDonDTO()
+                        {
+                            MaHoaDon = s.MaHD,
+                            NgayLap = s.NgayLap,
+                            TongTien = s.TongTien,
+                            TenNHanVienLap = s.NhanVien.HoTen,
+                            MaCTPhieuThue = s.MaCTPT.Value
+                        }).ToList();
+            }
+
+        }
+
+
         public bool themHoaDon(HoaDon hd, out string error)
         {
             error = string.Empty;
@@ -42,7 +62,8 @@ namespace DAL.Data
                 error = ex.Message;
                 return false;
             }
-            
         }
+
+
     }
 }

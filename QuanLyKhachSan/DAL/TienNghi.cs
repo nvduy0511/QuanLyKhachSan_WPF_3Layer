@@ -11,8 +11,9 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class TienNghi
+    using System.ComponentModel;
+
+    public partial class TienNghi : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TienNghi()
@@ -21,9 +22,26 @@ namespace DAL
         }
     
         public int MaTN { get; set; }
-        public string TenTN { get; set; }
+        private string tenTN;
+        public string TenTN 
+        {
+            get => tenTN;
+            set
+            {
+                tenTN = value;
+                OnPropertyChanged("TenTN");
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CT_TienNghi> CT_TienNghi { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

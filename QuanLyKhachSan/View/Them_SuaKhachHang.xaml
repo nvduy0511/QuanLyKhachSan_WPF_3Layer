@@ -1,0 +1,229 @@
+﻿<Window x:Class="GUI.View.Them_SuaKhachHang"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GUI.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
+        TextElement.FontFamily="Roboto"
+        AllowsTransparency="True"         
+        WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        Title="Them_SuaKhachHang" Height="420" Width="470">
+    <Window.Clip>
+        <RectangleGeometry Rect="0,0,483,420" RadiusX="10" RadiusY="10"/>
+    </Window.Clip>
+
+    <Border BorderThickness="2" BorderBrush="#2C2A2A" CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition Height="300" ></RowDefinition>
+                <RowDefinition  ></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--Làm phần tiêu đề -->
+            <Grid Grid.Row="0">
+                <TextBlock x:Name="txbTitle" Text="Nhập thông tin khách hàng"  
+                               HorizontalAlignment="Center" 
+                               Height="40"
+                               FontSize="30"
+                               FontWeight="Bold" 
+                               Foreground="#00A3FF"
+                     />
+
+            </Grid>
+            <!--Làm phần phần nhập thông tin -->
+            <Grid Grid.Row="1" Width="300"                                                           
+                  HorizontalAlignment="Center"                                             
+                  Background="#F2F1F1" >
+
+                <Grid.Clip>
+                    <RectangleGeometry Rect="0,0,300,300" RadiusX="10" RadiusY="10"/>
+                </Grid.Clip>
+
+                <Grid Height="250" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                        <RowDefinition Height="40"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <!--Làm phần nhập thông tin -->
+                    <Grid Grid.Row="0" HorizontalAlignment="Center">
+
+
+
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition Width="150" ></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Account" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1"  VerticalAlignment="Center">
+
+                            <TextBox x:Name="txtTenKhachHang"                                                       
+                                    materialDesign:HintAssist.Hint="Họ và tên khách hàng"                                                      
+                                    Style="{StaticResource MaterialDesignFloatingHintTextBox}"                                                      
+                                    VerticalAlignment="Center" />
+                        </Grid>
+
+
+
+                    </Grid>
+
+                    <!--Làm phần nhập giới tính-->
+                    <Grid Grid.Row="1" Margin="-50 0 0 0"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="GenderMaleFemale" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" >
+                            <ComboBox Name="cmbGioiTinh"
+                                VerticalAlignment="Center"
+                                Width="100"                                                                        
+                                materialDesign:HintAssist.Hint="Giới tính">
+                                <ComboBoxItem                                        
+                                            Content="Nam" />
+                                <ComboBoxItem                                        
+                                            Content="Nữ" />
+                            </ComboBox>
+                        </Grid>
+                    </Grid>
+
+
+                    <!--Làm phần nhập cặ cước công dân -->
+                    <Grid Grid.Row="2"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition ></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="CardAccountDetails"  Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox Name="txtCCCD"  
+                                materialDesign:HintAssist.Hint="Mã căn cước công dân"                      
+                                Style="{StaticResource MaterialDesignFloatingHintTextBox}"                      
+                                VerticalAlignment="Center" Width="150"  />
+                        </Grid>
+                    </Grid>
+
+                    <!--Làm phần nhập só điện thoại -->
+                    <Grid Grid.Row="3"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Phone" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox x:Name="txtSoDienThoai"
+                        materialDesign:HintAssist.Hint="Số điện thoại"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" Width="150"  />
+                        </Grid>
+                    </Grid>
+
+                    <!--Làm phần nhập điạ chỉ -->
+                    <Grid Grid.Row="4"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="MapMarker" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1"  VerticalAlignment="Center">
+                            <TextBox x:Name="txtDiaChi"
+                        materialDesign:HintAssist.Hint="Địa chỉ"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" Width="150" />
+                        </Grid>
+                    </Grid>
+
+                    <!--Làm phần nhập quốc gia -->
+                    <Grid Grid.Row="5"  HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Earth" Width="25" Height="25" />
+                        </Grid>
+                        <Grid Grid.Column="1" VerticalAlignment="Center">
+                            <TextBox x:Name="txtQuocTich"
+                        materialDesign:HintAssist.Hint="Quốc tịch"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"
+                        VerticalAlignment="Center" Width="150"  />
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <!--Làm nút nhập thêm hoặc hủy -->
+            <Grid Grid.Row="2">
+                <Grid  Width="190" Margin="230 0 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition ></ColumnDefinition>
+                        <ColumnDefinition ></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+
+                        <Button Content="Cập nhật" Name="btnCapNhat"
+                                    Width="89" Height="40"
+                                    Margin=" 4 4 0 0" 
+                                    Background="#0056FC" Click="btnCapNhat_Click">
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                        </Button>
+                        <Button Content="Thêm" FontWeight="Bold" Foreground="White"   Width="89" Height="40" Margin=" 4 4 0 0" Background="#0056FC" Click="Button_Click">
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                            <Button.Style>
+                                <Style TargetType="Button">
+                                    <Setter Property="Visibility" Value="Hidden"></Setter>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=Text, ElementName=txbTitle }" Value="Nhập thông tin khách hàng">
+                                            <Setter Property="Visibility" Value="Visible"></Setter>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Button.Style>
+                        </Button>
+
+                    </Grid>
+
+                    <Grid Grid.Column="2">
+
+                        <Button x:Name="btnHuy" Click="btnHuy_Click"
+                                    Content="Hủy bỏ" 
+                                    Width="89" Height="40"                                    
+                                    Margin=" 4 4 0 0" 
+                                    Background="#0056FC" >
+                            <Button.Clip>
+                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                </RectangleGeometry>
+                            </Button.Clip>
+                        </Button>
+
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

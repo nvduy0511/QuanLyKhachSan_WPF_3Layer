@@ -11,15 +11,52 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class CT_TienNghi
+    using System.ComponentModel;
+
+    public partial class CT_TienNghi : INotifyPropertyChanged
     {
         public int MaCTTN { get; set; }
-        public string SoPhong { get; set; }
-        public Nullable<int> MaTN { get; set; }
-        public int SL { get; set; }
+
+        private string soPhong;
+        private int? maTN;
+        private int sl;
+        public string SoPhong 
+        {
+            get => soPhong;
+            set
+            {
+                soPhong = value;
+                OnPropertyChanged("SoPhong");
+            }
+        }
+        public Nullable<int> MaTN
+        {
+            get => maTN;
+            set
+            {
+                maTN = value;
+                OnPropertyChanged("MaTN");
+            }
+        }
+        public int SL 
+        {
+            get => sl;
+            set
+            {
+                sl = value;
+                OnPropertyChanged("SL");
+            }
+        }
     
         public virtual Phong Phong { get; set; }
         public virtual TienNghi TienNghi { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

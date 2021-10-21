@@ -23,7 +23,15 @@ namespace DAL.Data
             }
             return Instance;
         }
-
+        public List<KhachHang> getData()
+        {
+            List<KhachHang> list = new List<KhachHang>();
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                list = db.KhachHangs.ToList();
+            }
+            return list;
+        }
         public bool addKhachHang(KhachHang kh, out string error)
         {
             error = string.Empty;
@@ -59,5 +67,42 @@ namespace DAL.Data
                 return null;
             }
         }
+        public bool xoaKhachHang(KhachHang khachHang)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                var remove = (from kh in db.KhachHangs where kh.MaKH == khachHang.MaKH select kh).FirstOrDefault();
+                if (remove != null)
+                {
+                    db.KhachHangs.Remove(remove);
+                    db.SaveChanges();
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+        public bool capnhatKhachHang(KhachHang khachHang)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    db.Entry(khachHang).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+
     }
 }

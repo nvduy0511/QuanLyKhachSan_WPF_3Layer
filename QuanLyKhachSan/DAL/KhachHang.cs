@@ -11,24 +11,87 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
-    public partial class KhachHang
+    using System.ComponentModel;
+
+    public partial class KhachHang : INotifyPropertyChanged
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
             this.PhieuThues = new HashSet<PhieuThue>();
         }
-    
+
+        private string tenKH;
+        private string cCCD;
+        private string sDT;
+        private string diaChi;
+        private string gioiTinh;
+        private string quocTich;
         public int MaKH { get; set; }
-        public string TenKH { get; set; }
-        public string CCCD { get; set; }
-        public string SDT { get; set; }
-        public string DiaChi { get; set; }
-        public string GioiTinh { get; set; }
-        public string QuocTich { get; set; }
+        public string TenKH 
+        {
+            get => tenKH;
+            set
+            {
+                tenKH = value;
+                OnPropertyChanged("TenKH");
+            }
+        }
+        public string CCCD 
+        {
+            get => cCCD;
+            set
+            {
+                cCCD = value;
+                OnPropertyChanged("CCCD");
+            }
+        }
+        public string SDT 
+        {
+            get => sDT;
+            set
+            {
+                sDT = value;
+                OnPropertyChanged("SDT");
+            }
+        }
+        public string DiaChi 
+        {
+            get => diaChi;
+            set
+            {
+                diaChi = value;
+                OnPropertyChanged("DiaChi");
+            }
+        }
+        public string GioiTinh 
+        {
+            get => gioiTinh;
+            set
+            {
+                gioiTinh = value;
+                OnPropertyChanged("GioiTinh");
+            }
+        }
+        public string QuocTich 
+        {
+            get => quocTich;
+            set
+            {
+                quocTich = value;
+                OnPropertyChanged("QuocTich");
+            }
+        }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhieuThue> PhieuThues { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged(string newName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(newName));
+            }
+        }
     }
 }

@@ -59,9 +59,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CT_TienNghiBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
+    <Compile Include="LoaiDichVuBUS.cs" />
+    <Compile Include="LoaiPhongBUS.cs" />
     <Compile Include="MD5_HashBUS.cs" />
     <Compile Include="TaiKhoanBUS.cs" />
+    <Compile Include="TienNghiBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CTSDDV_BUS.cs" />
