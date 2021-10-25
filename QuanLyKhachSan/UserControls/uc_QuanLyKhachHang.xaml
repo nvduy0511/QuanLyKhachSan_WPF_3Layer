@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
              TextElement.FontFamily="Roboto"
              d:DesignHeight="632" d:DesignWidth="1300">
     <Grid Background="#FFFFFF">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
 
@@ -47,11 +48,11 @@
                     HorizontalAlignment="Right"    
                     Margin="0 0 50 0"                         
                     Width="190"
-                    Height="60"
+                    Height="36"
                     Content="Thêm khách hàng"                                
                     Background="#478C10" Click="btnThemKhachHang_Click" >
                 <Button.Clip>
-                    <RectangleGeometry Rect="0,0,190,60" RadiusX="10" RadiusY="10" >
+                    <RectangleGeometry Rect="0,0,190,36" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
                 </Button.Clip>
             </Button>
@@ -61,7 +62,7 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Width="1200" Height="500" HorizontalAlignment="Center" >
+        <Grid Grid.Row="1" >
             <Grid.Resources>
 
                 <DataTemplate x:Key="dtpMaNhanVien">
@@ -111,69 +112,59 @@
                 </DataTemplate>
             </Grid.Resources>
 
-            <Grid.Clip>
-                <RectangleGeometry  Rect="0,0,1200,500" RadiusX="10" RadiusY="10" >
-                </RectangleGeometry>
-            </Grid.Clip>
+            <Grid  Background="#F2F1F1" Height="500" Width="1200" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 20 0 0">
+                <Grid.Clip>
+                    <RectangleGeometry  Rect="0,0,1200,500" RadiusX="10" RadiusY="10" >
+                    </RectangleGeometry>
+                </Grid.Clip>
+                <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="lsvKhachHang">
 
-            <Grid  Background="#F2F1F1"  >
-                <StackPanel >
-                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        Height="500"   
-                        
-                        Name="lsvKhachHang">
+                    <ListView.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                    </ListView.Resources>
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <ListView.View>
 
-
-                            </Style>
-                        </ListView.ItemContainerStyle>
-
-                        <ListView.View>
-
-                            <GridView >
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="Background" Value="LightBlue" />
-                                        <Setter Property="Foreground" Value="Black" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                        <Setter Property="Height" Value="40"/>
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
-
-                                <GridViewColumn Width="120" Header="Mã nhân viên" CellTemplate="{StaticResource dtpMaNhanVien}"/>
+                        <GridView >
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
 
-                                <GridViewColumn Width="200" Header="Họ và tên"   CellTemplate="{StaticResource dtpHoTen}"  />
+                            <GridViewColumn Width="120" Header="Mã nhân viên" CellTemplate="{StaticResource dtpMaNhanVien}"/>
 
 
-                                <GridViewColumn Width="150" Header="Căn cước công dân" CellTemplate="{StaticResource dtpCanCuocCongDan}" />
+                            <GridViewColumn Width="200" Header="Họ và tên"   CellTemplate="{StaticResource dtpHoTen}"  />
 
 
-                                <GridViewColumn Width="150" Header="Số điện thoạt" CellTemplate="{StaticResource dtpSoDienThoai}" />
+                            <GridViewColumn Width="150" Header="Căn cước công dân" CellTemplate="{StaticResource dtpCanCuocCongDan}" />
 
 
-                                <GridViewColumn Width="150" Header="Địa chỉ" CellTemplate="{StaticResource dtpDiaChi}"  />
+                            <GridViewColumn Width="150" Header="Số điện thoạt" CellTemplate="{StaticResource dtpSoDienThoai}" />
 
 
-                                <GridViewColumn Width="100" Header="Giới tính" CellTemplate="{StaticResource dtpGioiTinh}" />
-
-                                <GridViewColumn Width="150" Header="Quốc tịch" CellTemplate="{StaticResource dtpQuocTich}" />
-
-                                <GridViewColumn Width="90" Header="Sửa" CellTemplate="{StaticResource dtpNutSua}"  />
+                            <GridViewColumn Width="150" Header="Địa chỉ" CellTemplate="{StaticResource dtpDiaChi}"  />
 
 
-                                <GridViewColumn Width="90" Header="Xóa" CellTemplate="{StaticResource dtpNutXoa}"  />
+                            <GridViewColumn Width="100" Header="Giới tính" CellTemplate="{StaticResource dtpGioiTinh}" />
+
+                            <GridViewColumn Width="150" Header="Quốc tịch" CellTemplate="{StaticResource dtpQuocTich}" />
+
+                            <GridViewColumn Width="90" Header="Sửa" CellTemplate="{StaticResource dtpNutSua}"  />
 
 
-                            </GridView>
+                            <GridViewColumn Width="90" Header="Xóa" CellTemplate="{StaticResource dtpNutXoa}"  />
 
-                        </ListView.View>
 
-                    </ListView>
-                </StackPanel>
+                        </GridView>
+
+                    </ListView.View>
+
+                </ListView>
             </Grid>
 
         </Grid>

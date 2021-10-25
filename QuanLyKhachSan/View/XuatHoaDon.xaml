@@ -10,8 +10,7 @@
         xmlns:uc="clr-namespace:GUI.UserControls"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Hóa đơn" Height="600" Width="535.5" ResizeMode="NoResize" 
-        WindowStyle="None" FontFamily="Roboto" WindowStartupLocation="CenterScreen"
-        Loaded="hoaDon_Loaded">
+        WindowStyle="None" FontFamily="Roboto" WindowStartupLocation="CenterScreen">
     <Border BorderThickness="1" BorderBrush="#FF807D7D" >
         <StackPanel Height="600">
             <uc:ucControlbar2 MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"

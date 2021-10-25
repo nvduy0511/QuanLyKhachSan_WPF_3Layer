@@ -38,5 +38,11 @@ namespace BUS
         {
             return CT_PhieuThueDAL.GetInstance().suaTinhTrangThuePhong(maCTPT, tinhtrangthuephong, out error);
         }
+
+
+        public bool capNhatTienVaNgayTraThucTe(int? maCTPT, decimal? tienPhong, DateTime now, out string errorCapNhatCTPT)
+        {
+            return CT_PhieuThueDAL.GetInstance().capNhatTienVaNgayTraThucTe(maCTPT,tienPhong, now, out errorCapNhatCTPT);
+        }
     }
 }

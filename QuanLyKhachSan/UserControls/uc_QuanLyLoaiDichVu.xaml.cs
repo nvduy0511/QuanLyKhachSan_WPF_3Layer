@@ -71,7 +71,7 @@ namespace GUI.UserControls
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return (obj as LoaiDV).TenLoaiDV.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                return (obj as LoaiDV).TenLoaiDV.ToLower().Contains(txtFilter.Text.ToLower());
         }
 
         private void TaiDanhSach()

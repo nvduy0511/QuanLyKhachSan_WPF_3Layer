@@ -30,7 +30,6 @@ namespace GUI.UserControls
         {
             InitializeComponent();
             TaiDanhSach();
-
             CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvCTTienNghi.ItemsSource);
             view.Filter = CTTienNghiFilter;
         }
@@ -73,7 +72,7 @@ namespace GUI.UserControls
 
             if (ThongBao.ShowDialog() == true)
             {
-                new DialogCustoms("Xóa thành công thành công", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Xóa thành công thành công", "Thông báo", DialogCustoms.OK).ShowDialog();
                 CT_TienNghiBUS.Instance.xoaCTTienNghi(cT_TienNghi);
                 TaiDanhSach();
             }

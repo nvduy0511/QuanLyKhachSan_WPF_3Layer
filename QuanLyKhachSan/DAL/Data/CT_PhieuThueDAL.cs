@@ -82,6 +82,36 @@ namespace DAL.Data
             }
         }
 
+        public bool capNhatTienVaNgayTraThucTe(int? maCTPT, decimal? tienPhong, DateTime now, out string errorCapNhatCTPT)
+        {
+            errorCapNhatCTPT = string.Empty;
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    CT_PhieuThue ct = db.CT_PhieuThue.FirstOrDefault(p => p.MaCTPT == maCTPT);
+                    if (ct == null)
+                    {
+                        errorCapNhatCTPT = "Không tồn tại chi tiết phiếu thuê có mã: " + maCTPT;
+                        return false;
+                    }
+                    else
+                    {
+                        ct.TienPhong = tienPhong;
+                        ct.NgayTraThucTe = now;
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                errorCapNhatCTPT = ex.Message; 
+                return false;
+            }
+        }
+
+
         public List<CT_PhieuThue> getPhieuThueTheoMaPT(int maPT)
         {
             List<CT_PhieuThue> ls = new List<CT_PhieuThue>();

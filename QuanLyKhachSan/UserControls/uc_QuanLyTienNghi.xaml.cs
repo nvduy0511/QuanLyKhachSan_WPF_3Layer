@@ -52,9 +52,13 @@ namespace GUI.UserControls
         private void btnSuaTienNghi_Click(object sender, RoutedEventArgs e)
         {
             TienNghi tienNghi = (sender as Button).DataContext as TienNghi;
-            Them_SuaTienNghi CapNhatTienNghi = new Them_SuaTienNghi(tienNghi);
-            CapNhatTienNghi.suaTN = new Them_SuaTienNghi.suaData(capNhatData);
-            CapNhatTienNghi.ShowDialog();
+            if(tienNghi!= null)
+            {
+                Them_SuaTienNghi CapNhatTienNghi = new Them_SuaTienNghi(tienNghi);
+                CapNhatTienNghi.suaTN = new Them_SuaTienNghi.suaData(capNhatData);
+                CapNhatTienNghi.ShowDialog();
+            }
+            
         }
 
         private void btnXoaTienNghi_Click(object sender, RoutedEventArgs e)

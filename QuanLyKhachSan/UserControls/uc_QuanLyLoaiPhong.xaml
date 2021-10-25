@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.UserControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
              TextElement.FontFamily="Roboto"   
@@ -45,11 +46,11 @@
 
                 <Button HorizontalAlignment="Right"  x:Name="btnThemLoaiPhong" Click="btnThemLoaiPhong_Click"                                                      
                     Width="160"
-                    Height="70" Margin="0 0 60 0"
+                    Height="36" Margin="0 0 60 0"
                     Content="Thêm loại phòng"                                
                     Background="#478C10" >
                     <Button.Clip>
-                        <RectangleGeometry Rect="0,0,160,70" RadiusX="10" RadiusY="10" >
+                        <RectangleGeometry Rect="0,0,160,36" RadiusX="10" RadiusY="10" >
                         </RectangleGeometry>
                     </Button.Clip>
                 </Button>
@@ -57,87 +58,75 @@
 
         </Grid>
 
-        <Grid Grid.Row="1" Width="1240" Height="500" >
+        <Grid Grid.Row="1" >
 
 
-            <Grid HorizontalAlignment="Center"  Background="#F2F1F1"  >
+            <Grid HorizontalAlignment="Center" Width="800" Height="500" VerticalAlignment="Top" Background="#F2F1F1" Margin="0 20 0 0 " >
 
                 <Grid.Clip>
-                    <RectangleGeometry  Rect="0,0,800,500" RadiusX="10" RadiusY="10" >
-                    </RectangleGeometry>
+                    <RectangleGeometry  Rect="0,0,800,500" RadiusX="10" RadiusY="10" />
                 </Grid.Clip>
 
-                <StackPanel >
-                    <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        Height="500"                       
-                        Name="lsvLoaiPhong" >
+                <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="lsvLoaiPhong" >
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                    <ListView.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                    </ListView.Resources>
 
+                    <ListView.View>
 
+                        <GridView >
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
-                        <ListView.View>
+                            <GridViewColumn Width="120" Header="Mã loại phòng"  DisplayMemberBinding="{Binding MaLoaiPhong}"  />
 
-                            <GridView >
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="Background" Value="LightBlue" />
-                                        <Setter Property="Foreground" Value="Black" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                        <Setter Property="Width" Value="auto"/>
+                            <GridViewColumn Width="185" Header="Tên loại phòng" DisplayMemberBinding="{Binding TenLoaiPhong}" />
 
-                                        <Setter Property="Height" Value="40"/>
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Width="120" Header="Số người tối đa" DisplayMemberBinding="{Binding SoNguoiToiDa}" />
 
-                                <GridViewColumn Width="120" Header="Mã loại phòng"  DisplayMemberBinding="{Binding MaLoaiPhong}"  />
+                            <GridViewColumn Width="120" Header="Giá ngày" DisplayMemberBinding="{Binding GiaNgay}" />
 
-                                <GridViewColumn Width="185" Header="Tên loại phòng" DisplayMemberBinding="{Binding TenLoaiPhong}" />
+                            <GridViewColumn Width="120" Header="Giá giờ" DisplayMemberBinding="{Binding GiaGio}" />
 
-                                <GridViewColumn Width="120" Header="Số người tối đa" DisplayMemberBinding="{Binding SoNguoiToiDa}" />
+                            <GridViewColumn Width="68" Header="Sửa">
 
-                                <GridViewColumn Width="120" Header="Giá ngày" DisplayMemberBinding="{Binding GiaNgay}" />
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnSuaLoaiPhong" Click="btnSuaLoaiPhong_Click" Width="25" Height="25" BorderThickness="0">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
 
-                                <GridViewColumn Width="120" Header="Giá giờ" DisplayMemberBinding="{Binding GiaGio}" />
+                            </GridViewColumn>
 
-                                <GridViewColumn Width="68" Header="Sửa">
+                            <GridViewColumn Width="68" Header="Xóa">
 
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btnSuaLoaiPhong" Click="btnSuaLoaiPhong_Click" Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-
-                                </GridViewColumn>
-
-                                <GridViewColumn Width="68" Header="Xóa">
-
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btnXoaLoaiPhong" Click="btnXoaLoaiPhong_Click" Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnXoaLoaiPhong" Click="btnXoaLoaiPhong_Click" Width="25" Height="25" BorderThickness="0">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
 
-                            </GridView>
+                        </GridView>
 
-                        </ListView.View>
+                    </ListView.View>
 
-                    </ListView>
-                </StackPanel>
+                </ListView>
             </Grid>
 
         </Grid>

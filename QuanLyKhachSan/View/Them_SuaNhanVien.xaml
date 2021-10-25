@@ -62,7 +62,7 @@
                         </Grid>
                         <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 40 0 0">
                             <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25" VerticalAlignment="Center"/>
-                            <TextBox  x:Name="txbCCCD" Margin="30 0 0 0" Padding="0"
+                            <TextBox  x:Name="txbCCCD" Margin="30 0 0 0" Padding="0" MaxLength="12"
                                       materialDesign:HintAssist.Hint="Nhập họ căn cước công dân"
                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>
@@ -80,7 +80,7 @@
                     <StackPanel Grid.Column="2">
                         <Grid Height="30" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="40 35 0 0">
                             <materialDesign:PackIcon Kind="Phone" Height="25" Width="25" VerticalAlignment="Center"/>
-                            <TextBox  x:Name="txbSDT" Margin="30 0 0 0" Padding="0"
+                            <TextBox  x:Name="txbSDT" Margin="30 0 0 0" Padding="0" MaxLength="10"
                                       materialDesign:HintAssist.Hint="Nhập số điện thoại"
                                       Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
                         </Grid>

@@ -80,6 +80,9 @@ namespace BUS
             PhongDAL.GetInstance().xoaThongTinPhong(phong);
         }
 
-       
+        public decimal layTienPhongTheoSoPhong(string soPhong, bool isDay)
+        {
+            return PhongDAL.GetInstance().layGiaTienTheoMaPhong(soPhong,isDay);
+        }
     }
 }

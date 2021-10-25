@@ -9,25 +9,25 @@
         TextElement.FontFamily="Roboto"
         AllowsTransparency="True"         
         WindowStartupLocation="CenterScreen" WindowStyle="None"
-        Title="Them_SuaPhong" Height="400" Width="400">
+        Title="Them_SuaPhong" Height="450" Width="450">
     <Window.Clip>
-        <RectangleGeometry Rect="0,0,400,400" RadiusX="10" RadiusY="10"/>
+        <RectangleGeometry Rect="0,0,450,450" RadiusX="10" RadiusY="10"/>
     </Window.Clip>
 
-    <Border BorderThickness="2" BorderBrush="#2C2A2A" CornerRadius="10">
+    <Border BorderThickness="1" BorderBrush="#2C2A2A" CornerRadius="10">
 
         <Grid>
 
             <Grid.RowDefinitions>
                 <RowDefinition></RowDefinition>
-                <RowDefinition Height="200" ></RowDefinition>
+                <RowDefinition Height="300" ></RowDefinition>
                 <RowDefinition ></RowDefinition>
             </Grid.RowDefinitions>
 
             <!--Làm phần tiêu đề -->
             <Grid Grid.Row="0">
                 <TextBlock x:Name="txbTitle" Text="Nhập thông tin phòng"  
-                               HorizontalAlignment="Center" 
+                               HorizontalAlignment="Center" VerticalAlignment="Bottom"
                                Height="40"
                                FontSize="30"
                                FontWeight="Bold" 
@@ -36,18 +36,18 @@
 
             </Grid>
             <!--Làm phần phần nhập thông tin -->
-            <Grid Grid.Row="1" Width="260" Height="200"                     
+            <Grid Grid.Row="1" Width="280" Height="260"                     
                       HorizontalAlignment="Center"                       
                       Background="#F2F1F1">
                 <Grid.Clip>
-                    <RectangleGeometry Rect="0,0,260,200" RadiusX="10" RadiusY="10"/>
+                    <RectangleGeometry Rect="0,0,280,260" RadiusX="10" RadiusY="10"/>
                 </Grid.Clip>
 
                 <Grid Width="300" HorizontalAlignment="Center" VerticalAlignment="Center">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="50" ></RowDefinition>
-                        <RowDefinition Height="50" ></RowDefinition>
-                        <RowDefinition Height="50" ></RowDefinition>
+                        <RowDefinition Height="70" ></RowDefinition>
+                        <RowDefinition Height="70" ></RowDefinition>
+                        <RowDefinition Height="70" ></RowDefinition>
                     </Grid.RowDefinitions>
 
 
@@ -126,7 +126,7 @@
 
             <!--Làm nút nhập thêm hoặc hủy -->
             <Grid Grid.Row="2">
-                <Grid Width="190" Margin="130 0 0 0">
+                <Grid Width="250" Margin="130 0 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
@@ -136,17 +136,17 @@
 
                         <Button Content="Cập nhật" 
                                     Name="btnCapNhat" Click="btnCapNhat_Click"
-                                    Width="89" Height="40"
+                                    Width="89" Height="36"
                                     Margin=" 4 4 0 0" 
-                                    Background="#0056FC">
+                                    Background="#478C10">
                             <Button.Clip>
-                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
                                 </RectangleGeometry>
                             </Button.Clip>
                         </Button>
-                        <Button Content="Thêm" FontWeight="Bold" Foreground="White"   Width="89" Height="40" Margin=" 4 4 0 0" Background="#0056FC" Click="btnThem_Click">
+                        <Button Content="Thêm" FontWeight="Bold" Foreground="White"   Width="89" Height="36" Margin=" 4 4 0 0" Background="#478C10" Click="btnThem_Click">
                             <Button.Clip>
-                                <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
                                 </RectangleGeometry>
                             </Button.Clip>
                             <Button.Style>
@@ -163,15 +163,15 @@
 
                     </Grid>
 
-                    <Grid Grid.Column="1">
+                    <Grid Grid.Column="1" >
                         <Grid>
                             <Button x:Name="btnHuy" Click="btnHuy_Click"
-                                    Width="89" Height="40"                                    
+                                    Width="89" Height="36"                                    
                                     Content="Hủy bỏ" 
                                     Margin=" 4 4 0 0" 
-                                    Background="#0056FC" >
+                                    Background="#9D9999" >
                                 <Button.Clip>
-                                    <RectangleGeometry Rect="0,0,89,40" RadiusX="10" RadiusY="10" >
+                                    <RectangleGeometry Rect="0,0,89,36" RadiusX="10" RadiusY="10" >
                                     </RectangleGeometry>
                                 </Button.Clip>
                             </Button>

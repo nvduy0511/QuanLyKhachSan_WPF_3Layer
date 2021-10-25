@@ -35,7 +35,6 @@ namespace GUI.View
         {
             txtTenTN.Text = tn.TenTN;
             txbTitle.Text = "Sửa thông tin " + tn.MaTN;
-
             maTN = tn.MaTN;
         }
 

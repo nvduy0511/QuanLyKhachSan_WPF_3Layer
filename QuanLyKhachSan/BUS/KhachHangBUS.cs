@@ -59,5 +59,10 @@ namespace BUS
         {
             return KhachHangDAL.GetInstance().xoaKhachHang(khachHang);
         }
+
+        public string layTenKhachHangTheoMaPT(int? maPhieuThue)
+        {
+            return KhachHangDAL.GetInstance().layTenKhachHangTheoMaPT(maPhieuThue);
+        }
     }
 }

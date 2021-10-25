@@ -36,6 +36,7 @@ namespace GUI.View
         private uc_QuanLyChiTietTienNghi QuanLyChiTietTienNghi_UC;
         private uc_QuanLyLoaiDichVu QuanLyLoaiDichVu_UC;
         private uc_HoaDon HoaDon_UC;
+        private uc_ThongKe ThongKe_UC;
         #endregion
         #region Khai báo biến
         public List<ItemMenuMainWindow> listMenu { get; set; }
@@ -259,6 +260,13 @@ namespace GUI.View
                             QuanLyChiTietTienNghi_UC = new uc_QuanLyChiTietTienNghi();
                         }
                         contenDisplayMain.Content = QuanLyChiTietTienNghi_UC;
+                        break;
+                    case 12:
+                        if (ThongKe_UC == null)
+                        {
+                            ThongKe_UC = new uc_ThongKe();
+                        }
+                        contenDisplayMain.Content = ThongKe_UC;
                         break;
                 }
                 Title_Main = lisviewMenu.SelectedValue.ToString();

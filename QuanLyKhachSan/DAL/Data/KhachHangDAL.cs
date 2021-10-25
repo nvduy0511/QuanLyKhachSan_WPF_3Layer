@@ -67,6 +67,23 @@ namespace DAL.Data
                 return null;
             }
         }
+
+        public string layTenKhachHangTheoMaPT(int? maPhieuThue)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                PhieuThue pt =  db.PhieuThues.Include("KhachHang").FirstOrDefault(p => p.MaPhieuThue == maPhieuThue );
+                if(pt == null)
+                {
+                    return "Khách vãng lai";
+                }
+                else
+                {
+                    return pt.KhachHang.TenKH;
+                }
+            }
+        }
+
         public bool xoaKhachHang(KhachHang khachHang)
         {
             using (QLKhachSanEntities db = new QLKhachSanEntities())

@@ -5,32 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUI.UserControls"
              mc:Ignorable="d" 
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"        
              TextElement.FontFamily="Roboto"   
              d:DesignHeight="632" d:DesignWidth="1300">
     <Grid Background="#FFFFFF">
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"></RowDefinition>
+            <RowDefinition Height="60"></RowDefinition>
             <RowDefinition ></RowDefinition>
         </Grid.RowDefinitions>
-
-
-        <Grid Width="1300" Grid.Row="0" VerticalAlignment="Center">
-
-
-            <Grid  VerticalAlignment="Center">
-
-                <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="30,0,0,0"
+        <Grid  Grid.Row="0" VerticalAlignment="Center">
+            <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="120,0,0,0"
                                           VerticalAlignment="Center" materialDesign:ShadowAssist.ShadowDepth="Depth1" Width="250">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
-                            <materialDesign:PackIcon Kind="Search" Opacity=".56" />
-                        </Button>
-                        <TextBox Grid.Column="1" Name="txtFilter" TextChanged="txtFilter_TextChanged"
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Style="{DynamicResource MaterialDesignToolButton}">
+                        <materialDesign:PackIcon Kind="Search" Opacity=".56" />
+                    </Button>
+                    <TextBox Grid.Column="1" Name="txtFilter" TextChanged="txtFilter_TextChanged"
                                 Margin="0 0 0 0"
                                 materialDesign:HintAssist.Hint="Nhập tên tiện nghi cần tìm"
                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -39,99 +34,83 @@
                                 FlowDirection="LeftToRight"
                                 VerticalAlignment="Center" />
 
-                    </Grid>
-                </materialDesign:ColorZone>
-
-
-                <Button HorizontalAlignment="Right"  x:Name="btnThemTienNghi" Click="btnThemTienNghi_Click"                                                     
-                    Width="160"
-                    Height="70" Margin="0 0 60 0"
-                    Content="Thêm tiện nghi"                                
-                    Background="#478C10" >
-                    <Button.Clip>
-                        <RectangleGeometry Rect="0,0,160,70" RadiusX="10" RadiusY="10" >
-                        </RectangleGeometry>
-                    </Button.Clip>
-                </Button>
-            </Grid>
+                </Grid>
+            </materialDesign:ColorZone>
+            
+            <Button HorizontalAlignment="Right"  x:Name="btnThemTienNghi" Click="btnThemTienNghi_Click"                                                     
+                            Width="160"
+                            Height="36" Margin="0 0 150 0"
+                            Content="Thêm tiện nghi"                                
+                            Background="#478C10" >
+                <Button.Clip>
+                    <RectangleGeometry Rect="0,0,160,36" RadiusX="10" RadiusY="10" >
+                    </RectangleGeometry>
+                </Button.Clip>
+            </Button>
 
         </Grid>
 
-        <Grid Grid.Row="1" Width="1240" Height="500" >
+        <Grid Grid.Row="1"  >
 
 
-            <Grid HorizontalAlignment="Center"  Background="#F2F1F1"  >
+            <Grid HorizontalAlignment="Center" Width="700" Height="500" Background="#F2F1F1"  >
 
                 <Grid.Clip>
-                    <RectangleGeometry  Rect="0,0,495,500" RadiusX="10" RadiusY="10" >
+                    <RectangleGeometry  Rect="0,0,700,500" RadiusX="10" RadiusY="10" >
                     </RectangleGeometry>
                 </Grid.Clip>
+                <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled" Name="lsvTienNghi" >
+                    <ListView.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                    </ListView.Resources>
+                    <ListView.View>
 
-                <StackPanel >
-                    <ListView  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                        Height="500"                       
-                        Name="lsvTienNghi" >
+                        <GridView >
+                            <GridView.ColumnHeaderContainerStyle>
+                                <Style TargetType="{x:Type GridViewColumnHeader}">
+                                    <Setter Property="Background" Value="LightBlue" />
+                                    <Setter Property="Foreground" Value="Black" />
+                                    <Setter Property="FontWeight" Value="Bold" />
+                                </Style>
+                            </GridView.ColumnHeaderContainerStyle>
 
-                        <ListView.ItemContainerStyle>
-                            <Style TargetType="ListViewItem">
-                                <Setter Property="HorizontalContentAlignment" Value="Center" />
-                            </Style>
-                        </ListView.ItemContainerStyle>
+                            <GridViewColumn Width="240" Header="Mã tiện nghi"  DisplayMemberBinding="{Binding MaTN}"  />
 
+                            <GridViewColumn Width="240" Header="Tên tiện nghi" DisplayMemberBinding="{Binding TenTN}" />
 
+                            <GridViewColumn Width="105" Header="Sửa">
 
-                        <ListView.View>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnSuaTienNghi" Click="btnSuaTienNghi_Click"   Width="25" Height="25" BorderThickness="0">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
 
-                            <GridView >
-                                <GridView.ColumnHeaderContainerStyle>
-                                    <Style TargetType="{x:Type GridViewColumnHeader}">
-                                        <Setter Property="Background" Value="LightBlue" />
-                                        <Setter Property="Foreground" Value="Black" />
-                                        <Setter Property="FontWeight" Value="Bold" />
-                                        <Setter Property="Width" Value="auto"/>
+                            </GridViewColumn>
 
-                                        <Setter Property="Height" Value="40"/>
-                                    </Style>
-                                </GridView.ColumnHeaderContainerStyle>
+                            <GridViewColumn Width="105" Header="Xóa">
 
-                                <GridViewColumn Width="180" Header="Mã tiện nghi"  DisplayMemberBinding="{Binding MaTN}"  />
-
-                                <GridViewColumn Width="180" Header="Tên tiện nghi" DisplayMemberBinding="{Binding TenTN}" />
-
-                                <GridViewColumn Width="68" Header="Sửa">
-
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btnSuaTienNghi" Click="btnSuaTienNghi_Click"   Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-
-                                </GridViewColumn>
-
-                                <GridViewColumn Width="68" Header="Xóa">
-
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <Button x:Name="btnXoaTienNghi" Click="btnXoaTienNghi_Click" Width="25" Height="25" BorderThickness="0">
-                                                <Button.Background>
-                                                    <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
-                                                </Button.Background>
-                                            </Button>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button x:Name="btnXoaTienNghi" Click="btnXoaTienNghi_Click" Width="25" Height="25" BorderThickness="0">
+                                            <Button.Background>
+                                                <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
+                                            </Button.Background>
+                                        </Button>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
 
 
-                            </GridView>
+                        </GridView>
 
-                        </ListView.View>
+                    </ListView.View>
 
-                    </ListView>
-                </StackPanel>
+                </ListView>
             </Grid>
 
         </Grid>

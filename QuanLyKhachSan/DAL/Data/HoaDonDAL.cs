@@ -43,6 +43,21 @@ namespace DAL.Data
 
         }
 
+        public HoaDon layHoaDonTheoMaHoaDon(int mahd)
+        {
+            try
+            {
+                using (QLKhachSanEntities db = new QLKhachSanEntities())
+                {
+                    return db.HoaDons.Include("NhanVien").Include("CT_PhieuThue").FirstOrDefault(p => p.MaHD == mahd);
+                }
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public bool themHoaDon(HoaDon hd, out string error)
         {
@@ -53,7 +68,6 @@ namespace DAL.Data
                 {
                     db.HoaDons.Add(hd);
                     db.SaveChanges();
-                    
                 }
                 return true;
             }

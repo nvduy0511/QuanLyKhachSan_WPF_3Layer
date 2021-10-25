@@ -17,20 +17,19 @@
 
     <Grid Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="90"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="auto"></RowDefinition>
         </Grid.RowDefinitions>
         <!--Các button-->
         <Grid Grid.Row="0">
 
-            <Button Name="btnThem" Click="btnThem_Click" Width="150" Height="70" Content="Thêm dịch vụ" FontSize="15" 
+            <Button Name="btnThem" Click="btnThem_Click" Width="150" Height="36" Content="Thêm dịch vụ" FontSize="15" 
                     FontFamily="Roboto" FontWeight="Bold" Background="#FF478C10"
-                    Margin="85,12,50,0" HorizontalAlignment="Right"  VerticalAlignment="Top">
+                    Margin="0,0,100,0" HorizontalAlignment="Right"  VerticalAlignment="Center">
                 <Button.Clip>
-                    <RectangleGeometry Rect="0,0,150,70" RadiusX="10" RadiusY="10" />
+                    <RectangleGeometry Rect="0,0,150,36" RadiusX="10" RadiusY="10" />
                 </Button.Clip>
             </Button>
-
 
             <!--ô tìm kiếm-->
             <materialDesign:ColorZone Mode="Standard" CornerRadius="5" HorizontalAlignment="Left" Margin="85,0,0,0"
@@ -106,11 +105,9 @@
 
                 <ListView Name="lsvDichVu" ScrollViewer.HorizontalScrollBarVisibility="Disabled"  >
                     <!--căn giữa-->
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Center" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
+                    <ListView.Resources>
+                        <sys:Double x:Key="{x:Static SystemParameters.VerticalScrollBarWidthKey}">10</sys:Double>
+                    </ListView.Resources>
 
                     <ListView.View>
 
@@ -121,7 +118,6 @@
                                     <Setter Property="Background" Value="LightBlue" />
                                     <Setter Property="Foreground" Value="Black" />
                                     <Setter Property="FontWeight" Value="Bold" />
-                                    <Setter Property="Height" Value="40" />
                                 </Style>
                             </GridView.ColumnHeaderContainerStyle>
 

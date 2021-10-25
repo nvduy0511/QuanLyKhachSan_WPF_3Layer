@@ -1,9 +1,11 @@
 ﻿using BUS;
 using DAL.Data;
 using DAL.DTO;
+using GUI.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Objects;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,56 +27,56 @@ namespace GUI.UserControls
     public partial class uc_HoaDon : UserControl
     {
         ObservableCollection<HoaDonDTO> list;
-        List<HoaDonDTO> listHoaDon;
         public uc_HoaDon()
         {
             InitializeComponent();
-            TaiDanhSach();
-            listHoaDon = new List<HoaDonDTO>();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource);
-            view.Filter = HoaDonFilter;
         }
 
-        private bool HoaDonFilter(object obj)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            if (String.IsNullOrEmpty(txtFilter.Text))
-                return true;
-            else
-                return (obj as HoaDonDTO).TenNHanVienLap.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+            TaiDanhSach();
+            Console.WriteLine("Load Hoa Don");
         }
-
         private void TaiDanhSach()
         {
             list = new ObservableCollection<HoaDonDTO>(HoaDonBUS.GetInstance().GetHoaDons());
             lsvHoaDon.ItemsSource = list;
         }
 
-        private void LayHoaDonTheoNgay(DateTime? dt)
-        {
-            
-        }
-
-       
-
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource);
+            view.Filter = HoaDonFilter;
             CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource).Refresh();
+        }
+        private bool HoaDonFilter(object obj)
+        {
+            if (String.IsNullOrEmpty(txtFilter.Text))
+            {
+                return true;
+            }
+            else
+                return (obj as HoaDonDTO).MaHoaDon == int.Parse(txtFilter.Text);
+        }
+        private bool HoaDonFilterTheoNgay(object obj)
+        {
+            if (String.IsNullOrEmpty(dtpChonNgay.Text))
+                return true;
+            else
+                return (obj as HoaDonDTO).NgayLap.ToShortDateString().Equals(dtpChonNgay.Text) ;
         }
 
         private void dtpChonNgay_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
-            DateTime? datepicker = dtpChonNgay.SelectedDate;
-            if (datepicker == null)
-            {
-                MessageBox.Show("Chọn đúng định dạng tháng ngày năm!!!");
-                return;
-            }
-            else
-            {
-                LayHoaDonTheoNgay(datepicker.Value);
-            }
-            //TaiDanhSach();
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource);
+            view.Filter = HoaDonFilterTheoNgay;
+            CollectionViewSource.GetDefaultView(lsvHoaDon.ItemsSource).Refresh();
+        }
+
+        private void chiTiet_Click(object sender, RoutedEventArgs e)
+        {
+            HoaDonDTO hd = (sender as Button).DataContext as HoaDonDTO;
+            new XuatHoaDon(hd.MaHoaDon).ShowDialog();
         }
     }
 }

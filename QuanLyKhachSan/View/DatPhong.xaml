@@ -56,12 +56,12 @@
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                         <materialDesign:PackIcon Kind="CardAccountDetailsOutline" Height="25" Width="25"/>     
-                        <TextBox x:Name="txbCCCD" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập CCCD"/>                
+                        <TextBox x:Name="txbCCCD" MaxLength="12" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập CCCD"/>                
                     </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">
                         <materialDesign:PackIcon Kind="Phone" Height="25" Width="25"/>                          
-                        <TextBox x:Name="txbSDT" Margin="30 0 0 0" materialDesign:HintAssist.Hint="Nhập SDT"/>                  
+                        <TextBox x:Name="txbSDT" Margin="30 0 0 0" MaxLength="10" materialDesign:HintAssist.Hint="Nhập SDT"/>                  
                      </Grid>
 
                         <Grid Height="25" Width="213" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="65 27 0 0">

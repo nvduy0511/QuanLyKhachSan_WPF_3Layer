@@ -59,6 +59,17 @@ namespace DAL.Data
             return ls;
         }
 
+        public decimal layGiaTienTheoMaPhong(string soPhong, bool isDay)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                if (isDay == true)
+                    return db.Phongs.FirstOrDefault(p => p.SoPhong.Equals(soPhong)).LoaiPhong.GiaNgay;
+                else
+                    return db.Phongs.FirstOrDefault(p => p.SoPhong.Equals(soPhong)).LoaiPhong.GiaGio;
+            }
+        }
+
         public bool suaTinhTrangPhong(string maPhong, string text, out string error)
         {
             error = string.Empty;
