@@ -47,5 +47,19 @@ namespace BUS
                 return ls.Sum();
             }
         }
+
+        public decimal tinhDoanhThuDVTheoThang(int thang, int nam)
+        {
+            try
+            {
+                DateTime dtDauThang = new DateTime(nam, thang, 1);
+                DateTime dtCuoiThang = new DateTime(nam, thang, 1).AddMonths(1).AddDays(-1);
+                return CTSDDV_DAL.GetInstance().tinhDoanhThuTheoThang(dtDauThang, dtCuoiThang);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
     }
 }

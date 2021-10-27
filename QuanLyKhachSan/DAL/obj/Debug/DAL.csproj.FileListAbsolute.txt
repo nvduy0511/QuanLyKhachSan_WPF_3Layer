@@ -46,6 +46,5 @@ E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCo
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.Properties.Resources.resources
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
-E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CopyComplete
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb

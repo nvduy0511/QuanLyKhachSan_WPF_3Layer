@@ -11,7 +11,7 @@
         WindowStartupLocation="CenterScreen" WindowStyle="None"
         Title="Them_SuaLoaiDichVu" Height="350" Width="440">
     <Window.Clip>
-        <RectangleGeometry Rect="0,0,480,350" RadiusX="10" RadiusY="10"/>
+        <RectangleGeometry Rect="0,0,440,350" RadiusX="10" RadiusY="10"/>
     </Window.Clip>
     <Border BorderThickness="1" BorderBrush="#2C2A2A" CornerRadius="10">
 

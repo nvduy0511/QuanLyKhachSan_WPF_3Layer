@@ -83,6 +83,15 @@ namespace DAL.Data
             }
         }
 
+        public decimal tinhDoanhThuTheoThang(DateTime dtDauThang, DateTime dtCuoiThang)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                decimal? tongTienDV = db.CT_SDDichVu.Where(p => dtDauThang <= p.CT_PhieuThue.NgayTraThucTe
+                                            && dtCuoiThang >= p.CT_PhieuThue.NgayTraThucTe).Sum(p=> p.ThanhTien);
 
+                return tongTienDV == null ? 0 : tongTienDV.Value;
+            }
+        }
     }
 }

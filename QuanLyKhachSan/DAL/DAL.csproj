@@ -104,6 +104,7 @@
     <Compile Include="DTO\PhongDTO.cs" />
     <Compile Include="DTO\PhongTrong.cs" />
     <Compile Include="DTO\Phong_Custom.cs" />
+    <Compile Include="DTO\TaiKhoanDTO.cs" />
     <Compile Include="HoaDon.cs">
       <DependentUpon>ModelQuanLyKhachSanDB.tt</DependentUpon>
     </Compile>

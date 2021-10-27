@@ -37,6 +37,7 @@ namespace GUI.View
         private uc_QuanLyLoaiDichVu QuanLyLoaiDichVu_UC;
         private uc_HoaDon HoaDon_UC;
         private uc_ThongKe ThongKe_UC;
+        private uc_QuanLyTaiKhoan QuanLyTaiKhoan_UC;
         #endregion
         #region Khai báo biến
         public List<ItemMenuMainWindow> listMenu { get; set; }
@@ -118,6 +119,7 @@ namespace GUI.View
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL loại dịch vụ", foreColor = "Blue", kind_Icon = "FaceAgent" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL tiện nghi", foreColor = "#FFF08033", kind_Icon = "Fridge" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "QL chi tiết tiện nghi", foreColor = "#FFF08033", kind_Icon = "Fridge" });
+                listMenu.Add(new ItemMenuMainWindow() { name = "QL tài khoản", foreColor = "#FFF08033", kind_Icon = "Fridge" });
                 listMenu.Add(new ItemMenuMainWindow() { name = "Thống kê", foreColor = "#FF0069C1", kind_Icon = "ChartAreaspline" });
             }
             else if(CapDoQuyen == 2)
@@ -262,6 +264,13 @@ namespace GUI.View
                         contenDisplayMain.Content = QuanLyChiTietTienNghi_UC;
                         break;
                     case 12:
+                        if (QuanLyTaiKhoan_UC == null)
+                        {
+                            QuanLyTaiKhoan_UC = new uc_QuanLyTaiKhoan();
+                        }
+                        contenDisplayMain.Content = QuanLyTaiKhoan_UC;
+                        break;
+                    case 13:
                         if (ThongKe_UC == null)
                         {
                             ThongKe_UC = new uc_ThongKe();

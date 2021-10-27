@@ -72,6 +72,14 @@ namespace DAL.Data
             }
         }
 
+        public int tinhTongSoPhongDatTrongThang(DateTime dtDauThang, DateTime dtCuoiThang)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                return db.PhieuThues.Where(p => p.NgayLapPhieu >= dtDauThang && p.NgayLapPhieu <= dtCuoiThang).Count();
+            }
+        }
+
         public List<PhieuThue_Custom> getDataFromDB()
         {
             List<PhieuThue_Custom> ls = new List<PhieuThue_Custom>();

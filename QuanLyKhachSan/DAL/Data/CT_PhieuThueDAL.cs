@@ -82,6 +82,15 @@ namespace DAL.Data
             }
         }
 
+        public decimal tinhDoanhThuTheoThang(DateTime dtDauThang, DateTime dtCuoiThang)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                decimal? tongTienPhong = db.CT_PhieuThue.Where(p => dtDauThang<= p.NgayTraThucTe && dtCuoiThang>= p.NgayTraThucTe).Sum(p => p.TienPhong);
+                return tongTienPhong == null ? 0 : tongTienPhong.Value;
+            }
+        }
+
         public bool capNhatTienVaNgayTraThucTe(int? maCTPT, decimal? tienPhong, DateTime now, out string errorCapNhatCTPT)
         {
             errorCapNhatCTPT = string.Empty;

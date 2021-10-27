@@ -24,7 +24,7 @@
                     <TextBlock Text="Doanh thu phòng" HorizontalAlignment="Left"
                            Margin="20,20,0,0" TextWrapping="Wrap" Grid.Row="0"
                            VerticalAlignment="Top" FontSize="25" Foreground="White"/>
-                    <TextBlock x:Name="txbRevenueThisMonth" Grid.Row="1" Text="0 VND" HorizontalAlignment="Left"
+                    <TextBlock x:Name="txbDoanhThuPhong" Grid.Row="1"  HorizontalAlignment="Left"
                            Margin="20,0.8,0,4.8" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" 
                            FontWeight="Bold" Foreground="White"  />
                     <Grid Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
@@ -46,7 +46,7 @@
                     <TextBlock Text="Doanh thu dịch vụ" HorizontalAlignment="Left"
                            Margin="20,20,0,0" TextWrapping="Wrap" Grid.Row="0"
                            VerticalAlignment="Top" FontSize="25" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Text="0 VND" HorizontalAlignment="Left"
+                    <TextBlock Grid.Row="1"  HorizontalAlignment="Left" x:Name="txbDoanhThuDV"
                            Margin="20,0.8,0,4.8" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" 
                            FontWeight="Bold" Foreground="White"  />
                     <Grid Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
@@ -68,7 +68,7 @@
                     <TextBlock Text="Số lượng phòng đặt" HorizontalAlignment="Left"
                            Margin="20,20,0,0" TextWrapping="Wrap" Grid.Row="0"
                            VerticalAlignment="Top" FontSize="25" Foreground="White"/>
-                    <TextBlock Grid.Row="1" Text="98 phòng" HorizontalAlignment="Left"
+                    <TextBlock Grid.Row="1" x:Name="txbSoLuongPhongDat" HorizontalAlignment="Left"
                            Margin="20,0.8,0,4.8" TextWrapping="Wrap" VerticalAlignment="Center" FontSize="24" 
                            FontWeight="Bold" Foreground="White"  />
                     <Grid Width="50" Height="50" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,20,20,0">
@@ -82,9 +82,58 @@
             </materialDesign:Card>
         </StackPanel>
         <Grid Grid.Row="1">
-            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
-
-            </lvc:CartesianChart>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="500"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <materialDesign:Card Grid.Column="0" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ComboBox x:Name="cbThang" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Chọn tháng"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="selectionChang_cbThang" >
+                    </ComboBox>
+                    <lvc:PieChart Grid.Row="1" LegendLocation="Bottom" Hoverable="False" >
+                        <lvc:PieChart.Series>
+                            <lvc:PieSeries x:Name="psDoanhThuPhong" Title="Doanh thu phòng" Values="6" DataLabels="True"
+                               LabelPoint="{Binding PointLabel}" Fill="#FFFEC007"/>
+                            <lvc:PieSeries x:Name="psDoanhThuDV"  Title="Doanh thu dịch vụ" Values="5" DataLabels="True" 
+                               LabelPoint="{Binding PointLabel}" Fill="#FF2195F2"/>
+                        </lvc:PieChart.Series>
+                    </lvc:PieChart>
+                </Grid>
+                
+            </materialDesign:Card>
+            <materialDesign:Card Grid.Column="1" Margin="10">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <ComboBox x:Name="cbNam" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Chọn năm"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cbNam_SelectionChanged">
+                        
+                    </ComboBox>
+                    <lvc:CartesianChart Grid.Row="1"  LegendLocation="Right" >
+                        <lvc:CartesianChart.AxisX >
+                            <lvc:Axis Title="Tháng" Labels="{Binding Labels}">
+                                <lvc:Axis.Separator >
+                                    <lvc:Separator Step="1"></lvc:Separator>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries x:Name="lsDoanhThuPhong" Title="Doanh thu phòng"  />
+                            <lvc:LineSeries x:Name="lsDoanhThuDV" Title="Doanh thu DV"  />
+                            <lvc:LineSeries x:Name="lsTongDoanhThu" Title="Tổng doanh thu"  />
+                        </lvc:CartesianChart.Series>
+                    </lvc:CartesianChart>
+                </Grid>
+                
+            </materialDesign:Card>
+            
         </Grid>
 
     </Grid>

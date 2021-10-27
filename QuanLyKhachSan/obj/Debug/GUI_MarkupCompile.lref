@@ -9,6 +9,7 @@ FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyKha
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyLoaiDichVu.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyLoaiPhong.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyPhong.xaml;;
+FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyTaiKhoan.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_QuanLyTienNghi.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_ThongKe.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\ChiTietPhieuThue.xaml;;
@@ -29,6 +30,7 @@ FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\Them_SuaLoaiPhong.xa
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\Them_SuaNhanVien.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\UserControls\uc_PhieuThue.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\Them_SuaPhong.xaml;;
+FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\Them_SuaTaiKhoan.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\Them_SuaTienNghi.xaml;;
 FE:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\View\XuatHoaDon.xaml;;
 

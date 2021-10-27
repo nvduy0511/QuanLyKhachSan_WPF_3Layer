@@ -104,6 +104,9 @@
     <Compile Include="UserControls\uc_QuanLyPhong.xaml.cs">
       <DependentUpon>uc_QuanLyPhong.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\uc_QuanLyTaiKhoan.xaml.cs">
+      <DependentUpon>uc_QuanLyTaiKhoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\uc_QuanLyTienNghi.xaml.cs">
       <DependentUpon>uc_QuanLyTienNghi.xaml</DependentUpon>
     </Compile>
@@ -161,6 +164,9 @@
     <Compile Include="View\Them_SuaPhong.xaml.cs">
       <DependentUpon>Them_SuaPhong.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Them_SuaTaiKhoan.xaml.cs">
+      <DependentUpon>Them_SuaTaiKhoan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Them_SuaTienNghi.xaml.cs">
       <DependentUpon>Them_SuaTienNghi.xaml</DependentUpon>
     </Compile>
@@ -200,6 +206,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\uc_QuanLyPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\uc_QuanLyTaiKhoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -288,6 +298,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Them_SuaPhong.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Them_SuaTaiKhoan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
