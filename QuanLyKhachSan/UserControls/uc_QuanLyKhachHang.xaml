@@ -95,8 +95,7 @@
 
                 <DataTemplate x:Key="dtpNutSua">
 
-                    <Button x:Name="btnCapNhat" Click="btnCapNhat_Click" BorderThickness="0">
-
+                    <Button Width="25" Height="25" x:Name="btnCapNhat" Click="btnCapNhat_Click" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="/GUI;component/Res/edit.png"/>
                         </Button.Background>
@@ -104,7 +103,7 @@
                 </DataTemplate>
 
                 <DataTemplate x:Key="dtpNutXoa">
-                    <Button x:Name="btnXoa" Click="btnXoa_Click" BorderThickness="0">
+                    <Button Width="25" Height="25" x:Name="btnXoa" Click="btnXoa_Click" BorderThickness="0">
                         <Button.Background>
                             <ImageBrush ImageSource="/GUI;component/Res/delete_vs2.png"/>
                         </Button.Background>

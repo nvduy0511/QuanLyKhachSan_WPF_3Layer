@@ -74,7 +74,7 @@
 
                             <GridViewColumn Width="160" Header="Tên nhân viên lập"  DisplayMemberBinding="{Binding TenNHanVienLap}" />
 
-                            <GridViewColumn Width="140" Header="Tổng tiền"  DisplayMemberBinding="{Binding TongTien}"/>
+                            <GridViewColumn Width="140" Header="Tổng tiền"  DisplayMemberBinding="{Binding TongTien ,StringFormat={}{0:N0} VND}"/>
 
                             <GridViewColumn Width="140" Header="Mã chi tiết phiếu thuê"  DisplayMemberBinding="{Binding MaCTPhieuThue}" />
 

@@ -46,7 +46,7 @@ namespace GUI.UserControls
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return (obj as KhachHang).TenKH.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                return (obj as KhachHang).TenKH.Contains(txtFilter.Text);
         }
 
         private void btnThemKhachHang_Click(object sender, RoutedEventArgs e)

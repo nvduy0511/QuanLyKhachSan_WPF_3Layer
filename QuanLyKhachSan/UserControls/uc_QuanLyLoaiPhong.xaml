@@ -90,9 +90,9 @@
 
                             <GridViewColumn Width="120" Header="Số người tối đa" DisplayMemberBinding="{Binding SoNguoiToiDa}" />
 
-                            <GridViewColumn Width="120" Header="Giá ngày" DisplayMemberBinding="{Binding GiaNgay}" />
+                            <GridViewColumn Width="120" Header="Giá ngày" DisplayMemberBinding="{Binding GiaNgay ,StringFormat={}{0:N0} VND}" />
 
-                            <GridViewColumn Width="120" Header="Giá giờ" DisplayMemberBinding="{Binding GiaGio}" />
+                            <GridViewColumn Width="120" Header="Giá giờ" DisplayMemberBinding="{Binding GiaGio , StringFormat={}{0:N0} VND}" />
 
                             <GridViewColumn Width="68" Header="Sửa">
 

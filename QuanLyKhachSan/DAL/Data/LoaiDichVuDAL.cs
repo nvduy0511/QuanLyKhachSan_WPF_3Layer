@@ -92,12 +92,16 @@ namespace DAL.Data
             using(QLKhachSanEntities db = new QLKhachSanEntities())
             {
                 LoaiDV Check = db.LoaiDVs.Where(x => x.TenLoaiDV.Contains(loaiDV.TenLoaiDV)).FirstOrDefault();
+                if(Check == null)
+                {
+                    return true;
+                }
                 LoaiDV ldv = new LoaiDV();
                 ldv.TenLoaiDV = loaiDV.TenLoaiDV;
                 ldv.MaLoaiDV = int.Parse(loaiDV.MaLoaiDV.ToString());
                 string check1 = String.Concat(loaiDV.TenLoaiDV.Where(x => !char.IsWhiteSpace(x))).ToLower();
                 string check2 = String.Concat(ldv.TenLoaiDV.Where(x => !char.IsWhiteSpace(x))).ToLower();
-                if (Check == null && check1.Equals(check2))
+                if (check1.Equals(check2))
                 {
                     return true;
                 }

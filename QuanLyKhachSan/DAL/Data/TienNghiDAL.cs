@@ -91,6 +91,10 @@ namespace DAL.Data
             using (QLKhachSanEntities db = new QLKhachSanEntities())
             {
                 TienNghi Check = db.TienNghis.Where(x => x.TenTN.Contains(tn.TenTN)).FirstOrDefault();
+                if(Check == null)
+                {
+                    return true;
+                }
                 TienNghi tienghi = new TienNghi();
                 tienghi.TenTN = Check.TenTN;
                 string check1 = String.Concat(tn.TenTN.Where(x => !char.IsWhiteSpace(x))).ToLower();

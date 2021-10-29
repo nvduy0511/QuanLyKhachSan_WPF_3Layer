@@ -85,14 +85,16 @@ namespace GUI.UserControls
         private void btnXoa_Click(object sender, RoutedEventArgs e)
         {
             DichVuDTO dv = (sender as Button).DataContext as DichVuDTO;
-
-            var thongbao = new DialogCustoms("Bạn có thật sự muốn xóa " + dv.TenDichVu, "Thông báo", DialogCustoms.YesNo);
-            
-            if (thongbao.ShowDialog() == true)
+            if(dv != null)
             {
-                new DialogCustoms("Xoá thành công","Thông báo", DialogCustoms.OK).Show();
-                DichVuBUS.GetInstance().xoaDataDichVu(dv);
-                TaiDanhSach();
+                var thongbao = new DialogCustoms("Bạn có thật sự muốn xóa " + dv.TenDichVu, "Thông báo", DialogCustoms.YesNo);
+
+                if (thongbao.ShowDialog() == true)
+                {
+                    new DialogCustoms("Xoá thành công", "Thông báo", DialogCustoms.OK).Show();
+                    DichVuBUS.GetInstance().xoaDataDichVu(dv);
+                    TaiDanhSach();
+                }
             }
         }
 

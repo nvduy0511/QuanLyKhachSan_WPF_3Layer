@@ -35,8 +35,6 @@ namespace GUI.UserControls
             InitializeComponent();
             initComboBox();
             DataContext = this;
-            cbNam.Text = "2021";
-            cbThang.Text = "10";
 
             PointLabel = chartPoint =>
                 string.Format("{0} ({1:P})", "", chartPoint.Participation);
@@ -108,6 +106,12 @@ namespace GUI.UserControls
             //set giá trị vào cái biểu đồ hình tròn á
             psDoanhThuDV.Values = new ChartValues<ObservableValue> { new ObservableValue(int.Parse(doanhThuDichVu.ToString())) };
             psDoanhThuPhong.Values = new ChartValues<ObservableValue> { new ObservableValue(int.Parse(doanhThuPhong.ToString())) };
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            cbNam.Text = "2021";
+            cbThang.Text = "10";
         }
     }
 }

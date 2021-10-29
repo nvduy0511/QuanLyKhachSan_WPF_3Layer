@@ -141,8 +141,8 @@ namespace GUI.View
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             //Khởi tạo giá trị cho ngày, giờ Bắt đầu và Kết thúc là ngày giờ hiện tại
-            dtpNgayBD.Text = new DateTime(2021, 10, 8).ToShortDateString();
-            dtpNgayKT.Text = new DateTime(2021, 10, 8).ToShortDateString();
+            dtpNgayBD.Text = DateTime.Now.ToShortDateString();
+            dtpNgayKT.Text = DateTime.Now.ToShortDateString();
             tpGioBD.Text = DateTime.Now.ToShortTimeString();
             tpGioKT.Text = DateTime.Now.ToShortTimeString();
 

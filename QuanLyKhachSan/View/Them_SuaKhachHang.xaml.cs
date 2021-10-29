@@ -110,32 +110,32 @@ namespace GUI.View
         {
             if (string.IsNullOrWhiteSpace(txtTenKhachHang.Text))
             {
-                new DialogCustoms("Vui lòng nhập tên khách hàng", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng nhập tên khách hàng", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(cmbGioiTinh.Text))
             {
-                new DialogCustoms("Vui lòng chọn giới tính", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng chọn giới tính", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtCCCD.Text))
             {
-                new DialogCustoms("Vui lòng nhập mã căn cước công dân", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng nhập mã căn cước công dân", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
             {
-                new DialogCustoms("Vui lòng nhập địa chỉ", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng nhập địa chỉ", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtQuocTich.Text))
             {
-                new DialogCustoms("Vui lòng nhập quốc tịch", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng nhập quốc tịch", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             if (string.IsNullOrWhiteSpace(txtSoDienThoai.Text))
             {
-                new DialogCustoms("Vui lòng nhập số điện thoại", "Thông báo", DialogCustoms.OK).Show();
+                new DialogCustoms("Vui lòng nhập số điện thoại", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             else
@@ -145,29 +145,29 @@ namespace GUI.View
 
                 if (int.TryParse(txtTenKhachHang.Text, out so) == true)
                 {
-                    new DialogCustoms("Vui lòng nhập đúng định dạng tên khách hàng", "Thông báo", DialogCustoms.OK).Show();
+                    new DialogCustoms("Vui lòng nhập đúng định dạng tên khách hàng", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
 
                 if (int.TryParse(txtQuocTich.Text, out so) == true)
                 {
-                    new DialogCustoms("Vui lòng nhập đúng định dạng quốc tịch", "Thông báo", DialogCustoms.OK).Show();
+                    new DialogCustoms("Vui lòng nhập đúng định dạng quốc tịch", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
                 if (int.TryParse(txtDiaChi.Text, out so) == true)
                 {
-                    new DialogCustoms("Vui lòng nhập đúng định dạng địa chỉ", "Thông báo", DialogCustoms.OK).Show();
+                    new DialogCustoms("Vui lòng nhập đúng định dạng địa chỉ", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
 
-                else if (txtSoDienThoai.Text.Length < 10 || int.TryParse(txtSoDienThoai.Text,out so) == false)
+                else if (txtSoDienThoai.Text.Length > 10 || long.TryParse(txtSoDienThoai.Text,out long temp) == false)
                 {
-                    new DialogCustoms("Sai số điện thoại", "Thông báo", DialogCustoms.OK).Show();
+                    new DialogCustoms("Sai số điện thoại", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
-                else if (txtCCCD.Text.Length > 12 || txtCCCD.Text.Length < 12 || long.TryParse(txtCCCD.Text, out check) == false)
+                else if (txtCCCD.Text.Length > 12 || long.TryParse(txtCCCD.Text, out check) == false)
                 {
-                    new DialogCustoms("Sai mã căn cước công dân", "Thông báo", DialogCustoms.OK).Show();
+                    new DialogCustoms("Sai mã căn cước công dân", "Thông báo", DialogCustoms.OK).ShowDialog();
                     return false;
                 }
                 else

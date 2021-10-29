@@ -57,9 +57,7 @@ namespace GUI.View
             {
                 LoaiDV loaiDV = new LoaiDV()
                 {
-                    TenLoaiDV = txtTenLoaiDV.Text,
-
-
+                    TenLoaiDV = txtTenLoaiDV.Text
                 };
                 if (truyenLoaiDV != null)
                 {

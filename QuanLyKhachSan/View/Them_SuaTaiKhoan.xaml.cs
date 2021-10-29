@@ -87,7 +87,7 @@ namespace GUI.View
             }
             catch (Exception ex)
             {
-                new DialogCustoms("Lỗi sửa tài khoản !", "Thông báo", DialogCustoms.OK).ShowDialog();
+                new DialogCustoms("Lỗi sửa tài khoản !\n Lỗi: "+ex.Message, "Thông báo", DialogCustoms.OK).ShowDialog();
             }
             if(TaiKhoanBUS.GetInstance().suaTaiKhoan(taiKhoanCapNhat,out error))
             {
