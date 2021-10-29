@@ -48,3 +48,20 @@ E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.G
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
 E:\C#\WPF\B3\QuanLyKhachSan_WPF_3Layer\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\DAL.exe.config
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\DAL.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\DAL.pdb
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.dll
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.xml
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\App.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL_Content.g.cs
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL_MarkupCompile.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.Properties.Resources.resources
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.GenerateResource.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.exe
+C:\Users\pvtha\OneDrive\Desktop\Đồ Án Môn Học\branch\QuanLyKhachSan\DAL\obj\Debug\DAL.pdb

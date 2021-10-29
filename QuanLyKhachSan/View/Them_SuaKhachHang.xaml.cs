@@ -123,6 +123,11 @@ namespace GUI.View
                 new DialogCustoms("Vui lòng nhập mã căn cước công dân", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
+            if (string.IsNullOrWhiteSpace(txtSoDienThoai.Text))
+            {
+                new DialogCustoms("Vui lòng nhập số điện thoại", "Thông báo", DialogCustoms.OK).ShowDialog();
+                return false;
+            }
             if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
             {
                 new DialogCustoms("Vui lòng nhập địa chỉ", "Thông báo", DialogCustoms.OK).ShowDialog();
@@ -131,11 +136,6 @@ namespace GUI.View
             if (string.IsNullOrWhiteSpace(txtQuocTich.Text))
             {
                 new DialogCustoms("Vui lòng nhập quốc tịch", "Thông báo", DialogCustoms.OK).ShowDialog();
-                return false;
-            }
-            if (string.IsNullOrWhiteSpace(txtSoDienThoai.Text))
-            {
-                new DialogCustoms("Vui lòng nhập số điện thoại", "Thông báo", DialogCustoms.OK).ShowDialog();
                 return false;
             }
             else

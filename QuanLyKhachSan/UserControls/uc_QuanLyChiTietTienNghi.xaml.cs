@@ -46,7 +46,7 @@ namespace GUI.UserControls
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return (obj as CT_TienNghiDTO).SoPhong.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                return (obj as CT_TienNghiDTO).SoPhong.Contains(txtFilter.Text);
         }
 
         private void btnThemCTTienNghi_Click(object sender, RoutedEventArgs e)
@@ -96,11 +96,19 @@ namespace GUI.UserControls
         }
         void capNhatData(CT_TienNghiDTO cT_TienNghi)
         {
-            if (CT_TienNghiBUS.Instance.capNhatCTTienNghi(cT_TienNghi))
+            if (CT_TienNghiBUS.Instance.KiemTraTonTai(cT_TienNghi))
             {
-                new DialogCustoms("Cập nhật thành công", "Thông báo", DialogCustoms.OK).Show();
-                TaiDanhSach();
+                if (CT_TienNghiBUS.Instance.capNhatCTTienNghi(cT_TienNghi))
+                {
+                    new DialogCustoms("Cập nhật thành công", "Thông báo", DialogCustoms.OK).Show();
+                    TaiDanhSach();
+                }
             }
+            else
+            {
+                new DialogCustoms("Tiện nghi đã tồn tại", "Thông báo", DialogCustoms.OK).Show();
+            }
+
         }
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)

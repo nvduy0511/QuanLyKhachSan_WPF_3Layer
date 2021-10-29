@@ -38,6 +38,7 @@ namespace GUI.View
 
         public Them_SuaChiTietTienNghi(CT_TienNghiDTO ct) : this()
         {
+            TaiDanhSach();
             cmbSoPhong.DisplayMemberPath = "SoPhong";
             cmbSoPhong.SelectedValuePath = "SoPhong";
 
