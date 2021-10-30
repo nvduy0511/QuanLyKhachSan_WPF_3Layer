@@ -97,17 +97,16 @@ namespace DAL.Data
                     return true;
                 }
                 LoaiDV ldv = new LoaiDV();
-                ldv.TenLoaiDV = loaiDV.TenLoaiDV;
-                ldv.MaLoaiDV = int.Parse(loaiDV.MaLoaiDV.ToString());
+                ldv.TenLoaiDV = Check.TenLoaiDV;
                 string check1 = String.Concat(loaiDV.TenLoaiDV.Where(x => !char.IsWhiteSpace(x))).ToLower();
                 string check2 = String.Concat(ldv.TenLoaiDV.Where(x => !char.IsWhiteSpace(x))).ToLower();
                 if (check1.Equals(check2))
                 {
-                    return true;
+                    return false;
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
         }

@@ -121,7 +121,8 @@ namespace DAL.Data
                 {
                     CT_TienNghi tienghi = new CT_TienNghi();
                     tienghi.MaTN = Check.MaTN;
-                    if (tienghi.MaTN == maTN)
+                    tienghi.SoPhong = Check.SoPhong;
+                    if (tienghi.MaTN == maTN && tienghi.SoPhong.Equals(cttn.SoPhong))
                     {
                         return false;
                     }

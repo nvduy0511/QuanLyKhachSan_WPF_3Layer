@@ -148,7 +148,7 @@ namespace DAL.Data
                     dichvu.TenDV = Check.TenDV;
                     string check1 = String.Concat(dv.TenDichVu.Where(x => !char.IsWhiteSpace(x))).ToLower();
                     string check2 = String.Concat(dichvu.TenDV.Where(x => !char.IsWhiteSpace(x))).ToLower();
-                    if (check1.ToLower().Equals(check2.ToLower()))
+                    if (check1.Equals(check2))
                     {
                         return false;
                     }
