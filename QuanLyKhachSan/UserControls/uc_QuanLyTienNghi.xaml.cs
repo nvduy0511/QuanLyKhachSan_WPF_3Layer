@@ -46,7 +46,7 @@ namespace GUI.UserControls
             if (String.IsNullOrEmpty(txtFilter.Text))
                 return true;
             else
-                return (obj as TienNghi).TenTN.IndexOf(txtFilter.Text, StringComparison.OrdinalIgnoreCase) >= 0;
+                return (obj as TienNghi).TenTN.Contains(txtFilter.Text);
         }
 
         private void btnSuaTienNghi_Click(object sender, RoutedEventArgs e)

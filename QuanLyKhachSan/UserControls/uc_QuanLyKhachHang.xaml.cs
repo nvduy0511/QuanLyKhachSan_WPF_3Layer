@@ -29,10 +29,6 @@ namespace GUI.UserControls
         public uc_QuanLyKhachHang()
         {
             InitializeComponent();
-            TaiDanhSach();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvKhachHang.ItemsSource);
-            view.Filter = KhachHangFilter;
         }
 
         private void TaiDanhSach()
@@ -111,6 +107,13 @@ namespace GUI.UserControls
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(lsvKhachHang.ItemsSource).Refresh();
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            TaiDanhSach();
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvKhachHang.ItemsSource);
+            view.Filter = KhachHangFilter;
         }
     }
 }

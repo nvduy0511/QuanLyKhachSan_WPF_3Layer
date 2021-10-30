@@ -40,8 +40,9 @@ namespace GUI.UserControls
                 string.Format("{0} ({1:P})", "", chartPoint.Participation);
 
             Labels = new[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10","11","12" };
+            cbNam.Text = "2021";
+            cbThang.Text = "10";
 
-            
         }
 
         private void initComboBox()
@@ -110,8 +111,7 @@ namespace GUI.UserControls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            cbNam.Text = "2021";
-            cbThang.Text = "10";
+            capNhatGiaTriTheoThang();
         }
     }
 }

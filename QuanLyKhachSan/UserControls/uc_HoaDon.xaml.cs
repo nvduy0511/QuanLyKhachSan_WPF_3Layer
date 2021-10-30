@@ -35,7 +35,6 @@ namespace GUI.UserControls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             TaiDanhSach();
-            Console.WriteLine("Load Hoa Don");
         }
         private void TaiDanhSach()
         {

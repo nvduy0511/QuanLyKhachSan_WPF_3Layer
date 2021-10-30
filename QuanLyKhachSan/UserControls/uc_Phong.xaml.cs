@@ -39,10 +39,11 @@ namespace GUI.UserControls
         private uc_Phong()
         {
             InitializeComponent();
-
             lsPhong = new List<Phong_Custom>();
             lsTrong = new ObservableCollection<Phong_Custom>();
             initEvent();
+            dtpChonNgay.Text = DateTime.Now.ToShortDateString();
+            tpGio.Text = "12:00 AM";
         }
         public uc_Phong(int maNV):this()
         {
@@ -233,8 +234,7 @@ namespace GUI.UserControls
         // Sự kiện loade UC
         private void ucPhong_Loaded(object sender, RoutedEventArgs e)
         {
-            dtpChonNgay.Text = DateTime.Now.ToShortDateString();
-            tpGio.Text = "12:00 AM";
+            capNhatLaiDuLieuListViewTheoNgayGio();
         }
 
         //Khi click vào radioButton
