@@ -1,4 +1,5 @@
 ﻿using BUS;
+using GUI.View;
 using LiveCharts;
 using LiveCharts.Defaults;
 using LiveCharts.Wpf;

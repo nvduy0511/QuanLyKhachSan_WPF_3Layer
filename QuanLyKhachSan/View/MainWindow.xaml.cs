@@ -347,6 +347,21 @@ namespace GUI.View
                 this.Close();
             }
         }
+
+
+        private void lbMiniMenu_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (lbMiniMenu.SelectedValue != null)
+            {
+                switch (lbMiniMenu.SelectedIndex)
+                {
+                    case 0:
+                        BaoCao bc = new BaoCao();
+                        bc.ShowDialog();
+                        break;
+                }
+            }
+        }
     }
 
 

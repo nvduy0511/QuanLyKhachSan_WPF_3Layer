@@ -96,10 +96,9 @@
                         <Grid Grid.Column="2"   >
                             <!--Chưa có gì hết-->
                             <materialDesign:PopupBox Margin=" 0 0 40 0" HorizontalAlignment="Right">
-                                <ListBox>
-                                    <ListBoxItem Content="Hello World" />
-                                    <ListBoxItem Content="Nice Popup" />
-                                    <ListBoxItem Content="Information" />
+                                <ListBox x:Name="lbMiniMenu"
+                                         PreviewMouseLeftButtonUp="lbMiniMenu_PreviewMouseLeftButtonUp">
+                                    <ListBoxItem Content="Báo cáo" />
                                 </ListBox>
                             </materialDesign:PopupBox>
                         </Grid>

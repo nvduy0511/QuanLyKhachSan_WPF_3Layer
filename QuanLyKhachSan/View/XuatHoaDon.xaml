@@ -13,8 +13,7 @@
         WindowStyle="None" FontFamily="Roboto" WindowStartupLocation="CenterScreen">
     <Border BorderThickness="1" BorderBrush="#FF807D7D" >
         <StackPanel Height="600">
-            <uc:ucControlbar2 MinHeight="{Binding MinHeight_ucControlbar, Mode=TwoWay ,UpdateSourceTrigger=PropertyChanged}"
-                          Tag="{Binding Title, ElementName=hoaDon}"  Opacity="0.8" VerticalAlignment="Center" Height="26">
+            <uc:ucControlbar2 Tag="{Binding Title, ElementName=hoaDon}"  Opacity="0.8" VerticalAlignment="Center" Height="26">
             </uc:ucControlbar2>
             <ScrollViewer Height="574">
                 <ScrollViewer.Resources>

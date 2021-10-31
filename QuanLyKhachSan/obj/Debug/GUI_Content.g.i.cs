@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("res/home3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("logodvlfinal.ico")]
 
 
