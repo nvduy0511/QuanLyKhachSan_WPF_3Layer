@@ -6,8 +6,26 @@
         xmlns:local="clr-namespace:GUI.View"
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         Title="Báo cáo" Height="450" Width="800" WindowStartupLocation="CenterScreen"  >
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0" x:Name="cbThang" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Chọn tháng"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cbThang_SelectionChanged" >
+            </ComboBox>
+            <ComboBox Grid.Column="1" x:Name="cbNam" Margin="10 0 10 0" materialDesign:HintAssist.Hint="Chọn tháng"
+                              Style="{StaticResource MaterialDesignFloatingHintComboBox}" Padding="0" SelectionChanged="cbNam_SelectionChanged" >
+            </ComboBox>
+            
+        </Grid>
         <WindowsFormsHost Grid.Row="1">
             <rv:ReportViewer x:Name="reportViewer" Load="reportViewer_Load" />
         </WindowsFormsHost>

@@ -30,9 +30,7 @@ namespace GUI.UserControls
         {
             InitializeComponent();
             TaiDanhSach();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvTienNghi.ItemsSource);
-            view.Filter = TienNghiFilter;
+            
         }
 
         private void TaiDanhSach()
@@ -116,6 +114,8 @@ namespace GUI.UserControls
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvTienNghi.ItemsSource);
+            view.Filter = TienNghiFilter;
             CollectionViewSource.GetDefaultView(lsvTienNghi.ItemsSource).Refresh();
         }
     }

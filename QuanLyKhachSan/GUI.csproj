@@ -410,9 +410,6 @@
     <Resource Include="Res\FieldCornerIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="iconDVL.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="LogoDVLFinal.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

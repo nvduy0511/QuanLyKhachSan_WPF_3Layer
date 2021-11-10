@@ -30,11 +30,7 @@ namespace GUI.UserControls
         public uc_QuanLyPhong()
         {
             InitializeComponent();
-
             TaiDanhSach();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvPhong.ItemsSource);
-            view.Filter = PhongFilter;
         }
 
         private bool PhongFilter(object obj)
@@ -106,6 +102,8 @@ namespace GUI.UserControls
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvPhong.ItemsSource);
+            view.Filter = PhongFilter;
             CollectionViewSource.GetDefaultView(lsvPhong.ItemsSource).Refresh();
         }
 

@@ -40,5 +40,20 @@ namespace BUS
         {
             return HoaDonDAL.GetInstance().layHoaDonTheoMaHoaDon(mahd);
         }
+
+        public List<HoaDonDTO> layHoaDonTheoThangNam(int thang, int nam)
+        {
+            try
+            {
+                DateTime dtDauThang = new DateTime(nam, thang, 1);
+                DateTime dtCuoiThang = new DateTime(nam, thang, 1).AddMonths(1).AddDays(-1);
+                return HoaDonDAL.GetInstance().layHoaDonTheoThangNam(dtDauThang, dtCuoiThang);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
+        }
     }
 }

@@ -196,6 +196,7 @@
                                                         <ColumnDefinition Width="45"></ColumnDefinition>
                                                         <ColumnDefinition></ColumnDefinition>
                                                     </Grid.ColumnDefinitions>
+                                                    
                                                     <materialDesign:PackIcon  Width="40" Height="40" Margin=" 5 10 0 0" 
                                                              Foreground="#FFFFFF" HorizontalAlignment="Left" 
                                                              VerticalAlignment="Top" Grid.Column="0">
@@ -234,7 +235,6 @@
                                             </Grid>
                                             <!--Phụ ở dưới cùng là cái thanh ngang ngang-->
                                             <Grid Grid.Row="1" Background="#E4DEDE">
-
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition></ColumnDefinition>
                                                     <ColumnDefinition></ColumnDefinition>

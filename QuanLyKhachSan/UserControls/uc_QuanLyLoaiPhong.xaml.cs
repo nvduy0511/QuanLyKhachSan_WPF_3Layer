@@ -30,14 +30,13 @@ namespace GUI.UserControls
         {
             InitializeComponent();
             TaiDanhSach();
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvLoaiPhong.ItemsSource);
-            view.Filter = LoaiPhongFilter;
         }
 
         #region Method
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvLoaiPhong.ItemsSource);
+            view.Filter = LoaiPhongFilter;
             CollectionViewSource.GetDefaultView(lsvLoaiPhong.ItemsSource).Refresh();
         }
 

@@ -21,15 +21,64 @@ namespace GUI.View
     /// </summary>
     public partial class BaoCao : Window
     {
+        List<int> lsThang;
+        List<int> lsNam;
         public BaoCao()
         {
             InitializeComponent();
+            lsThang = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+            cbThang.ItemsSource = lsThang;
+            lsNam = new List<int>();
+            for (int i = 2019; i <= 2050; i++)
+            {
+                lsNam.Add(i);
+            }
+            cbNam.ItemsSource = lsNam;
+            cbThang.Text = "10";
+            cbNam.Text = "2021";
         }
 
         private void reportViewer_Load(object sender, EventArgs e)
         {
             this.reportViewer.LocalReport.ReportPath = "Report.rdlc";
-            var reportDataSource = new ReportDataSource("DataSet1", HoaDonBUS.GetInstance().GetHoaDons());
+            var reportDataSource = new ReportDataSource("DataSet1", HoaDonBUS.GetInstance().layHoaDonTheoThangNam(10, 2021));
+            this.reportViewer.LocalReport.DataSources.Clear(); //clear 
+            this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
+            this.reportViewer.RefreshReport();
+        }
+
+        private void cbThang_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int thang = int.Parse(cbThang.SelectedValue.ToString());
+            int nam;
+            if(cbNam.SelectedValue == null)
+            {
+                nam = 2020;
+            }
+            else
+            {
+                nam = int.Parse(cbNam.SelectedValue.ToString());
+            }
+            
+            var reportDataSource = new ReportDataSource("DataSet1", HoaDonBUS.GetInstance().layHoaDonTheoThangNam(thang,nam));
+            this.reportViewer.LocalReport.DataSources.Clear(); //clear 
+            this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
+            this.reportViewer.RefreshReport();
+        }
+
+        private void cbNam_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int thang = int.Parse(cbThang.SelectedValue.ToString());
+            int nam;
+            if (cbNam.SelectedValue == null)
+            {
+                nam = 2020;
+            }
+            else
+            {
+                nam = int.Parse(cbNam.SelectedValue.ToString());
+            }
+            var reportDataSource = new ReportDataSource("DataSet1", HoaDonBUS.GetInstance().layHoaDonTheoThangNam(thang, nam));
             this.reportViewer.LocalReport.DataSources.Clear(); //clear 
             this.reportViewer.LocalReport.DataSources.Add(reportDataSource);
             this.reportViewer.RefreshReport();

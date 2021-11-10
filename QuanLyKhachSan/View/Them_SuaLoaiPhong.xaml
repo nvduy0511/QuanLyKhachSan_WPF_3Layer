@@ -82,11 +82,11 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0">
-                            <materialDesign:PackIcon Kind="AccountGroup" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" />
+                            <materialDesign:PackIcon Kind="Counter" HorizontalAlignment="Right" VerticalAlignment="Center" Width="25" Height="25" />
                         </Grid>
                         <Grid Grid.Column="1" Margin="2 0 0 0">
                             <TextBox  Width="150" Name="txtSoNguoiToiDa"                     
-                                materialDesign:HintAssist.Hint="Nhập số người ở tối đa"                        
+                                materialDesign:HintAssist.Hint="Nhập số giường"                        
                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"                        
                                 VerticalAlignment="Center"  />
 

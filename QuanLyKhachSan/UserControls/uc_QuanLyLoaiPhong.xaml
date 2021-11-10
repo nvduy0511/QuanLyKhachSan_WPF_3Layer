@@ -88,7 +88,7 @@
 
                             <GridViewColumn Width="185" Header="Tên loại phòng" DisplayMemberBinding="{Binding TenLoaiPhong}" />
 
-                            <GridViewColumn Width="120" Header="Số người tối đa" DisplayMemberBinding="{Binding SoNguoiToiDa}" />
+                            <GridViewColumn Width="120" Header="Số giường" DisplayMemberBinding="{Binding SoNguoiToiDa}" />
 
                             <GridViewColumn Width="120" Header="Giá ngày" DisplayMemberBinding="{Binding GiaNgay ,StringFormat={}{0:N0} VND}" />
 

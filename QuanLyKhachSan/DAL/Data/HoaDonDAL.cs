@@ -43,6 +43,24 @@ namespace DAL.Data
 
         }
 
+        public List<HoaDonDTO> layHoaDonTheoThangNam(DateTime dtDauThang, DateTime dtCuoiThang)
+        {
+            using (QLKhachSanEntities db = new QLKhachSanEntities())
+            {
+                return (from s in db.HoaDons
+                        where s.NgayLap >= dtDauThang && s.NgayLap<=dtCuoiThang
+                        select new HoaDonDTO()
+                        {
+                            MaHoaDon = s.MaHD,
+                            NgayLap = s.NgayLap,
+                            TongTien = s.TongTien,
+                            TenNHanVienLap = s.NhanVien.HoTen,
+                            MaCTPhieuThue = s.MaCTPT.Value
+                        }).ToList();
+            }
+
+        }
+
         public HoaDon layHoaDonTheoMaHoaDon(int mahd)
         {
             try

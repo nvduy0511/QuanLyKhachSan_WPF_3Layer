@@ -31,9 +31,6 @@ namespace GUI.UserControls
             InitializeComponent();
             TaiDanhSach();
 
-
-            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvLoaiDV.ItemsSource);
-            view.Filter = LoaiDVFilter;
         }
 
         #region Event
@@ -114,6 +111,8 @@ namespace GUI.UserControls
 
         private void txtFilter_TextChanged(object sender, TextChangedEventArgs e)
         {
+            CollectionView view = (CollectionView)CollectionViewSource.GetDefaultView(lsvLoaiDV.ItemsSource);
+            view.Filter = LoaiDVFilter;
             CollectionViewSource.GetDefaultView(lsvLoaiDV.ItemsSource).Refresh();
         }
         #endregion
